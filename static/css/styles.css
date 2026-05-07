@@ -1,0 +1,659 @@
+:root {
+  color-scheme: light;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #ffffff;
+  color: #111827;
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+button {
+  font: inherit;
+  transition: all 0.3s ease;
+}
+
+button:focus,
+a:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Logo styling - no background or borders */
+.logo-img {
+  transition: filter 0.3s ease;
+}
+
+/* Make logo white in navbar */
+.navbar img {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  filter: brightness(1.05);
+}
+
+/* Active states */
+.hover-lift:active {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Smooth button hover effects */
+.btn-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-hover::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-hover:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.card-hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(77, 166, 214, 0.1), rgba(0, 31, 63, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+
+.card-hover:hover::after {
+  opacity: 1;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth fade in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Smooth scroll for sections */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Enhanced Responsive Design */
+
+/* Mobile-first approach improvements */
+@media (max-width: 640px) {
+  /* Adjust navbar for mobile */
+  .navbar {
+    padding: 0 12px;
+  }
+  
+  .navbar .flex.items-center.space-x-2 {
+    font-size: 14px;
+  }
+  
+  .navbar img.h-10 {
+    height: 32px;
+  }
+  
+  /* Mobile menu improvements */
+  #mobile-menu {
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+  
+  #mobile-menu .px-2.pt-2.pb-3 {
+    padding: 8px;
+  }
+  
+  #mobile-menu .space-y-1 > * + * {
+    margin-top: 4px;
+  }
+  
+  /* Hero section mobile adjustments */
+  .fade-in {
+    animation-duration: 0.4s;
+  }
+  
+  /* Card hover effects disabled on mobile for better performance */
+  .card-hover:hover {
+    transform: none;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Button adjustments for mobile */
+  .btn-hover {
+    min-height: 44px; /* Minimum touch target size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Form improvements for mobile */
+  .form-input,
+  .form-select,
+  .form-textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 44px;
+  }
+  
+  /* Footer mobile adjustments */
+  footer .grid {
+    gap: 24px;
+  }
+  
+  footer .text-center.md\\:text-left {
+    text-align: center !important;
+  }
+  
+  footer .flex.justify-center.md\\:justify-start {
+    justify-content: center !important;
+  }
+}
+
+/* Tablet responsive adjustments */
+@media (min-width: 641px) and (max-width: 1024px) {
+  /* Tablet navbar adjustments */
+  .navbar .hidden.md\\:flex {
+    gap: 20px;
+  }
+  
+  .navbar .text-white.hover\\:text-secondary {
+    font-size: 14px;
+  }
+  
+  /* Tablet card adjustments */
+  .card-hover:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Tablet grid adjustments */
+  .grid.grid-cols-1.md\\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid.grid-cols-1.md\\:grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large desktop optimizations */
+@media (min-width: 1025px) {
+  /* Enhanced hover effects for desktop */
+  .card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+  }
+  
+  /* Improved animations on desktop */
+  .fade-in {
+    animation-duration: 0.8s;
+  }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1440px) {
+  .max-w-7xl {
+    max-width: 1400px;
+  }
+}
+
+/* Landscape orientation fixes */
+@media (max-width: 768px) and (orientation: landscape) {
+  /* Reduce spacing in landscape mode */
+  section {
+    scroll-margin-top: 60px;
+  }
+  
+  .py-20 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .py-16 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Adjust navbar for landscape */
+  .navbar {
+    height: 56px;
+  }
+  
+  #mobile-menu {
+    max-height: calc(100vh - 56px);
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Sharper borders for retina displays */
+  .card-hover,
+  .navbar,
+  footer {
+    border-width: 0.5px;
+  }
+  
+  /* Adjust icon sizes for retina */
+  .fas,
+  .fab {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable animations for users who prefer reduced motion */
+  .fade-in,
+  .btn-hover,
+  .card-hover,
+  .hover-lift,
+  .navbar a,
+  .form-input,
+  .form-select,
+  .form-textarea,
+  .form-button {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .card-hover:hover,
+  .btn-hover:hover,
+  .hover-lift:hover {
+    transform: none !important;
+  }
+  
+  .btn-hover::before,
+  .form-button::before {
+    display: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  /* Hide navigation and footer */
+  .navbar,
+  footer,
+  #mobile-menu-button,
+  #mobile-menu {
+    display: none !important;
+  }
+  
+  /* Adjust text for print */
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: black;
+    background: white;
+  }
+  
+  /* Ensure content fits on page */
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  /* Adjust colors for print */
+  .text-primary,
+  .text-secondary {
+    color: black !important;
+  }
+  
+  .bg-primary,
+  .bg-secondary {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  /* Dark mode adjustments (if needed in future) */
+  body {
+    background: #111827;
+    color: #f9fafb;
+  }
+  
+  .bg-white {
+    background: #1f2937 !important;
+  }
+  
+  .bg-gray-100 {
+    background: #374151 !important;
+  }
+  
+  .text-gray-600 {
+    color: #d1d5db !important;
+  }
+  
+  .text-primary {
+    color: #60a5fa !important;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-contrast: high) {
+  .btn-hover,
+  .form-button {
+    border: 2px solid currentColor;
+  }
+  
+  .card-hover {
+    border: 1px solid #d1d5db;
+  }
+}
+
+/* Focus visible improvements */
+.btn-hover:focus-visible,
+.card-hover:focus-visible,
+.navbar a:focus-visible {
+  outline: 3px solid #4DA6D6;
+  outline-offset: 2px;
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Remove hover effects on touch devices */
+  .btn-hover:hover,
+  .card-hover:hover,
+  .hover-lift:hover {
+    transform: none;
+  }
+  
+  /* Increase tap targets */
+  .btn-hover,
+  .navbar a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Small screen phones */
+@media (max-width: 380px) {
+  /* Extra small adjustments */
+  .max-w-7xl {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  
+  .text-3xl {
+    font-size: 1.5rem;
+  }
+  
+  .text-2xl {
+    font-size: 1.25rem;
+  }
+  
+  .px-8 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Enhanced navigation active states */
+.navbar a {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #4DA6D6;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.navbar a.active {
+  background-color: white;
+  color: #001F3F !important;
+  border-radius: 4px;
+  padding: 4px 12px;
+  margin: 0 -4px;
+}
+
+.navbar a.active::after {
+  width: 100%;
+  background: #87CEEB;
+}
+
+/* Smooth focus states */
+.navbar a:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(77, 166, 214, 0.5);
+}
+
+/* Icon animations */
+.fa-spin-slow {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Pulse animation for important elements */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Enhanced form styling */
+.form-input {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #4DA6D6;
+  box-shadow: 0 0 0 3px rgba(77, 166, 214, 0.1);
+}
+
+.form-input:focus + .form-icon {
+  color: #4DA6D6;
+}
+
+.form-icon {
+  transition: color 0.3s ease;
+  pointer-events: none;
+}
+
+.form-textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+.form-textarea:focus {
+  outline: none;
+  border-color: #4DA6D6;
+  box-shadow: 0 0 0 3px rgba(77, 166, 214, 0.1);
+}
+
+.form-textarea:focus + .form-icon {
+  color: #4DA6D6;
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9 6 9 6 15 3 12 6 9'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #4DA6D6;
+  box-shadow: 0 0 0 3px rgba(77, 166, 214, 0.1);
+}
+
+.form-select:focus + .form-icon {
+  color: #4DA6D6;
+}
+
+.form-checkbox {
+  transition: all 0.3s ease;
+}
+
+.form-checkbox:checked {
+  background-color: #4DA6D6;
+  border-color: #4DA6D6;
+}
+
+.form-checkbox:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(77, 166, 214, 0.2);
+}
+
+.character-counter {
+  transition: opacity 0.3s ease;
+}
+
+.form-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.form-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.form-button:active {
+  transform: translateY(1px);
+}
+
+.form-success {
+  background-color: #10b981 !important;
+  border-color: #10b981 !important;
+}
+
+.form-error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.form-error:focus {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+}
+
+.form-label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-hint {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.form-error-message {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: none;
+}
+
+.form-error-message.show {
+  display: block;
+  animation: fadeIn 0.3s ease-out;
+}

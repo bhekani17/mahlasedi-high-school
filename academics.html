@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academics - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="static/css/styles.css" />
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- NAVBAR -->
+  <nav class="navbar bg-primary shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="/" class="flex items-center space-x-2 text-white font-bold text-lg">
+            <img src="static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+            <span>M.H.S</span>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-white hover:text-secondary font-semibold">Home</a>
+          <a href="about.html" class="text-white hover:text-secondary font-semibold">About</a>
+          <!-- School Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              School
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="primary-school.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-child mr-2"></i>Primary School
+              </a>
+              <a href="secondary-school.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-graduation-cap mr-2"></i>Secondary School
+              </a>
+            </div>
+          </div>
+          
+          <!-- Academics Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              Academics
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="academics.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-book mr-2"></i>Academic Programs
+              </a>
+              <a href="staff.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-users mr-2"></i>Staff & Faculty
+              </a>
+              <a href="policies.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-file-alt mr-2"></i>School Policies
+              </a>
+            </div>
+          </div>
+          
+          <!-- Resources Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              Resources
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="gallery.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-images mr-2"></i>Gallery
+              </a>
+              <a href="uniform-store.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-tshirt mr-2"></i>Uniform Store
+              </a>
+              <a href="downloads.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-download mr-2"></i>Downloads
+              </a>
+            </div>
+          </div>
+          
+          <!-- Community Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              Community
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="news.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-newspaper mr-2"></i>News & Updates
+              </a>
+              <a href="events.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-calendar-alt mr-2"></i>Events
+              </a>
+              <a href="contact.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-envelope mr-2"></i>Contact Us
+              </a>
+            </div>
+          </div>
+          <a href="admissions.html" class="bg-secondary text-white px-4 py-2 rounded font-semibold hover:bg-blue-600">Apply Now</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-white hover:text-secondary">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-primary">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="index.html" class="block text-white hover:text-secondary px-3 py-2">Home</a>
+        <a href="about.html" class="block text-white hover:text-secondary px-3 py-2">About</a>
+        
+        <!-- Mobile School Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            School
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="primary-school.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-child mr-2"></i>Primary School
+            </a>
+            <a href="secondary-school.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-graduation-cap mr-2"></i>Secondary School
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Academics Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            Academics
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="academics.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-book mr-2"></i>Academic Programs
+            </a>
+            <a href="staff.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-users mr-2"></i>Staff & Faculty
+            </a>
+            <a href="policies.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-file-alt mr-2"></i>School Policies
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Resources Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            Resources
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="gallery.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-images mr-2"></i>Gallery
+            </a>
+            <a href="uniform-store.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-tshirt mr-2"></i>Uniform Store
+            </a>
+            <a href="downloads.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-download mr-2"></i>Downloads
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Community Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            Community
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="news.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-newspaper mr-2"></i>News & Updates
+            </a>
+            <a href="events.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-calendar-alt mr-2"></i>Events
+            </a>
+            <a href="contact.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-envelope mr-2"></i>Contact Us
+            </a>
+          </div>
+        </div>
+        
+        <a href="admissions.html" class="block bg-secondary text-white px-3 py-2 rounded mt-2">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- PAGE HEADER -->
+    <section class="bg-primary text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 fade-in">Academics</h1>
+        <p class="text-xl opacity-90 fade-in" style="animation-delay: 0.2s">Comprehensive education programs for Grades 8–12 aligned with national standards.</p>
+      </div>
+    </section>
+
+    <!-- CURRICULUM OVERVIEW -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold mb-4">Our Curriculum</h2>
+          <p class="text-gray-600 max-w-3xl mx-auto">
+            Mahlasedi High School follows the Gauteng Department of Education curriculum, ensuring our learners receive quality education that meets national standards and prepares them for success.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="bg-white p-8 rounded-lg shadow-md text-center hover-lift fade-in">
+            <i class="fas fa-book text-4xl text-primary mb-4"></i>
+            <h3 class="text-xl font-bold mb-2">Core Subjects</h3>
+            <p class="text-gray-600">Essential subjects including Mathematics, English, and Sciences that form the foundation of academic excellence.</p>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-md text-center hover-lift fade-in" style="animation-delay: 0.1s">
+            <i class="fas fa-flask text-4xl text-primary mb-4"></i>
+            <h3 class="text-xl font-bold mb-2">Sciences</h3>
+            <p class="text-gray-600">Physical Sciences and Life Sciences with practical laboratory work and experiments.</p>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-md text-center hover-lift fade-in" style="animation-delay: 0.2s">
+            <i class="fas fa-globe text-4xl text-primary mb-4"></i>
+            <h3 class="text-xl font-bold mb-2">Humanities</h3>
+            <p class="text-gray-600">Social Sciences, History, and Geography to develop critical thinking and global awareness.</p>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-md text-center hover-lift fade-in" style="animation-delay: 0.3s">
+            <i class="fas fa-certificate text-4xl text-primary mb-4"></i>
+            <h3 class="text-xl font-bold mb-2">NSC Certification</h3>
+            <p class="text-gray-600">National Senior Certificate upon completion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRADE LEVELS -->
+    <section class="py-16 bg-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12">Grade Levels</h2>
+        <div class="space-y-6">
+          <!-- Grade 8-9 -->
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center mb-4">
+              <div class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg mr-4">
+                8-9
+              </div>
+              <h3 class="text-2xl font-bold">Grades 8 & 9 (Senior Phase)</h3>
+            </div>
+            <p class="text-gray-700 mb-4">
+              The Senior Phase builds on foundational knowledge and introduces learners to more complex concepts across all subject areas.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <h4 class="font-semibold mb-2">Core Subjects:</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                  <li>English Home Language / First Additional Language</li>
+                  <li>Mathematics</li>
+                  <li>Natural Sciences</li>
+                  <li>Social Sciences</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">Additional Subjects:</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                  <li>Technology</li>
+                  <li>Economic and Management Sciences</li>
+                  <li>Life Orientation</li>
+                  <li>Creative Arts</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grade 10-12 -->
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center mb-4">
+              <div class="bg-secondary text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg mr-4">
+                10-12
+              </div>
+              <h3 class="text-2xl font-bold">Grades 10, 11 & 12 (FET Phase)</h3>
+            </div>
+            <p class="text-gray-700 mb-4">
+              The Further Education and Training (FET) Phase prepares learners for the National Senior Certificate (Matric) and beyond.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <h4 class="font-semibold mb-2">Compulsory Subjects:</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                  <li>English Home Language / First Additional Language</li>
+                  <li>Mathematics / Mathematical Literacy</li>
+                  <li>Life Orientation</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-semibold mb-2">Elective Subjects (Choose 4):</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-1">
+                  <li>Physical Sciences</li>
+                  <li>Life Sciences</li>
+                  <li>Accounting</li>
+                  <li>Business Studies</li>
+                  <li>Economics</li>
+                  <li>Geography</li>
+                  <li>History</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACADEMIC SUPPORT -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12">Academic Support</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="text-center">
+            <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-chalkboard-teacher text-2xl"></i>
+            </div>
+            <h3 class="font-bold mb-2">Extra Classes</h3>
+            <p class="text-gray-600 text-sm">Additional support sessions for learners who need extra help.</p>
+          </div>
+          <div class="text-center">
+            <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-user-graduate text-2xl"></i>
+            </div>
+            <h3 class="font-bold mb-2">Study Groups</h3>
+            <p class="text-gray-600 text-sm">Peer-led study sessions to enhance collaborative learning.</p>
+          </div>
+          <div class="text-center">
+            <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-laptop text-2xl"></i>
+            </div>
+            <h3 class="font-bold mb-2">Digital Resources</h3>
+            <p class="text-gray-600 text-sm">Access to online learning materials and educational platforms.</p>
+          </div>
+          <div class="text-center">
+            <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-clipboard-check text-2xl"></i>
+            </div>
+            <h3 class="font-bold mb-2">Assessment</h3>
+            <p class="text-gray-600 text-sm">Regular testing and feedback to monitor progress.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MATRIC PREPARATION -->
+    <section class="py-16 bg-primary text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl font-bold mb-6">Matric Excellence Program</h2>
+            <p class="mb-4 opacity-90">
+              Our Grade 12 learners benefit from a comprehensive Matric preparation program designed to maximize their performance in the National Senior Certificate examinations.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary text-xl mr-3 mt-1"></i>
+                <span>Intensive revision sessions</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary text-xl mr-3 mt-1"></i>
+                <span>Past paper practice and analysis</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary text-xl mr-3 mt-1"></i>
+                <span>Exam technique workshops</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary text-xl mr-3 mt-1"></i>
+                <span>Subject-specific support</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-secondary text-xl mr-3 mt-1"></i>
+                <span>Career guidance and university preparation</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-white text-gray-900 p-8 rounded-lg">
+            <h3 class="text-2xl font-bold mb-6 text-primary">Academic Calendar</h3>
+            <div class="space-y-4">
+              <div class="border-l-4 border-secondary pl-4">
+                <h4 class="font-bold">Term 1</h4>
+                <p class="text-sm text-gray-600">January – March</p>
+              </div>
+              <div class="border-l-4 border-secondary pl-4">
+                <h4 class="font-bold">Term 2</h4>
+                <p class="text-sm text-gray-600">April – June</p>
+              </div>
+              <div class="border-l-4 border-secondary pl-4">
+                <h4 class="font-bold">Term 3</h4>
+                <p class="text-sm text-gray-600">July – September</p>
+              </div>
+              <div class="border-l-4 border-secondary pl-4">
+                <h4 class="font-bold">Term 4</h4>
+                <p class="text-sm text-gray-600">October – December</p>
+              </div>
+            </div>
+            <p class="text-sm text-gray-600 mt-6">
+              <i class="fas fa-info-circle mr-2"></i>
+              Aligned with Gauteng Department of Education calendar
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MATRIC RESULTS -->
+    <section class="py-16 bg-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-4">2023 Matric Results</h2>
+        <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+          Mahlasedi High School's 2023 matric results demonstrate strong achievement in core subjects, with consistent high performance in Economics, English, and Geography.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Economics - 100% -->
+          <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-green-500">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-bold text-lg">Economics</h3>
+              <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-bold">100%</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-arrow-right text-green-500 mr-2"></i>
+              <span>Maintained from 2022: 100%</span>
+            </div>
+          </div>
+
+          <!-- English FAL - 100% -->
+          <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-green-500">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-bold text-lg">English FAL</h3>
+              <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-bold">100%</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-arrow-right text-green-500 mr-2"></i>
+              <span>Maintained from 2022: 100%</span>
+            </div>
+          </div>
+
+          <!-- Geography - 100% -->
+          <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-green-500">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-bold text-lg">Geography</h3>
+              <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-bold">100%</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-arrow-right text-green-500 mr-2"></i>
+              <span>Maintained from 2022: 100%</span>
+            </div>
+          </div>
+
+          <!-- Life Sciences - 97.7% -->
+          <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-green-400">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-bold text-lg">Life Sciences</h3>
+              <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-bold">97.7%</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-arrow-down text-orange-500 mr-2"></i>
+              <span>Down from 2022: 100%</span>
+            </div>
+          </div>
+
+          <!-- History - 88.1% -->
+          <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-400">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-bold text-lg">History</h3>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">88.1%</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-arrow-down text-orange-500 mr-2"></i>
+              <span>Down from 2022: 96.0%</span>
+            </div>
+          </div>
+
+          <!-- Agricultural Sciences - 79.3% -->
+          <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-400">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-bold text-lg">Agricultural Sciences</h3>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-bold">79.3%</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-arrow-down text-orange-500 mr-2"></i>
+              <span>Down from 2022: 100%</span>
+            </div>
+          </div>
+
+          <!-- Business Studies - 72.4% -->
+          <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-yellow-400">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-bold text-lg">Business Studies</h3>
+              <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-bold">72.4%</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-arrow-down text-orange-500 mr-2"></i>
+              <span>Down from 2022: 100%</span>
+            </div>
+          </div>
+
+          <!-- Accounting - 61.5% -->
+          <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-yellow-400">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-bold text-lg">Accounting</h3>
+              <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-bold">61.5%</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-arrow-down text-orange-500 mr-2"></i>
+              <span>Down from 2022: 88.9%</span>
+            </div>
+          </div>
+
+          <!-- Mathematics - 44.4% -->
+          <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-orange-400">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-bold text-lg">Mathematics</h3>
+              <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-bold">44.4%</span>
+            </div>
+            <div class="flex items-center text-sm text-gray-600">
+              <i class="fas fa-arrow-down text-red-500 mr-2"></i>
+              <span>Down from 2022: 93.3%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-4 text-center">Summary</h3>
+          <p class="text-gray-700 text-center max-w-4xl mx-auto">
+            Mahlasedi High School's 2023 results show consistent high performance in Economics, English, and Geography, all maintaining perfect 100% pass rates. While declines in Accounting, Agricultural Sciences, Business Studies, and Mathematics highlight areas for additional support and reinforcement, the overall results reflect strong academic achievements in core subjects. The school continues to focus on providing comprehensive support to ensure excellence across all subject areas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-secondary text-white text-center">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-6">Ready to Excel Academically?</h2>
+        <p class="text-xl mb-8 opacity-90">Join Mahlasedi High School and experience quality education that prepares you for success.</p>
+        <a href="admissions.html" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition">Apply Now</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <img src="static/images/logo.png" alt="Mahlasedi Logo" class="h-12 w-auto mr-3">
+            <h3 class="font-bold text-lg">Mahlasedi High School</h3>
+          </div>
+          <p class="text-gray-300 text-sm">A private secondary school in Midrand, Gauteng, committed to academic excellence for Grades 8–12.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="text-gray-300 hover:text-white">About Us</a></li>
+            <li><a href="academics.html" class="text-gray-300 hover:text-white">Academics</a></li>
+            <li><a href="admissions.html" class="text-gray-300 hover:text-white">Admissions</a></li>
+            <li><a href="news.html" class="text-gray-300 hover:text-white">News & Announcements</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Contact</h3>
+          <p class="text-gray-300 text-sm mb-2"><i class="fas fa-map-marker-alt mr-2"></i>181 Moritz Ave, Halfway House, Midrand, Gauteng</p>
+          <p class="text-gray-300 text-sm mb-2"><i class="fas fa-phone mr-2"></i><a href="tel:+27114020040" class="text-gray-300 hover:text-white">+27 11 402 0040</a></p>
+          <p class="text-gray-300 text-sm"><i class="fas fa-clock mr-2"></i>Mon – Fri: 07:30 – 14:30</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="https://www.facebook.com/people/Mahlasedi-Primary-High-School/61554575627891/?sk=photos" target="_blank" class="text-gray-300 hover:text-white">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+        <p class="text-gray-400 text-sm">&copy; 2024 Mahlasedi High School. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="static/js/script.js"></script>
+</body>
+</html>

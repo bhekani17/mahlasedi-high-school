@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admissions - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="static/css/styles.css" />
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- NAVBAR -->
+  <nav class="navbar bg-primary shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="/" class="flex items-center space-x-2 text-white font-bold text-lg">
+            <img src="static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+            <span>M.H.S</span>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-white hover:text-secondary font-semibold">Home</a>
+          <a href="about.html" class="text-white hover:text-secondary font-semibold">About</a>
+          <a href="academics.html" class="text-white hover:text-secondary font-semibold">Academics</a>
+          <a href="news.html" class="text-white hover:text-secondary font-semibold">News</a>
+          <a href="events.html" class="text-white hover:text-secondary font-semibold">Events</a>
+          <a href="gallery.html" class="text-white hover:text-secondary font-semibold">Gallery</a>
+          <a href="contact.html" class="text-white hover:text-secondary font-semibold">Contact</a>
+          <a href="downloads.html" class="text-white hover:text-secondary font-semibold">Downloads</a>
+          <a href="admissions.html" class="bg-secondary text-white px-4 py-2 rounded font-semibold hover:bg-blue-600 active">Apply Now</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-white hover:text-secondary">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-primary">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="index.html" class="block text-white hover:text-secondary px-3 py-2">Home</a>
+        <a href="about.html" class="block text-white hover:text-secondary px-3 py-2">About</a>
+        <a href="academics.html" class="block text-white hover:text-secondary px-3 py-2">Academics</a>
+        <a href="news.html" class="block text-white hover:text-secondary px-3 py-2">News</a>
+        <a href="events.html" class="block text-white hover:text-secondary px-3 py-2">Events</a>
+        <a href="gallery.html" class="block text-white hover:text-secondary px-3 py-2">Gallery</a>
+        <a href="contact.html" class="block text-white hover:text-secondary px-3 py-2">Contact</a>
+        <a href="downloads.html" class="block text-white hover:text-secondary px-3 py-2">
+          <i class="fas fa-download mr-2"></i>Downloads
+        </a>
+        <a href="admissions.html" class="block bg-secondary text-white px-3 py-2 rounded active">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- PAGE HEADER -->
+    <section class="bg-primary text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 fade-in">Admissions</h1>
+        <p class="text-xl opacity-90 fade-in" style="animation-delay: 0.2s">Join Mahlasedi High School and embark on a journey of academic excellence.</p>
+      </div>
+    </section>
+
+    <!-- ADMISSION PROCESS -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12">Application Process</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="text-center hover-lift fade-in">
+            <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+              1
+            </div>
+            <h3 class="font-bold text-lg mb-2">Inquiry</h3>
+            <p class="text-gray-600 text-sm">Contact us or visit our campus to learn more about our school and programs.</p>
+          </div>
+          <div class="text-center hover-lift fade-in" style="animation-delay: 0.1s">
+            <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+              2
+            </div>
+            <h3 class="font-bold text-lg mb-2">Application</h3>
+            <p class="text-gray-600 text-sm">Complete the application form and submit required documents.</p>
+          </div>
+          <div class="text-center hover-lift fade-in" style="animation-delay: 0.2s">
+            <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+              3
+            </div>
+            <h3 class="font-bold text-lg mb-2">Assessment</h3>
+            <p class="text-gray-600 text-sm">Learner assessment and parent interview to ensure good fit.</p>
+          </div>
+          <div class="text-center hover-lift fade-in" style="animation-delay: 0.3s">
+            <div class="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+              4
+            </div>
+            <h3 class="font-bold text-lg mb-2">Enrollment</h3>
+            <p class="text-gray-600 text-sm">Receive acceptance letter and complete enrollment process.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REQUIREMENTS -->
+    <section class="py-16 bg-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <h2 class="text-3xl font-bold mb-8">Admission Requirements</h2>
+            <div class="space-y-6">
+              <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="font-bold text-lg mb-4 flex items-center">
+                  <i class="fas fa-file-alt text-primary mr-3"></i>
+                  Required Documents
+                </h3>
+                <ul class="space-y-2 text-gray-600">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                    <span>Certified copy of learner's birth certificate</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                    <span>Certified copy of parent/guardian's ID</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                    <span>Latest school report (if applicable)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                    <span>Transfer card (if transferring)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                    <span>2 passport-size photos</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                    <span>Proof of residence</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                    <span>Registration fee payment</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="font-bold text-lg mb-4 flex items-center">
+                  <i class="fas fa-clipboard-check text-primary mr-3"></i>
+                  Admission Criteria
+                </h3>
+                <ul class="space-y-2 text-gray-600">
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                    <span>Age-appropriate for grade level</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                    <span>Satisfactory academic performance</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                    <span>Good conduct record</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                    <span>Commitment to school values and policies</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                    <span>Space availability in desired grade</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="text-3xl font-bold mb-8">Important Information</h2>
+            <div class="space-y-6">
+              <div class="bg-blue-50 border-l-4 border-primary p-6 rounded">
+                <h3 class="font-bold text-lg mb-2">Application Period</h3>
+                <p class="text-gray-700">
+                  Applications for the upcoming academic year typically open in Term 3 (July-September). Early application is encouraged as spaces are limited.
+                </p>
+              </div>
+
+              <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded">
+                <h3 class="font-bold text-lg mb-2">Grade Availability</h3>
+                <p class="text-gray-700 mb-3">
+                  We accept applications for Grades 0 through 12. Each grade has limited capacity to ensure quality education.
+                </p>
+                <ul class="space-y-1 text-sm text-gray-600">
+                  <li><i class="fas fa-circle text-xs mr-2"></i>Grade 0-7: Primary education</li>
+                  <li><i class="fas fa-circle text-xs mr-2"></i>Grade 8: Entry level for high school</li>
+                  <li><i class="fas fa-circle text-xs mr-2"></i>Grades 9-11: Mid-phase transfers</li>
+                  <li><i class="fas fa-circle text-xs mr-2"></i>Grade 12: Limited availability</li>
+                </ul>
+              </div>
+
+              <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded">
+                <h3 class="font-bold text-lg mb-2">Application Fee</h3>
+                <p class="text-gray-700">
+                  A non-refundable application fee is required with submission. Contact our office for current fee structure and payment methods.
+                </p>
+              </div>
+
+              <div class="bg-purple-50 border-l-4 border-purple-500 p-6 rounded">
+                <h3 class="font-bold text-lg mb-2">School Tours</h3>
+                <p class="text-gray-700">
+                  We encourage prospective families to schedule a campus tour. Contact us to arrange a visit during school hours.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEES -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-4">School Fees</h2>
+        <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+          Registration is now open! We accept learners from Grade 0 through Grade 12, with a supportive environment focused on academic excellence.
+        </p>
+        <div class="max-w-5xl mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white border-2 border-primary rounded-lg p-6 shadow-md">
+              <div class="text-center mb-4">
+                <i class="fas fa-child text-primary text-3xl mb-2"></i>
+                <h3 class="text-xl font-bold">Grade 0-7</h3>
+              </div>
+              <div class="text-center">
+                <p class="text-4xl font-bold text-primary">R700</p>
+                <p class="text-sm text-gray-500 mt-1">per month</p>
+              </div>
+            </div>
+
+            <div class="bg-white border-2 border-primary rounded-lg p-6 shadow-md">
+              <div class="text-center mb-4">
+                <i class="fas fa-user-graduate text-primary text-3xl mb-2"></i>
+                <h3 class="text-xl font-bold">Grade 8-11</h3>
+              </div>
+              <div class="text-center">
+                <p class="text-4xl font-bold text-primary">R1,100</p>
+                <p class="text-sm text-gray-500 mt-1">per month</p>
+              </div>
+            </div>
+
+            <div class="bg-white border-2 border-secondary rounded-lg p-6 shadow-lg">
+              <div class="text-center mb-4">
+                <i class="fas fa-graduation-cap text-secondary text-3xl mb-2"></i>
+                <h3 class="text-xl font-bold">Grade 12</h3>
+              </div>
+              <div class="text-center">
+                <p class="text-4xl font-bold text-secondary">R1,500</p>
+                <p class="text-sm text-gray-500 mt-1">per month</p>
+              </div>
+            </div>
+
+            <div class="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-primary transition">
+              <div class="text-center mb-4">
+                <i class="fas fa-bus text-gray-600 text-3xl mb-2"></i>
+                <h3 class="text-xl font-bold">Bus Service</h3>
+                <p class="text-xs text-gray-500 mt-1">(Optional)</p>
+              </div>
+              <div class="text-center">
+                <p class="text-4xl font-bold text-gray-700">R500</p>
+                <p class="text-sm text-gray-500 mt-1">per month</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded mb-8">
+            <div class="flex items-start">
+              <i class="fas fa-exclamation-circle text-yellow-600 text-2xl mr-4 mt-1"></i>
+              <div>
+                <h3 class="font-bold text-lg mb-2">Registration Fee</h3>
+                <p class="text-gray-700">
+                  <span class="text-2xl font-bold text-primary">R1,650</span> (once-off, non-refundable)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border-2 border-primary rounded-lg overflow-hidden">
+            <div class="bg-primary text-white p-6">
+              <h3 class="text-2xl font-bold mb-2">What School Fees Cover</h3>
+              <p class="opacity-90">Understanding your investment in quality education</p>
+            </div>
+            <div class="p-8">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex items-start">
+                  <i class="fas fa-chalkboard-teacher text-primary text-2xl mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-bold mb-2">Tuition</h4>
+                    <p class="text-sm text-gray-600">Teacher salaries and educational staff costs for quality instruction.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-building text-primary text-2xl mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-bold mb-2">Facilities</h4>
+                    <p class="text-sm text-gray-600">Classrooms, libraries, labs, sports fields, and ongoing maintenance.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-book text-primary text-2xl mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-bold mb-2">Materials & Resources</h4>
+                    <p class="text-sm text-gray-600">Textbooks, online resources, and educational materials.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-futbol text-primary text-2xl mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-bold mb-2">Extra-curricular Activities</h4>
+                    <p class="text-sm text-gray-600">Sports, music, clubs, and other enrichment programs.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-clipboard-list text-primary text-2xl mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-bold mb-2">Administration</h4>
+                    <p class="text-sm text-gray-600">School management and administrative operations.</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i class="fas fa-tshirt text-primary text-2xl mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-bold mb-2">Uniform</h4>
+                    <p class="text-sm text-gray-600 mb-3">Please contact the school for the latest uniform requirements.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-8 bg-gray-100 p-6 rounded-lg">
+                <h4 class="font-bold mb-3">Payment Options</h4>
+                <ul class="space-y-2 text-sm text-gray-700">
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
+                    <span>Annual payment (discount may be available)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
+                    <span>Termly payment plan</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check-circle text-primary mr-2 mt-1"></i>
+                    <span>Monthly payment plan</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+                <p class="text-sm text-gray-700">
+                  <i class="fas fa-info-circle text-yellow-600 mr-2"></i>
+                  <strong>Note:</strong> Additional fees may apply for uniforms, school trips, or boarding. Financial assistance and scholarships may be available for students who excel academically or in sports and arts.
+                </p>
+              </div>
+
+              <div class="mt-6 text-center">
+                <p class="text-sm text-gray-600 mb-4">For detailed fee structure and payment arrangements specific to your grade level, please contact our office.</p>
+                <a href="downloads.html" class="text-primary font-semibold hover:underline">
+                  <i class="fas fa-download mr-2"></i>Downloads
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ONLINE APPLICATION -->
+    <section class="py-16 bg-gray-100">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-8">Online Application</h2>
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="text-center mb-8">
+            <i class="fas fa-laptop text-6xl text-secondary mb-4"></i>
+            <h3 class="text-2xl font-bold mb-4 text-primary">Apply Online Now</h3>
+            <p class="text-gray-600 mb-6">Complete our comprehensive online application form for both Primary and Secondary school admissions.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div class="bg-accent/10 p-6 rounded-lg">
+                <i class="fas fa-child text-3xl text-accent mb-3"></i>
+                <h4 class="font-bold text-lg mb-2">Primary School</h4>
+                <p class="text-sm text-gray-600 mb-3">Grades 0-7</p>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Foundation & Intermediate Phase</li>
+                  <li>• Play-based learning approach</li>
+                  <li>• R700/month + R1,500 registration</li>
+                </ul>
+              </div>
+              <div class="bg-secondary/10 p-6 rounded-lg">
+                <i class="fas fa-graduation-cap text-3xl text-secondary mb-3"></i>
+                <h4 class="font-bold text-lg mb-2">Secondary School</h4>
+                <p class="text-sm text-gray-600 mb-3">Grades 8-12</p>
+                <ul class="text-sm text-gray-600 space-y-1">
+                  <li>• Senior & FET Phase</li>
+                  <li>• NSC preparation</li>
+                  <li>• R1,100-R1,500/month + R1,500 registration</li>
+                </ul>
+              </div>
+            </div>
+            <a href="online-application.html" class="inline-block bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 transition text-lg">
+              <i class="fas fa-arrow-right mr-2"></i>Start Online Application
+            </a>
+          </div>
+          <div class="border-t pt-6 mt-6">
+            <h4 class="font-bold text-lg mb-4 text-center">Application Features</h4>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Secure online submission</span>
+              </div>
+              <div class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Document upload capability</span>
+              </div>
+              <div class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Real-time validation</span>
+              </div>
+              <div class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Instant confirmation</span>
+              </div>
+              <div class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Mobile-friendly design</span>
+              </div>
+              <div class="flex items-start">
+                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                <span>Save and continue later</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- CTA -->
+    <section class="py-16 bg-secondary text-white text-center">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-6">Have Questions?</h2>
+        <p class="text-xl mb-8 opacity-90">Our admissions team is here to help you through the application process.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="contact.html" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition">Contact Us</a>
+          <a href="tel:+27114020040" class="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+            <i class="fas fa-phone mr-2"></i>+27 11 402 0040
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <img src="static/images/logo.png" alt="Mahlasedi Logo" class="h-12 w-auto mr-3">
+            <h3 class="font-bold text-lg">Mahlasedi High School</h3>
+          </div>
+          <p class="text-gray-300 text-sm">A private secondary school in Midrand, Gauteng, committed to academic excellence for Grades 8–12.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="text-gray-300 hover:text-white">About Us</a></li>
+            <li><a href="academics.html" class="text-gray-300 hover:text-white">Academics</a></li>
+            <li><a href="admissions.html" class="text-gray-300 hover:text-white">Admissions</a></li>
+            <li><a href="news.html" class="text-gray-300 hover:text-white">News & Announcements</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Contact</h3>
+          <p class="text-gray-300 text-sm mb-2"><i class="fas fa-map-marker-alt mr-2"></i>181 Moritz Ave, Halfway House, Midrand, Gauteng</p>
+          <p class="text-gray-300 text-sm mb-2"><i class="fas fa-phone mr-2"></i><a href="tel:+27114020040" class="text-gray-300 hover:text-white">+27 11 402 0040</a></p>
+          <p class="text-gray-300 text-sm"><i class="fas fa-clock mr-2"></i>Mon – Fri: 07:30 – 14:30</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="https://www.facebook.com/people/Mahlasedi-Primary-High-School/61554575627891/?sk=photos" target="_blank" class="text-gray-300 hover:text-white">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+        <p class="text-gray-400 text-sm">&copy; 2024 Mahlasedi High School. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="static/js/script.js"></script>
+</body>
+</html>

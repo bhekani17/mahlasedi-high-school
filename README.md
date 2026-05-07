@@ -1,2 +1,0 @@
-# mahlasedi-high-school
-School

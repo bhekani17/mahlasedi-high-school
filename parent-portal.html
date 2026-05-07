@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parent Portal - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="static/css/styles.css" />
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- NAVBAR -->
+  <nav class="navbar bg-primary shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center space-x-2 text-white font-bold text-lg">
+            <img src="static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+            <span>M.H.S</span>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-white hover:text-secondary font-semibold">Home</a>
+          <a href="about.html" class="text-white hover:text-secondary font-semibold">About</a>
+          <a href="primary-school.html" class="text-white hover:text-secondary font-semibold">Primary</a>
+          <a href="secondary-school.html" class="text-white hover:text-secondary font-semibold">Secondary</a>
+          <a href="academics.html" class="text-white hover:text-secondary font-semibold">Academics</a>
+          <a href="news.html" class="text-white hover:text-secondary font-semibold">News</a>
+          <a href="events.html" class="text-white hover:text-secondary font-semibold">Events</a>
+          <a href="gallery.html" class="text-white hover:text-secondary font-semibold">Gallery</a>
+          <a href="contact.html" class="text-white hover:text-secondary font-semibold">Contact</a>
+          <a href="admissions.html" class="bg-secondary text-white px-4 py-2 rounded font-semibold hover:bg-blue-600">Apply Now</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-white hover:text-secondary">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-primary">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="index.html" class="block text-white hover:text-secondary px-3 py-2">Home</a>
+        <a href="about.html" class="block text-white hover:text-secondary px-3 py-2">About</a>
+        <a href="primary-school.html" class="block text-white hover:text-secondary px-3 py-2">Primary</a>
+        <a href="secondary-school.html" class="block text-white hover:text-secondary px-3 py-2">Secondary</a>
+        <a href="academics.html" class="block text-white hover:text-secondary px-3 py-2">Academics</a>
+        <a href="news.html" class="block text-white hover:text-secondary px-3 py-2">News</a>
+        <a href="events.html" class="block text-white hover:text-secondary px-3 py-2">Events</a>
+        <a href="gallery.html" class="block text-white hover:text-secondary px-3 py-2">Gallery</a>
+        <a href="contact.html" class="block text-white hover:text-secondary px-3 py-2">Contact</a>
+        <a href="admissions.html" class="block bg-secondary text-white px-3 py-2 rounded">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <!-- HERO SECTION -->
+    <section class="bg-gradient-to-br from-secondary to-accent text-white py-12 md:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 fade-in">Parent Portal</h1>
+        <p class="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 opacity-90 fade-in px-4" style="animation-delay: 0.2s">Stay Connected with Your Child's Education</p>
+        <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 px-4 fade-in" style="animation-delay: 0.4s">
+          <a href="#login" class="btn-hover bg-white text-primary px-6 py-3 md:px-8 rounded-lg font-semibold text-sm md:text-base">Login</a>
+          <a href="#features" class="btn-hover border-2 border-white text-white px-6 py-3 md:px-8 rounded-lg font-semibold hover:bg-white hover:text-primary text-sm md:text-base">Features</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOGIN SECTION -->
+    <section class="py-8 md:py-16" id="login">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md mx-auto">
+          <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary text-center">Parent Login</h2>
+            <form id="parent-login" class="space-y-4">
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                <input type="email" id="email" name="email" required 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
+              </div>
+              <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                <input type="password" id="password" name="password" required 
+                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-secondary focus:border-transparent">
+              </div>
+              <div class="flex items-center justify-between">
+                <label class="flex items-center">
+                  <input type="checkbox" class="mr-2">
+                  <span class="text-sm text-gray-600">Remember me</span>
+                </label>
+                <a href="#" class="text-sm text-secondary hover:underline">Forgot password?</a>
+              </div>
+              <button type="submit" 
+                      class="w-full bg-secondary text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-600 transition">
+                Login to Portal
+              </button>
+            </form>
+            <div class="mt-6 text-center">
+              <p class="text-sm text-gray-600">Don't have an account? <a href="#" class="text-secondary hover:underline">Register here</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="py-8 md:py-16 bg-gray-100" id="features">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-primary">Portal Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <!-- Academic Progress -->
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+            <div class="bg-secondary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-chart-line text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Academic Progress</h3>
+            <p class="text-gray-600 text-sm md:text-base">View real-time grades, test scores, and academic performance</p>
+          </div>
+
+          <!-- Attendance Tracking -->
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+            <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-calendar-check text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Attendance Tracking</h3>
+            <p class="text-gray-600 text-sm md:text-base">Monitor daily attendance and receive absence notifications</p>
+          </div>
+
+          <!-- Homework & Assignments -->
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+            <div class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-tasks text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Homework & Assignments</h3>
+            <p class="text-gray-600 text-sm md:text-base">Track homework deadlines and assignment requirements</p>
+          </div>
+
+          <!-- Communication -->
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+            <div class="bg-secondary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-comments text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Teacher Communication</h3>
+            <p class="text-gray-600 text-sm md:text-base">Direct messaging with teachers and school staff</p>
+          </div>
+
+          <!-- School Calendar -->
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+            <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-calendar-alt text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">School Calendar</h3>
+            <p class="text-gray-600 text-sm md:text-base">Access school events, holidays, and important dates</p>
+          </div>
+
+          <!-- Fee Payments -->
+          <div class="bg-white rounded-lg shadow-lg p-6 text-center card-hover">
+            <div class="bg-accent text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-credit-card text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Fee Payments</h3>
+            <p class="text-gray-600 text-sm md:text-base">View fee statements and make secure online payments</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="py-8 md:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-primary">Benefits for Parents</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="bg-secondary text-white p-2 rounded-full mr-4 mt-1">
+                <i class="fas fa-check"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2">Stay Informed</h3>
+                <p class="text-gray-600 text-sm md:text-base">Real-time updates on your child's academic progress and school activities</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="bg-secondary text-white p-2 rounded-full mr-4 mt-1">
+                <i class="fas fa-check"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2">Easy Communication</h3>
+                <p class="text-gray-600 text-sm md:text-base">Direct line of communication with teachers and school administration</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="bg-secondary text-white p-2 rounded-full mr-4 mt-1">
+                <i class="fas fa-check"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2">Convenience</h3>
+                <p class="text-gray-600 text-sm md:text-base">24/7 access from any device with internet connection</p>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div class="bg-secondary text-white p-2 rounded-full mr-4 mt-1">
+                <i class="fas fa-check"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2">Transparency</h3>
+                <p class="text-gray-600 text-sm md:text-base">Complete visibility into your child's educational journey</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="bg-secondary text-white p-2 rounded-full mr-4 mt-1">
+                <i class="fas fa-check"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2">Time-Saving</h3>
+                <p class="text-gray-600 text-sm md:text-base">No more waiting for report cards or parent-teacher meetings</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div class="bg-secondary text-white p-2 rounded-full mr-4 mt-1">
+                <i class="fas fa-check"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2">Secure</h3>
+                <p class="text-gray-600 text-sm md:text-base">Bank-level security to protect your family's information</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOBILE APP -->
+    <section class="py-8 md:py-16 bg-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div class="order-2 lg:order-1">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-primary">Mobile App Available</h2>
+            <p class="text-gray-600 mb-4 text-sm md:text-base">
+              Take the parent portal with you wherever you go with our mobile app for iOS and Android devices.
+            </p>
+            <p class="text-gray-600 mb-6 text-sm md:text-base">
+              Receive push notifications for important updates, grades, and school announcements directly on your phone.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="#" class="bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition flex items-center justify-center">
+                <i class="fab fa-apple mr-2"></i>
+                Download for iOS
+              </a>
+              <a href="#" class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition flex items-center justify-center">
+                <i class="fab fa-google-play mr-2"></i>
+                Download for Android
+              </a>
+            </div>
+          </div>
+          <div class="order-1 lg:order-2">
+            <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+              <img src="https://via.placeholder.com/400x300/4DA6D6/FFFFFF?text=Mobile+App+Screenshot" alt="Mobile App" class="rounded-lg w-full">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT -->
+    <section class="py-8 md:py-16 bg-secondary text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Need Help?</h2>
+        <p class="text-lg md:text-xl mb-6 md:mb-8 opacity-90">Our support team is here to assist you</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div class="bg-white/20 backdrop-blur-sm rounded-lg p-6">
+            <i class="fas fa-phone text-3xl mb-4"></i>
+            <h3 class="font-bold text-lg mb-2">Call Support</h3>
+            <p class="text-sm mb-2">Mon-Fri: 8:00 AM - 4:00 PM</p>
+            <p class="font-semibold">+27 11 402 0040</p>
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm rounded-lg p-6">
+            <i class="fas fa-envelope text-3xl mb-4"></i>
+            <h3 class="font-bold text-lg mb-2">Email Support</h3>
+            <p class="text-sm mb-2">24-48 hour response</p>
+            <p class="font-semibold">support@mahlasedi.co.za</p>
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm rounded-lg p-6">
+            <i class="fas fa-book text-3xl mb-4"></i>
+            <h3 class="font-bold text-lg mb-2">User Guide</h3>
+            <p class="text-sm mb-2">Step-by-step instructions</p>
+            <a href="#" class="font-semibold hover:underline">Download PDF</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary text-white py-6 md:py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div class="text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start mb-3 md:mb-4">
+            <img src="static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto md:h-12 mr-2 md:mr-3">
+            <h3 class="font-bold text-base md:text-lg">Mahlasedi High School</h3>
+          </div>
+          <p class="text-gray-300 text-xs md:text-sm">A private school in Johannesburg, Gauteng, serving 990 learners from Grade 0 through Grade 12 with 28 dedicated teachers.</p>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="font-bold text-base md:text-lg mb-3 md:mb-4">Quick Links</h3>
+          <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+            <li><a href="about.html" class="text-gray-300 hover:text-white">About Us</a></li>
+            <li><a href="academics.html" class="text-gray-300 hover:text-white">Academics</a></li>
+            <li><a href="policies.html" class="text-gray-300 hover:text-white">Policies</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="font-bold text-base md:text-lg mb-3 md:mb-4">Contact</h3>
+          <div class="space-y-1 md:space-y-2 text-xs md:text-sm">
+            <p class="text-gray-300"><i class="fas fa-map-marker-alt mr-1 md:mr-2"></i>181 Moritz Ave, Halfway House, Midrand, Gauteng</p>
+            <p class="text-gray-300"><i class="fas fa-phone mr-1 md:mr-2"></i><a href="tel:+27114020040" class="text-gray-300 hover:text-white">+27 11 402 0040</a></p>
+            <p class="text-gray-300"><i class="fas fa-clock mr-1 md:mr-2"></i>Mon – Fri: 07:30 – 14:30</p>
+          </div>
+          <div class="flex justify-center md:justify-start space-x-3 md:space-x-4 mt-3 md:mt-4">
+            <a href="https://www.facebook.com/people/Mahlasedi-Primary-High-School/61554575627891/?sk=photos" target="_blank" class="text-gray-300 hover:text-white">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-600 mt-6 md:mt-8 pt-4 md:pt-8 text-center">
+        <p class="text-gray-400 text-xs md:text-sm">&copy; 2024 Mahlasedi High School. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="static/js/script.js"></script>
+</body>
+</html>

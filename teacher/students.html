@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Students - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+            success: '#10B981',
+            warning: '#F59E0B',
+            danger: '#EF4444',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .sidebar-link {
+      transition: all 0.3s ease;
+    }
+    .sidebar-link:hover {
+      background-color: rgba(77, 166, 214, 0.1);
+      border-left: 4px solid #4DA6D6;
+    }
+    .sidebar-link.active {
+      background-color: rgba(77, 166, 214, 0.2);
+      border-left: 4px solid #4DA6D6;
+    }
+    .table-row:hover {
+      background-color: rgba(77, 166, 214, 0.05);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="w-64 bg-primary text-white flex flex-col">
+      <!-- Logo -->
+      <div class="p-4 border-b border-blue-700">
+        <div class="flex items-center space-x-3">
+          <img src="../static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+          <div>
+            <h1 class="font-bold text-lg">M.H.S</h1>
+            <p class="text-xs text-blue-200">Teacher Portal</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex-1 p-4">
+        <ul class="space-y-2">
+          <li>
+            <a href="index.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-tachometer-alt w-5 mr-3"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="classes.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chalkboard w-5 mr-3"></i>
+              <span>My Classes</span>
+            </a>
+          </li>
+          <li>
+            <a href="students.html" class="sidebar-link active flex items-center p-3 rounded-lg">
+              <i class="fas fa-graduation-cap w-5 mr-3"></i>
+              <span>Students</span>
+            </a>
+          </li>
+          <li>
+            <a href="grades.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chart-line w-5 mr-3"></i>
+              <span>Grades</span>
+            </a>
+          </li>
+          <li>
+            <a href="attendance.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-check w-5 mr-3"></i>
+              <span>Attendance</span>
+            </a>
+          </li>
+          <li>
+            <a href="assignments.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-tasks w-5 mr-3"></i>
+              <span>Assignments</span>
+            </a>
+          </li>
+          <li>
+            <a href="schedule.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-alt w-5 mr-3"></i>
+              <span>Schedule</span>
+            </a>
+          </li>
+          <li>
+            <a href="communications.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-envelope w-5 mr-3"></i>
+              <span>Communications</span>
+            </a>
+          </li>
+          <li>
+            <a href="resources.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-book-open w-5 mr-3"></i>
+              <span>Resources</span>
+            </a>
+          </li>
+          <li>
+            <a href="reports.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-file-alt w-5 mr-3"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="profile.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-user w-5 mr-3"></i>
+              <span>My Profile</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- User Profile -->
+      <div class="p-4 border-t border-blue-700">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
+            <i class="fas fa-user-tie text-white"></i>
+          </div>
+          <div class="flex-1">
+            <p class="font-semibold text-sm">Dr. Sarah Johnson</p>
+            <p class="text-xs text-blue-200">Mathematics Teacher</p>
+          </div>
+          <button class="text-blue-200 hover:text-white">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow-sm border-b">
+        <div class="px-6 py-4 flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-800">My Students</h2>
+            <p class="text-gray-600">View and manage your students</p>
+          </div>
+          <div class="flex items-center space-x-4">
+            <!-- Class Filter -->
+            <select class="px-4 py-2 border rounded-lg focus:outline-none focus:border-secondary">
+              <option value="all">All Classes</option>
+              <option value="10A">Grade 10A</option>
+              <option value="11A">Grade 11A</option>
+              <option value="12A">Grade 12A</option>
+            </select>
+            
+            <!-- Search -->
+            <div class="relative">
+              <input type="text" id="studentSearch" placeholder="Search by student name or ID..." class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:border-secondary">
+              <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+            
+            <!-- Export -->
+            <button class="bg-success text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+              <i class="fas fa-download mr-2"></i>Export
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Students Table -->
+      <main class="flex-1 p-6 overflow-y-auto">
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <input type="checkbox" class="rounded">
+                  </th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student ID</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Class</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Average Grade</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Attendance</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <!-- Student 1 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">STU001</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">John Smith</div>
+                    <div class="text-sm text-gray-500">john.s@email.com</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 10A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">john.smith@mhs.edu.za</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">+27 83 123 4567</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">85%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">92%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewStudent('STU001')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="gradeStudent('STU001')">
+                      <i class="fas fa-chart-line"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="messageStudent('STU001')">
+                      <i class="fas fa-envelope"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Student 2 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">STU002</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Jane Doe</div>
+                    <div class="text-sm text-gray-500">jane.d@email.com</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 10A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">jane.doe@mhs.edu.za</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">+27 83 234 5678</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">92%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">95%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewStudent('STU002')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="gradeStudent('STU002')">
+                      <i class="fas fa-chart-line"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="messageStudent('STU002')">
+                      <i class="fas fa-envelope"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Student 3 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">STU003</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Michael Johnson</div>
+                    <div class="text-sm text-gray-500">michael.j@email.com</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 11A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">michael.j@mhs.edu.za</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">+27 83 345 6789</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">78%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">88%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewStudent('STU003')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="gradeStudent('STU003')">
+                      <i class="fas fa-chart-line"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="messageStudent('STU003')">
+                      <i class="fas fa-envelope"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Student 4 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">STU004</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Emily Brown</div>
+                    <div class="text-sm text-gray-500">emily.b@email.com</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 11A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">emily.b@mhs.edu.za</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">+27 83 456 7890</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">88%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">91%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewStudent('STU004')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="gradeStudent('STU004')">
+                      <i class="fas fa-chart-line"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="messageStudent('STU004')">
+                      <i class="fas fa-envelope"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Student 5 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">STU005</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">David Wilson</div>
+                    <div class="text-sm text-gray-500">david.w@email.com</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 12A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">david.w@mhs.edu.za</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">+27 83 567 8901</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">95%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">98%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewStudent('STU005')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="gradeStudent('STU005')">
+                      <i class="fas fa-chart-line"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="messageStudent('STU005')">
+                      <i class="fas fa-envelope"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Student 6 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">STU006</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Sarah Martinez</div>
+                    <div class="text-sm text-gray-500">sarah.m@email.com</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 12A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">sarah.m@mhs.edu.za</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">+27 83 678 9012</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">91%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">94%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewStudent('STU006')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="gradeStudent('STU006')">
+                      <i class="fas fa-chart-line"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="messageStudent('STU006')">
+                      <i class="fas fa-envelope"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Pagination -->
+          <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+            <div class="flex-1 flex justify-between sm:hidden">
+              <button class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">Previous</button>
+              <button class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">Next</button>
+            </div>
+            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+              <div>
+                <p class="text-sm text-gray-700">
+                  Showing <span class="font-medium">1</span> to <span class="font-medium">6</span> of <span class="font-medium">87</span> results
+                </p>
+              </div>
+              <div>
+                <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                  <button class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <button class="bg-primary border-primary text-white relative inline-flex items-center px-4 py-2 border text-sm font-medium">1</button>
+                  <button class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">2</button>
+                  <button class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">3</button>
+                  <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">...</span>
+                  <button class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">15</button>
+                  <button class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    function viewStudent(studentId) {
+      alert('Viewing student details: ' + studentId);
+      // In a real application, this would open student details modal
+    }
+
+    function gradeStudent(studentId) {
+      alert('Grading student: ' + studentId);
+      // In a real application, this would navigate to grading interface
+    }
+
+    function messageStudent(studentId) {
+      alert('Sending message to student: ' + studentId);
+      // In a real application, this would open messaging interface
+    }
+
+    // Enhanced Search functionality
+    document.getElementById('studentSearch').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase().trim();
+      const rows = document.querySelectorAll('tbody tr');
+      
+      rows.forEach(row => {
+        const studentName = row.cells[0] ? row.cells[0].textContent.toLowerCase() : '';
+        const studentId = row.cells[1] ? row.cells[1].textContent.toLowerCase() : '';
+        const studentClass = row.cells[2] ? row.cells[2].textContent.toLowerCase() : '';
+        const email = row.cells[3] ? row.cells[3].textContent.toLowerCase() : '';
+        const phone = row.cells[4] ? row.cells[4].textContent.toLowerCase() : '';
+        
+        // Search by student name, ID, class, email, or phone
+        const matchesSearch = searchTerm === '' || 
+          studentName.includes(searchTerm) || 
+          studentId.includes(searchTerm) ||
+          studentClass.includes(searchTerm) ||
+          email.includes(searchTerm) ||
+          phone.includes(searchTerm);
+        
+        row.style.display = matchesSearch ? '' : 'none';
+      });
+      
+      // Show search results count
+      updateStudentSearchResultsCount(rows.length, Array.from(rows).filter(row => row.style.display !== 'none').length, searchTerm);
+    });
+
+    // Function to update search results count
+    function updateStudentSearchResultsCount(total, visible, searchTerm) {
+      const existingCount = document.getElementById('studentSearchResultsCount');
+      if (existingCount) {
+        existingCount.remove();
+      }
+      
+      if (searchTerm !== '') {
+        const countDiv = document.createElement('div');
+        countDiv.id = 'studentSearchResultsCount';
+        countDiv.className = 'text-sm text-gray-600 mt-2';
+        countDiv.innerHTML = `Found <span class="font-semibold">${visible}</span> of <span class="font-semibold">${total}</span> students for "<span class="font-semibold">${searchTerm}</span>"`;
+        
+        const tableContainer = document.querySelector('.bg-white.rounded-lg.shadow.overflow-hidden');
+        if (tableContainer) {
+          tableContainer.insertBefore(countDiv, tableContainer.querySelector('.overflow-x-auto'));
+        }
+      }
+    }
+  </script>
+</body>
+</html>

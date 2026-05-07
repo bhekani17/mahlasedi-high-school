@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+            success: '#10B981',
+            warning: '#F59E0B',
+            danger: '#EF4444',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .sidebar-link {
+      transition: all 0.3s ease;
+    }
+    .sidebar-link:hover {
+      background-color: rgba(77, 166, 214, 0.1);
+      border-left: 4px solid #4DA6D6;
+    }
+    .sidebar-link.active {
+      background-color: rgba(77, 166, 214, 0.2);
+      border-left: 4px solid #4DA6D6;
+    }
+    .table-row:hover {
+      background-color: rgba(77, 166, 214, 0.05);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="w-64 bg-primary text-white flex flex-col">
+      <!-- Logo -->
+      <div class="p-4 border-b border-blue-700">
+        <div class="flex items-center space-x-3">
+          <img src="../static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+          <div>
+            <h1 class="font-bold text-lg">M.H.S</h1>
+            <p class="text-xs text-blue-200">Admin Panel</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex-1 p-4">
+        <ul class="space-y-2">
+          <li>
+            <a href="index.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-tachometer-alt w-5 mr-3"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="students.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-graduation-cap w-5 mr-3"></i>
+              <span>Students</span>
+            </a>
+          </li>
+          <li>
+            <a href="teachers.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-users w-5 mr-3"></i>
+              <span>Teachers</span>
+            </a>
+          </li>
+          <li>
+            <a href="classes.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chalkboard w-5 mr-3"></i>
+              <span>Classes</span>
+            </a>
+          </li>
+          <li>
+            <a href="subjects.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-book w-5 mr-3"></i>
+              <span>Subjects</span>
+            </a>
+          </li>
+          <li>
+            <a href="admissions.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-user-plus w-5 mr-3"></i>
+              <span>Admissions</span>
+            </a>
+          </li>
+          <li>
+            <a href="fees.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-money-bill-wave w-5 mr-3"></i>
+              <span>Fees & Payments</span>
+            </a>
+          </li>
+          <li>
+            <a href="attendance.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-check w-5 mr-3"></i>
+              <span>Attendance</span>
+            </a>
+          </li>
+          <li>
+            <a href="grades.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chart-line w-5 mr-3"></i>
+              <span>Grades</span>
+            </a>
+          </li>
+          <li>
+            <a href="events.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-alt w-5 mr-3"></i>
+              <span>Events</span>
+            </a>
+          </li>
+          <li>
+            <a href="communications.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-envelope w-5 mr-3"></i>
+              <span>Communications</span>
+            </a>
+          </li>
+          <li>
+            <a href="reports.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-file-alt w-5 mr-3"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="settings.html" class="sidebar-link active flex items-center p-3 rounded-lg">
+              <i class="fas fa-cog w-5 mr-3"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- User Profile -->
+      <div class="p-4 border-t border-blue-700">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
+            <i class="fas fa-user text-white"></i>
+          </div>
+          <div class="flex-1">
+            <p class="font-semibold text-sm">Admin User</p>
+            <p class="text-xs text-blue-200">Administrator</p>
+          </div>
+          <button class="text-blue-200 hover:text-white">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow-sm border-b">
+        <div class="px-6 py-4 flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-800">Settings</h2>
+            <p class="text-gray-600">Configure system settings and preferences</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Settings Content -->
+      <main class="flex-1 p-6 overflow-y-auto">
+        <div class="max-w-4xl mx-auto">
+          <!-- General Settings -->
+          <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">General Settings</h3>
+            <div class="space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">School Name</label>
+                  <input type="text" value="Mahlasedi High School" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">School Code</label>
+                  <input type="text" value="MHS2024" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">Academic Year</label>
+                  <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2025">2025</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">Time Zone</label>
+                  <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                    <option value="Africa/Johannesburg">Africa/Johannesburg</option>
+                    <option value="UTC">UTC</option>
+                  </select>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-medium text-gray-700">School Address</label>
+                  <input type="text" value="181 Moritz Ave, Halfway House, Midrand, Gauteng" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-medium text-gray-700">Contact Email</label>
+                  <input type="email" value="info@mahlasedihighschool.co.za" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                </div>
+                <div class="md:col-span-2">
+                  <label class="block text-sm font-medium text-gray-700">Phone Number</label>
+                  <input type="tel" value="+27 11 402 0040" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic Settings -->
+          <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Academic Settings</h3>
+            <div class="space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">Grading Scale</label>
+                  <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                    <option value="percentage">Percentage (0-100%)</option>
+                    <option value="gpa">GPA (0-4.0)</option>
+                    <option value="letter">Letter Grades (A-F)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">Passing Grade</label>
+                  <input type="number" value="50" min="0" max="100" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">Maximum Class Size</label>
+                  <input type="number" value="35" min="1" max="50" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">School Days</label>
+                  <div class="mt-2 space-y-2">
+                    <label class="inline-flex items-center mr-4">
+                      <input type="checkbox" checked class="rounded border-gray-300 text-primary focus:ring-primary">
+                      <span class="ml-2 text-sm">Monday</span>
+                    </label>
+                    <label class="inline-flex items-center mr-4">
+                      <input type="checkbox" checked class="rounded border-gray-300 text-primary focus:ring-primary">
+                      <span class="ml-2 text-sm">Tuesday</span>
+                    </label>
+                    <label class="inline-flex items-center mr-4">
+                      <input type="checkbox" checked class="rounded border-gray-300 text-primary focus:ring-primary">
+                      <span class="ml-2 text-sm">Wednesday</span>
+                    </label>
+                    <label class="inline-flex items-center mr-4">
+                      <input type="checkbox" checked class="rounded border-gray-300 text-primary focus:ring-primary">
+                      <span class="ml-2 text-sm">Thursday</span>
+                    </label>
+                    <label class="inline-flex items-center mr-4">
+                      <input type="checkbox" checked class="rounded border-gray-300 text-primary focus:ring-primary">
+                      <span class="ml-2 text-sm">Friday</span>
+                    </label>
+                  </div>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">School Hours</label>
+                  <div class="mt-1 grid grid-cols-2 gap-2">
+                    <input type="time" value="08:00" class="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                    <input type="time" value="14:30" class="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notification Settings -->
+          <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Notification Settings</h3>
+            <div class="space-y-4">
+              <div class="space-y-3">
+                <label class="flex items-center">
+                  <input type="checkbox" checked class="rounded border-gray-300 text-primary focus:ring-primary">
+                  <span class="ml-3 text-sm">Send attendance alerts to parents</span>
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" checked class="rounded border-gray-300 text-primary focus:ring-primary">
+                  <span class="ml-3 text-sm">Send grade notifications</span>
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" checked class="rounded border-gray-300 text-primary focus:ring-primary">
+                  <span class="ml-3 text-sm">Send fee payment reminders</span>
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary">
+                  <span class="ml-3 text-sm">Send event notifications</span>
+                </label>
+                <label class="flex items-center">
+                  <input type="checkbox" checked class="rounded border-gray-300 text-primary focus:ring-primary">
+                  <span class="ml-3 text-sm">Send system maintenance alerts</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Security Settings -->
+          <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Security Settings</h3>
+            <div class="space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">Session Timeout (minutes)</label>
+                  <input type="number" value="30" min="5" max="120" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">Password Policy</label>
+                  <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                    <option value="strong">Strong (8+ chars, mixed)</option>
+                    <option value="medium">Medium (6+ chars)</option>
+                    <option value="basic">Basic (4+ chars)</option>
+                  </select>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="flex items-center">
+                    <input type="checkbox" checked class="rounded border-gray-300 text-primary focus:ring-primary">
+                    <span class="ml-3 text-sm">Enable two-factor authentication</span>
+                  </label>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="flex items-center">
+                    <input type="checkbox" checked class="rounded border-gray-300 text-primary focus:ring-primary">
+                    <span class="ml-3 text-sm">Log all admin activities</span>
+                  </label>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="flex items-center">
+                    <input type="checkbox" checked class="rounded border-gray-300 text-primary focus:ring-primary">
+                    <span class="ml-3 text-sm">Require email verification for password changes</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backup Settings -->
+          <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Backup Settings</h3>
+            <div class="space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">Backup Frequency</label>
+                  <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="manual">Manual Only</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">Backup Retention</label>
+                  <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                    <option value="30">30 days</option>
+                    <option value="90">90 days</option>
+                    <option value="180">180 days</option>
+                    <option value="365">1 year</option>
+                  </select>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="flex items-center">
+                    <input type="checkbox" checked class="rounded border-gray-300 text-primary focus:ring-primary">
+                    <span class="ml-3 text-sm">Automatic backup enabled</span>
+                  </label>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="flex items-center">
+                    <input type="checkbox" checked class="rounded border-gray-300 text-primary focus:ring-primary">
+                    <span class="ml-3 text-sm">Send backup notifications to admin</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email Settings -->
+          <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Email Settings</h3>
+            <div class="space-y-4">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">SMTP Server</label>
+                  <input type="text" placeholder="smtp.gmail.com" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">SMTP Port</label>
+                  <input type="number" value="587" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">SMTP Username</label>
+                  <input type="email" placeholder="noreply@mahlasedihighschool.co.za" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">SMTP Password</label>
+                  <input type="password" placeholder="•••••••••" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                </div>
+                <div class="md:col-span-2">
+                  <label class="flex items-center">
+                    <input type="checkbox" checked class="rounded border-gray-300 text-primary focus:ring-primary">
+                    <span class="ml-3 text-sm">Use SSL/TLS encryption</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Save Button -->
+          <div class="flex justify-end space-x-4">
+            <button class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition">
+              Cancel
+            </button>
+            <button onclick="saveSettings()" class="px-6 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">
+              <i class="fas fa-save mr-2"></i>Save Settings
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    function saveSettings() {
+      if(confirm('Are you sure you want to save these settings?')) {
+        alert('Settings saved successfully!');
+        // In a real application, this would save the settings to the backend
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admissions Management - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+            success: '#10B981',
+            warning: '#F59E0B',
+            danger: '#EF4444',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .sidebar-link {
+      transition: all 0.3s ease;
+    }
+    .sidebar-link:hover {
+      background-color: rgba(77, 166, 214, 0.1);
+      border-left: 4px solid #4DA6D6;
+    }
+    .sidebar-link.active {
+      background-color: rgba(77, 166, 214, 0.2);
+      border-left: 4px solid #4DA6D6;
+    }
+    .table-row:hover {
+      background-color: rgba(77, 166, 214, 0.05);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="w-64 bg-primary text-white flex flex-col">
+      <!-- Logo -->
+      <div class="p-4 border-b border-blue-700">
+        <div class="flex items-center space-x-3">
+          <img src="../static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+          <div>
+            <h1 class="font-bold text-lg">M.H.S</h1>
+            <p class="text-xs text-blue-200">Admin Panel</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex-1 p-4">
+        <ul class="space-y-2">
+          <li>
+            <a href="index.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-tachometer-alt w-5 mr-3"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="students.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-graduation-cap w-5 mr-3"></i>
+              <span>Students</span>
+            </a>
+          </li>
+          <li>
+            <a href="teachers.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-users w-5 mr-3"></i>
+              <span>Teachers</span>
+            </a>
+          </li>
+          <li>
+            <a href="classes.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chalkboard w-5 mr-3"></i>
+              <span>Classes</span>
+            </a>
+          </li>
+          <li>
+            <a href="subjects.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-book w-5 mr-3"></i>
+              <span>Subjects</span>
+            </a>
+          </li>
+          <li>
+            <a href="admissions.html" class="sidebar-link active flex items-center p-3 rounded-lg">
+              <i class="fas fa-user-plus w-5 mr-3"></i>
+              <span>Admissions</span>
+            </a>
+          </li>
+          <li>
+            <a href="fees.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-money-bill-wave w-5 mr-3"></i>
+              <span>Fees & Payments</span>
+            </a>
+          </li>
+          <li>
+            <a href="attendance.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-check w-5 mr-3"></i>
+              <span>Attendance</span>
+            </a>
+          </li>
+          <li>
+            <a href="grades.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chart-line w-5 mr-3"></i>
+              <span>Grades</span>
+            </a>
+          </li>
+          <li>
+            <a href="events.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-alt w-5 mr-3"></i>
+              <span>Events</span>
+            </a>
+          </li>
+          <li>
+            <a href="communications.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-envelope w-5 mr-3"></i>
+              <span>Communications</span>
+            </a>
+          </li>
+          <li>
+            <a href="reports.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-file-alt w-5 mr-3"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="settings.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-cog w-5 mr-3"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- User Profile -->
+      <div class="p-4 border-t border-blue-700">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
+            <i class="fas fa-user text-white"></i>
+          </div>
+          <div class="flex-1">
+            <p class="font-semibold text-sm">Admin User</p>
+            <p class="text-xs text-blue-200">Administrator</p>
+          </div>
+          <button class="text-blue-200 hover:text-white">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow-sm border-b">
+        <div class="px-6 py-4 flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-800">Admissions Management</h2>
+            <p class="text-gray-600">Manage student applications and enrollment</p>
+          </div>
+          <div class="flex items-center space-x-4">
+            <!-- New Application Button -->
+            <button onclick="openApplicationModal()" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+              <i class="fas fa-plus mr-2"></i>New Application
+            </button>
+            
+            <!-- Search -->
+            <div class="relative">
+              <input type="text" id="applicationSearch" placeholder="Search applications..." class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:border-secondary">
+              <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+            
+            <!-- Export -->
+            <button class="bg-success text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+              <i class="fas fa-download mr-2"></i>Export
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Stats Cards -->
+      <div class="p-6 grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm">Total Applications</p>
+              <p class="text-2xl font-bold text-gray-800">156</p>
+              <p class="text-xs text-success mt-1">
+                <i class="fas fa-arrow-up mr-1"></i>+12% this month
+              </p>
+            </div>
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-file-alt text-blue-600 text-xl"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm">Pending Review</p>
+              <p class="text-2xl font-bold text-gray-800">42</p>
+              <p class="text-xs text-warning mt-1">
+                <i class="fas fa-clock mr-1"></i>Awaiting review
+              </p>
+            </div>
+            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-hourglass-half text-yellow-600 text-xl"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm">Approved</p>
+              <p class="text-2xl font-bold text-gray-800">89</p>
+              <p class="text-xs text-success mt-1">
+                <i class="fas fa-check mr-1"></i>Ready for enrollment
+              </p>
+            </div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-check-circle text-green-600 text-xl"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm">Rejected</p>
+              <p class="text-2xl font-bold text-gray-800">25</p>
+              <p class="text-xs text-danger mt-1">
+                <i class="fas fa-times mr-1"></i>Not approved
+              </p>
+            </div>
+            <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-times-circle text-red-600 text-xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Applications Table -->
+      <main class="flex-1 px-6 pb-6 overflow-y-auto">
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <input type="checkbox" class="rounded">
+                  </th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Application ID</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student Name</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Grade Applied</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Applied Date</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Parent Contact</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Priority</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <!-- Application 1 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">APP001</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Emma Thompson</div>
+                    <div class="text-sm text-gray-500">emma.t@email.com</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 8</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-06-15</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">+27 11 234 5678</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">High</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewApplication('APP001')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="approveApplication('APP001')">
+                      <i class="fas fa-check"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="rejectApplication('APP001')">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Application 2 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">APP002</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">James Wilson</div>
+                    <div class="text-sm text-gray-500">james.w@email.com</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 10</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-06-14</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">+27 11 234 5679</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Approved</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Medium</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewApplication('APP002')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="enrollApplication('APP002')">
+                      <i class="fas fa-user-plus"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="deleteApplication('APP002')">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Application 3 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">APP003</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Sophia Martinez</div>
+                    <div class="text-sm text-gray-500">sophia.m@email.com</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 9</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-06-13</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">+27 11 234 5680</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Rejected</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">Low</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewApplication('APP003')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="reconsiderApplication('APP003')">
+                      <i class="fas fa-redo"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="deleteApplication('APP003')">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Application 4 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">APP004</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Oliver Brown</div>
+                    <div class="text-sm text-gray-500">oliver.b@email.com</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 7</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-06-12</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">+27 11 234 5681</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">High</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewApplication('APP004')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="approveApplication('APP004')">
+                      <i class="fas fa-check"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="rejectApplication('APP004')">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Application 5 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">APP005</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Isabella Davis</div>
+                    <div class="text-sm text-gray-500">isabella.d@email.com</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 11</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-06-11</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">+27 11 234 5682</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Approved</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Medium</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewApplication('APP005')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="enrollApplication('APP005')">
+                      <i class="fas fa-user-plus"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="deleteApplication('APP005')">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Pagination -->
+          <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+            <div class="flex-1 flex justify-between sm:hidden">
+              <button class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">Previous</button>
+              <button class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">Next</button>
+            </div>
+            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+              <div>
+                <p class="text-sm text-gray-700">
+                  Showing <span class="font-medium">1</span> to <span class="font-medium">5</span> of <span class="font-medium">156</span> results
+                </p>
+              </div>
+              <div>
+                <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                  <button class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <button class="bg-primary border-primary text-white relative inline-flex items-center px-4 py-2 border text-sm font-medium">1</button>
+                  <button class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">2</button>
+                  <button class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">3</button>
+                  <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">...</span>
+                  <button class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">32</button>
+                  <button class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Application Details Modal -->
+  <div id="applicationModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
+    <div class="relative top-10 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-2/3 shadow-lg rounded-md bg-white">
+      <div class="mt-3">
+        <h3 class="text-lg font-bold text-gray-900 mb-4" id="modalTitle">Application Details</h3>
+        <div class="space-y-4">
+          <!-- Student Information -->
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <h4 class="font-semibold text-gray-800 mb-3">Student Information</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm text-gray-600">Full Name</label>
+                <p class="font-medium">Emma Thompson</p>
+              </div>
+              <div>
+                <label class="text-sm text-gray-600">Date of Birth</label>
+                <p class="font-medium">2012-03-15</p>
+              </div>
+              <div>
+                <label class="text-sm text-gray-600">Gender</label>
+                <p class="font-medium">Female</p>
+              </div>
+              <div>
+                <label class="text-sm text-gray-600">Grade Applied</label>
+                <p class="font-medium">Grade 8</p>
+              </div>
+              <div>
+                <label class="text-sm text-gray-600">Previous School</label>
+                <p class="font-medium">Primary School Academy</p>
+              </div>
+              <div>
+                <label class="text-sm text-gray-600">Application Date</label>
+                <p class="font-medium">2024-06-15</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Parent Information -->
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <h4 class="font-semibold text-gray-800 mb-3">Parent/Guardian Information</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm text-gray-600">Parent Name</label>
+                <p class="font-medium">Sarah Thompson</p>
+              </div>
+              <div>
+                <label class="text-sm text-gray-600">Relationship</label>
+                <p class="font-medium">Mother</p>
+              </div>
+              <div>
+                <label class="text-sm text-gray-600">Contact Number</label>
+                <p class="font-medium">+27 11 234 5678</p>
+              </div>
+              <div>
+                <label class="text-sm text-gray-600">Email</label>
+                <p class="font-medium">sarah.t@email.com</p>
+              </div>
+              <div class="md:col-span-2">
+                <label class="text-sm text-gray-600">Address</label>
+                <p class="font-medium">123 Main Street, Johannesburg, Gauteng</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Academic Information -->
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <h4 class="font-semibold text-gray-800 mb-3">Academic Information</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm text-gray-600">Previous Grade Average</label>
+                <p class="font-medium">85%</p>
+              </div>
+              <div>
+                <label class="text-sm text-gray-600">Special Needs</label>
+                <p class="font-medium">None</p>
+              </div>
+              <div>
+                <label class="text-sm text-gray-600">Medical Conditions</label>
+                <p class="font-medium">None</p>
+              </div>
+              <div>
+                <label class="text-sm text-gray-600">Allergies</label>
+                <p class="font-medium">None</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Documents -->
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <h4 class="font-semibold text-gray-800 mb-3">Submitted Documents</h4>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between p-2 bg-white rounded">
+                <span class="text-sm">Birth Certificate</span>
+                <button class="text-primary text-sm hover:underline">View</button>
+              </div>
+              <div class="flex items-center justify-between p-2 bg-white rounded">
+                <span class="text-sm">Previous School Report</span>
+                <button class="text-primary text-sm hover:underline">View</button>
+              </div>
+              <div class="flex items-center justify-between p-2 bg-white rounded">
+                <span class="text-sm">Parent ID</span>
+                <button class="text-primary text-sm hover:underline">View</button>
+              </div>
+              <div class="flex items-center justify-between p-2 bg-white rounded">
+                <span class="text-sm">Medical Form</span>
+                <button class="text-primary text-sm hover:underline">View</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <h4 class="font-semibold text-gray-800 mb-3">Administrative Notes</h4>
+            <textarea rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md" placeholder="Add notes about this application..."></textarea>
+          </div>
+        </div>
+        
+        <div class="flex justify-end space-x-4 pt-4">
+          <button type="button" onclick="closeApplicationModal()" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition">Close</button>
+          <button type="button" onclick="printApplication()" class="px-4 py-2 bg-secondary text-white rounded-lg hover:bg-blue-600 transition">
+            <i class="fas fa-print mr-2"></i>Print
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Modal functions
+    function openApplicationModal() {
+      document.getElementById('modalTitle').textContent = 'New Application';
+      document.getElementById('applicationModal').classList.remove('hidden');
+    }
+
+    function closeApplicationModal() {
+      document.getElementById('applicationModal').classList.add('hidden');
+    }
+
+    function viewApplication(applicationId) {
+      document.getElementById('modalTitle').textContent = 'Application Details - ' + applicationId;
+      document.getElementById('applicationModal').classList.remove('hidden');
+    }
+
+    function approveApplication(applicationId) {
+      if(confirm('Are you sure you want to approve this application?')) {
+        alert('Application approved: ' + applicationId);
+      }
+    }
+
+    function rejectApplication(applicationId) {
+      if(confirm('Are you sure you want to reject this application?')) {
+        alert('Application rejected: ' + applicationId);
+      }
+    }
+
+    function enrollApplication(applicationId) {
+      if(confirm('Are you sure you want to enroll this student?')) {
+        alert('Student enrolled: ' + applicationId);
+      }
+    }
+
+    function reconsiderApplication(applicationId) {
+      if(confirm('Are you sure you want to reconsider this application?')) {
+        alert('Application reconsidered: ' + applicationId);
+      }
+    }
+
+    function deleteApplication(applicationId) {
+      if(confirm('Are you sure you want to delete this application?')) {
+        alert('Application deleted: ' + applicationId);
+      }
+    }
+
+    function printApplication() {
+      window.print();
+    }
+
+    // Search functionality
+    document.getElementById('applicationSearch').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const rows = document.querySelectorAll('tbody tr');
+      
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(searchTerm) ? '' : 'none';
+      });
+    });
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('applicationModal');
+      if (event.target == modal) {
+        closeApplicationModal();
+      }
+    }
+  </script>
+</body>
+</html>

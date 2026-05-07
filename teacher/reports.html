@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+            success: '#10B981',
+            warning: '#F59E0B',
+            danger: '#EF4444',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .sidebar-link {
+      transition: all 0.3s ease;
+    }
+    .sidebar-link:hover {
+      background-color: rgba(77, 166, 214, 0.1);
+      border-left: 4px solid #4DA6D6;
+    }
+    .sidebar-link.active {
+      background-color: rgba(77, 166, 214, 0.2);
+      border-left: 4px solid #4DA6D6;
+    }
+    .report-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .report-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="w-64 bg-primary text-white flex flex-col">
+      <!-- Logo -->
+      <div class="p-4 border-b border-blue-700">
+        <div class="flex items-center space-x-3">
+          <img src="../static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+          <div>
+            <h1 class="font-bold text-lg">M.H.S</h1>
+            <p class="text-xs text-blue-200">Teacher Portal</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex-1 p-4">
+        <ul class="space-y-2">
+          <li>
+            <a href="index.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-tachometer-alt w-5 mr-3"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="classes.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chalkboard w-5 mr-3"></i>
+              <span>My Classes</span>
+            </a>
+          </li>
+          <li>
+            <a href="students.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-graduation-cap w-5 mr-3"></i>
+              <span>Students</span>
+            </a>
+          </li>
+          <li>
+            <a href="grades.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chart-line w-5 mr-3"></i>
+              <span>Grades</span>
+            </a>
+          </li>
+          <li>
+            <a href="attendance.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-check w-5 mr-3"></i>
+              <span>Attendance</span>
+            </a>
+          </li>
+          <li>
+            <a href="assignments.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-tasks w-5 mr-3"></i>
+              <span>Assignments</span>
+            </a>
+          </li>
+          <li>
+            <a href="schedule.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-alt w-5 mr-3"></i>
+              <span>Schedule</span>
+            </a>
+          </li>
+          <li>
+            <a href="communications.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-envelope w-5 mr-3"></i>
+              <span>Communications</span>
+            </a>
+          </li>
+          <li>
+            <a href="resources.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-book-open w-5 mr-3"></i>
+              <span>Resources</span>
+            </a>
+          </li>
+          <li>
+            <a href="reports.html" class="sidebar-link active flex items-center p-3 rounded-lg">
+              <i class="fas fa-file-alt w-5 mr-3"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="profile.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-user w-5 mr-3"></i>
+              <span>My Profile</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- User Profile -->
+      <div class="p-4 border-t border-blue-700">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
+            <i class="fas fa-user-tie text-white"></i>
+          </div>
+          <div class="flex-1">
+            <p class="font-semibold text-sm">Dr. Sarah Johnson</p>
+            <p class="text-xs text-blue-200">Mathematics Teacher</p>
+          </div>
+          <button class="text-blue-200 hover:text-white">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow-sm border-b">
+        <div class="px-6 py-4 flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-800">Reports</h2>
+            <p class="text-gray-600">Generate and view class and student reports</p>
+          </div>
+          <div class="flex items-center space-x-4">
+            <!-- Generate Report Button -->
+            <button onclick="openReportModal()" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+              <i class="fas fa-plus mr-2"></i>Generate Report
+            </button>
+            
+            <!-- Export All -->
+            <button class="bg-success text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+              <i class="fas fa-download mr-2"></i>Export All
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Reports Content -->
+      <main class="flex-1 p-6 overflow-y-auto">
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+          <div class="bg-white rounded-lg shadow p-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-600 text-sm">Reports Generated</p>
+                <p class="text-2xl font-bold text-gray-800">28</p>
+                <p class="text-xs text-gray-500 mt-1">This month</p>
+              </div>
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-file-alt text-blue-600 text-xl"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow p-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-600 text-sm">Class Average</p>
+                <p class="text-2xl font-bold text-gray-800">87.3%</p>
+                <p class="text-xs text-success mt-1">+2.1% from last month</p>
+              </div>
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-chart-line text-green-600 text-xl"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow p-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-600 text-sm">Attendance Rate</p>
+                <p class="text-2xl font-bold text-gray-800">92.1%</p>
+                <p class="text-xs text-gray-500 mt-1">This week</p>
+              </div>
+              <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-calendar-check text-yellow-600 text-xl"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow p-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-600 text-sm">Pending Reports</p>
+                <p class="text-2xl font-bold text-gray-800">3</p>
+                <p class="text-xs text-warning mt-1">Need attention</p>
+              </div>
+              <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-clock text-red-600 text-xl"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Report Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+          <div class="report-card bg-white rounded-lg shadow p-6 cursor-pointer" onclick="generateCategoryReport('academic')">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-graduation-cap text-blue-600 text-xl"></i>
+              </div>
+              <span class="text-2xl font-bold text-gray-800">12</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-800">Academic Reports</h3>
+            <p class="text-sm text-gray-600 mt-2">Student performance and grades</p>
+            <div class="mt-4 flex space-x-2">
+              <button class="text-primary hover:text-blue-800 text-sm">Generate</button>
+              <span class="text-gray-400">•</span>
+              <button class="text-primary hover:text-blue-800 text-sm">View All</button>
+            </div>
+          </div>
+          
+          <div class="report-card bg-white rounded-lg shadow p-6 cursor-pointer" onclick="generateCategoryReport('attendance')">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-calendar-check text-green-600 text-xl"></i>
+              </div>
+              <span class="text-2xl font-bold text-gray-800">8</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-800">Attendance Reports</h3>
+            <p class="text-sm text-gray-600 mt-2">Student attendance tracking</p>
+            <div class="mt-4 flex space-x-2">
+              <button class="text-primary hover:text-blue-800 text-sm">Generate</button>
+              <span class="text-gray-400">•</span>
+              <button class="text-primary hover:text-blue-800 text-sm">View All</button>
+            </div>
+          </div>
+          
+          <div class="report-card bg-white rounded-lg shadow p-6 cursor-pointer" onclick="generateCategoryReport('progress')">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-chart-line text-yellow-600 text-xl"></i>
+              </div>
+              <span class="text-2xl font-bold text-gray-800">6</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-800">Progress Reports</h3>
+            <p class="text-sm text-gray-600 mt-2">Student progress over time</p>
+            <div class="mt-4 flex space-x-2">
+              <button class="text-primary hover:text-blue-800 text-sm">Generate</button>
+              <span class="text-gray-400">•</span>
+              <button class="text-primary hover:text-blue-800 text-sm">View All</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Reports -->
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="px-6 py-4 border-b border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-800">Recent Reports</h3>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Report Name</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Class</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Generated</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <!-- Report 1 -->
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Grade 10A Mid-term Report</div>
+                    <div class="text-sm text-gray-500">Academic performance summary</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Academic</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 10A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-07-18</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Ready</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewReport('RPT001')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="downloadReport('RPT001')">
+                      <i class="fas fa-download"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="shareReport('RPT001')">
+                      <i class="fas fa-share"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="deleteReport('RPT001')">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Report 2 -->
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">June Attendance Summary</div>
+                    <div class="text-sm text-gray-500">Monthly attendance statistics</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Attendance</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">All Classes</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-07-15</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Ready</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewReport('RPT002')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="downloadReport('RPT002')">
+                      <i class="fas fa-download"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="shareReport('RPT002')">
+                      <i class="fas fa-share"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="deleteReport('RPT002')">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Report 3 -->
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Student Progress Report</div>
+                    <div class="text-sm text-gray-500">Individual student tracking</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Progress</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 11A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-07-14</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Processing</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewReport('RPT003')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="downloadReport('RPT003')">
+                      <i class="fas fa-download"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="shareReport('RPT003')">
+                      <i class="fas fa-share"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="deleteReport('RPT003')">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Report 4 -->
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Assignment Completion Report</div>
+                    <div class="text-sm text-gray-500">Homework and project tracking</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Academic</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 12A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-07-13</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Ready</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewReport('RPT004')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="downloadReport('RPT004')">
+                      <i class="fas fa-download"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="shareReport('RPT004')">
+                      <i class="fas fa-share"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="deleteReport('RPT004')">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Report 5 -->
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Class Performance Analysis</div>
+                    <div class="text-sm text-gray-500">Comparative class analysis</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Academic</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">All Classes</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-07-12</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Ready</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewReport('RPT005')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="downloadReport('RPT005')">
+                      <i class="fas fa-download"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="shareReport('RPT005')">
+                      <i class="fas fa-share"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="deleteReport('RPT005')">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Report 6 -->
+                <tr class="hover:bg-gray-50">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Parent Communication Report</div>
+                    <div class="text-sm text-gray-500">Communication tracking summary</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Administrative</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">All Classes</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-07-10</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Ready</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewReport('RPT006')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="downloadReport('RPT006')">
+                      <i class="fas fa-download"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="shareReport('RPT006')">
+                      <i class="fas fa-share"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="deleteReport('RPT006')">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Generate Report Modal -->
+  <div id="reportModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
+    <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
+      <div class="mt-3">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">Generate Report</h3>
+        <form class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Report Type</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="">Select Report Type</option>
+                <option value="academic">Academic Performance</option>
+                <option value="attendance">Attendance Report</option>
+                <option value="progress">Progress Report</option>
+                <option value="assignment">Assignment Completion</option>
+                <option value="communication">Communication Summary</option>
+                <option value="behavior">Behavior Report</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Class</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="">Select Class</option>
+                <option value="10A">Grade 10A</option>
+                <option value="11A">Grade 11A</option>
+                <option value="12A">Grade 12A</option>
+                <option value="all">All Classes</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Period</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="">Select Period</option>
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="term">Term</option>
+                <option value="yearly">Yearly</option>
+                <option value="custom">Custom Range</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Format</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="pdf">PDF</option>
+                <option value="excel">Excel</option>
+                <option value="csv">CSV</option>
+                <option value="word">Word</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Start Date</label>
+              <input type="date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">End Date</label>
+              <input type="date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div class="md:col-span-2">
+              <label class="block text-sm font-medium text-gray-700">Additional Filters</label>
+              <textarea rows="2" placeholder="Specify any additional filters or criteria..." class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"></textarea>
+            </div>
+            <div class="md:col-span-2 space-y-2">
+              <label class="flex items-center">
+                <input type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary">
+                <span class="ml-2 text-sm text-gray-700">Include individual student details</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary">
+                <span class="ml-2 text-sm text-gray-700">Include charts and graphs</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary">
+                <span class="ml-2 text-sm text-gray-700">Email report when ready</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="flex justify-end space-x-4 pt-4">
+            <button type="button" onclick="closeReportModal()" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition">Cancel</button>
+            <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Generate Report</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Modal functions
+    function openReportModal() {
+      document.getElementById('reportModal').classList.remove('hidden');
+    }
+
+    function closeReportModal() {
+      document.getElementById('reportModal').classList.add('hidden');
+    }
+
+    function generateCategoryReport(category) {
+      alert('Generating ' + category + ' report...');
+      document.getElementById('reportModal').classList.remove('hidden');
+    }
+
+    function viewReport(reportId) {
+      alert('Viewing report: ' + reportId);
+    }
+
+    function downloadReport(reportId) {
+      alert('Downloading report: ' + reportId);
+    }
+
+    function shareReport(reportId) {
+      alert('Sharing report: ' + reportId);
+    }
+
+    function deleteReport(reportId) {
+      if(confirm('Delete this report?')) {
+        alert('Report deleted: ' + reportId);
+      }
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('reportModal');
+      if (event.target == modal) {
+        closeReportModal();
+      }
+    }
+  </script>
+</body>
+</html>

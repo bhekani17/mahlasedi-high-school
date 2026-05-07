@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+            success: '#10B981',
+            warning: '#F59E0B',
+            danger: '#EF4444',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .sidebar-link {
+      transition: all 0.3s ease;
+    }
+    .sidebar-link:hover {
+      background-color: rgba(77, 166, 214, 0.1);
+      border-left: 4px solid #4DA6D6;
+    }
+    .sidebar-link.active {
+      background-color: rgba(77, 166, 214, 0.2);
+      border-left: 4px solid #4DA6D6;
+    }
+    .resource-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .resource-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="w-64 bg-primary text-white flex flex-col">
+      <!-- Logo -->
+      <div class="p-4 border-b border-blue-700">
+        <div class="flex items-center space-x-3">
+          <img src="../static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+          <div>
+            <h1 class="font-bold text-lg">M.H.S</h1>
+            <p class="text-xs text-blue-200">Teacher Portal</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex-1 p-4">
+        <ul class="space-y-2">
+          <li>
+            <a href="index.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-tachometer-alt w-5 mr-3"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="classes.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chalkboard w-5 mr-3"></i>
+              <span>My Classes</span>
+            </a>
+          </li>
+          <li>
+            <a href="students.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-graduation-cap w-5 mr-3"></i>
+              <span>Students</span>
+            </a>
+          </li>
+          <li>
+            <a href="grades.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chart-line w-5 mr-3"></i>
+              <span>Grades</span>
+            </a>
+          </li>
+          <li>
+            <a href="attendance.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-check w-5 mr-3"></i>
+              <span>Attendance</span>
+            </a>
+          </li>
+          <li>
+            <a href="assignments.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-tasks w-5 mr-3"></i>
+              <span>Assignments</span>
+            </a>
+          </li>
+          <li>
+            <a href="schedule.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-alt w-5 mr-3"></i>
+              <span>Schedule</span>
+            </a>
+          </li>
+          <li>
+            <a href="communications.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-envelope w-5 mr-3"></i>
+              <span>Communications</span>
+            </a>
+          </li>
+          <li>
+            <a href="resources.html" class="sidebar-link active flex items-center p-3 rounded-lg">
+              <i class="fas fa-book-open w-5 mr-3"></i>
+              <span>Resources</span>
+            </a>
+          </li>
+          <li>
+            <a href="reports.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-file-alt w-5 mr-3"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="profile.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-user w-5 mr-3"></i>
+              <span>My Profile</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- User Profile -->
+      <div class="p-4 border-t border-blue-700">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
+            <i class="fas fa-user-tie text-white"></i>
+          </div>
+          <div class="flex-1">
+            <p class="font-semibold text-sm">Dr. Sarah Johnson</p>
+            <p class="text-xs text-blue-200">Mathematics Teacher</p>
+          </div>
+          <button class="text-blue-200 hover:text-white">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow-sm border-b">
+        <div class="px-6 py-4 flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-800">Teaching Resources</h2>
+            <p class="text-gray-600">Access and manage your teaching materials</p>
+          </div>
+          <div class="flex items-center space-x-4">
+            <!-- Upload Resource Button -->
+            <button onclick="openUploadModal()" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+              <i class="fas fa-upload mr-2"></i>Upload Resource
+            </button>
+            
+            <!-- Category Filter -->
+            <select class="px-4 py-2 border rounded-lg focus:outline-none focus:border-secondary">
+              <option value="all">All Categories</option>
+              <option value="lesson_plans">Lesson Plans</option>
+              <option value="worksheets">Worksheets</option>
+              <option value="presentations">Presentations</option>
+              <option value="videos">Videos</option>
+              <option value="documents">Documents</option>
+            </select>
+            
+            <!-- Search -->
+            <div class="relative">
+              <input type="text" id="resourceSearch" placeholder="Search resources..." class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:border-secondary">
+              <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Resources Content -->
+      <main class="flex-1 p-6 overflow-y-auto">
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
+          <div class="bg-white rounded-lg shadow p-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-600 text-sm">Total Resources</p>
+                <p class="text-2xl font-bold text-gray-800">124</p>
+                <p class="text-xs text-gray-500 mt-1">In your library</p>
+              </div>
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-folder text-blue-600 text-xl"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow p-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-600 text-sm">Lesson Plans</p>
+                <p class="text-2xl font-bold text-gray-800">45</p>
+                <p class="text-xs text-gray-500 mt-1">Ready to use</p>
+              </div>
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-chalkboard-teacher text-green-600 text-xl"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow p-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-600 text-sm">Worksheets</p>
+                <p class="text-2xl font-bold text-gray-800">38</p>
+                <p class="text-xs text-gray-500 mt-1">Printable</p>
+              </div>
+              <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-file-alt text-yellow-600 text-xl"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow p-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-600 text-sm">Shared</p>
+                <p class="text-2xl font-bold text-gray-800">12</p>
+                <p class="text-xs text-gray-500 mt-1">With colleagues</p>
+              </div>
+              <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-share-alt text-purple-600 text-xl"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resource Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+          <div class="resource-card bg-white rounded-lg shadow p-6 cursor-pointer" onclick="filterByCategory('lesson_plans')">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-chalkboard-teacher text-blue-600 text-xl"></i>
+              </div>
+              <span class="text-2xl font-bold text-gray-800">45</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-800">Lesson Plans</h3>
+            <p class="text-sm text-gray-600 mt-2">Structured teaching materials</p>
+          </div>
+          
+          <div class="resource-card bg-white rounded-lg shadow p-6 cursor-pointer" onclick="filterByCategory('worksheets')">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-file-alt text-green-600 text-xl"></i>
+              </div>
+              <span class="text-2xl font-bold text-gray-800">38</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-800">Worksheets</h3>
+            <p class="text-sm text-gray-600 mt-2">Practice exercises and activities</p>
+          </div>
+          
+          <div class="resource-card bg-white rounded-lg shadow p-6 cursor-pointer" onclick="filterByCategory('presentations')">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-presentation text-yellow-600 text-xl"></i>
+              </div>
+              <span class="text-2xl font-bold text-gray-800">22</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-800">Presentations</h3>
+            <p class="text-sm text-gray-600 mt-2">Slide decks and visual aids</p>
+          </div>
+          
+          <div class="resource-card bg-white rounded-lg shadow p-6 cursor-pointer" onclick="filterByCategory('videos')">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-video text-red-600 text-xl"></i>
+              </div>
+              <span class="text-2xl font-bold text-gray-800">19</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-800">Videos</h3>
+            <p class="text-sm text-gray-600 mt-2">Educational videos and tutorials</p>
+          </div>
+        </div>
+
+        <!-- Recent Resources -->
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="px-6 py-4 border-b border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-800">Recent Resources</h3>
+          </div>
+          <div class="p-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              <!-- Resource 1 -->
+              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-lg transition">
+                <div class="flex items-start justify-between mb-3">
+                  <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-file-word text-blue-600"></i>
+                  </div>
+                  <span class="text-xs text-gray-500">2 days ago</span>
+                </div>
+                <h4 class="font-semibold text-gray-800 mb-2">Algebraic Equations Lesson Plan</h4>
+                <p class="text-sm text-gray-600 mb-3">Comprehensive lesson plan for Grade 10 algebra</p>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs text-gray-500">DOCX • 2.4 MB</span>
+                  <div class="flex space-x-2">
+                    <button class="text-primary hover:text-blue-800" onclick="downloadResource('RES001')">
+                      <i class="fas fa-download"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800" onclick="shareResource('RES001')">
+                      <i class="fas fa-share"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Resource 2 -->
+              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-lg transition">
+                <div class="flex items-start justify-between mb-3">
+                  <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-file-pdf text-green-600"></i>
+                  </div>
+                  <span class="text-xs text-gray-500">3 days ago</span>
+                </div>
+                <h4 class="font-semibold text-gray-800 mb-2">Trigonometry Worksheet Set</h4>
+                <p class="text-sm text-gray-600 mb-3">Practice problems for Grade 11 trigonometry</p>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs text-gray-500">PDF • 1.8 MB</span>
+                  <div class="flex space-x-2">
+                    <button class="text-primary hover:text-blue-800" onclick="downloadResource('RES002')">
+                      <i class="fas fa-download"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800" onclick="shareResource('RES002')">
+                      <i class="fas fa-share"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Resource 3 -->
+              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-lg transition">
+                <div class="flex items-start justify-between mb-3">
+                  <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-file-powerpoint text-yellow-600"></i>
+                  </div>
+                  <span class="text-xs text-gray-500">1 week ago</span>
+                </div>
+                <h4 class="font-semibold text-gray-800 mb-2">Calculus Introduction</h4>
+                <p class="text-sm text-gray-600 mb-3">Presentation for Grade 12 calculus basics</p>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs text-gray-500">PPTX • 5.2 MB</span>
+                  <div class="flex space-x-2">
+                    <button class="text-primary hover:text-blue-800" onclick="downloadResource('RES003')">
+                      <i class="fas fa-download"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800" onclick="shareResource('RES003')">
+                      <i class="fas fa-share"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Resource 4 -->
+              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-lg transition">
+                <div class="flex items-start justify-between mb-3">
+                  <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-file-video text-red-600"></i>
+                  </div>
+                  <span class="text-xs text-gray-500">2 weeks ago</span>
+                </div>
+                <h4 class="font-semibold text-gray-800 mb-2">Math Tutorial Video</h4>
+                <p class="text-sm text-gray-600 mb-3">Step-by-step algebra problem solving</p>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs text-gray-500">MP4 • 45 MB</span>
+                  <div class="flex space-x-2">
+                    <button class="text-primary hover:text-blue-800" onclick="downloadResource('RES004')">
+                      <i class="fas fa-download"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800" onclick="shareResource('RES004')">
+                      <i class="fas fa-share"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Resource 5 -->
+              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-lg transition">
+                <div class="flex items-start justify-between mb-3">
+                  <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-file-excel text-purple-600"></i>
+                  </div>
+                  <span class="text-xs text-gray-500">3 weeks ago</span>
+                </div>
+                <h4 class="font-semibold text-gray-800 mb-2">Grade Tracking Sheet</h4>
+                <p class="text-sm text-gray-600 mb-3">Excel template for student grade tracking</p>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs text-gray-500">XLSX • 0.8 MB</span>
+                  <div class="flex space-x-2">
+                    <button class="text-primary hover:text-blue-800" onclick="downloadResource('RES005')">
+                      <i class="fas fa-download"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800" onclick="shareResource('RES005')">
+                      <i class="fas fa-share"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Resource 6 -->
+              <div class="border border-gray-200 rounded-lg p-4 hover:shadow-lg transition">
+                <div class="flex items-start justify-between mb-3">
+                  <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-file-image text-indigo-600"></i>
+                  </div>
+                  <span class="text-xs text-gray-500">1 month ago</span>
+                </div>
+                <h4 class="font-semibold text-gray-800 mb-2">Geometry Diagrams</h4>
+                <p class="text-sm text-gray-600 mb-3">Visual aids for geometry lessons</p>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs text-gray-500">PNG • 12 MB</span>
+                  <div class="flex space-x-2">
+                    <button class="text-primary hover:text-blue-800" onclick="downloadResource('RES006')">
+                      <i class="fas fa-download"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800" onclick="shareResource('RES006')">
+                      <i class="fas fa-share"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Upload Resource Modal -->
+  <div id="uploadModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
+    <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
+      <div class="mt-3">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">Upload Resource</h3>
+        <form class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Resource Title</label>
+            <input type="text" placeholder="Enter resource title" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Category</label>
+            <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+              <option value="">Select Category</option>
+              <option value="lesson_plans">Lesson Plans</option>
+              <option value="worksheets">Worksheets</option>
+              <option value="presentations">Presentations</option>
+              <option value="videos">Videos</option>
+              <option value="documents">Documents</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Description</label>
+            <textarea rows="3" placeholder="Brief description of the resource..." class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"></textarea>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700">Grade Level</label>
+            <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+              <option value="">Select Grade</option>
+              <option value="10">Grade 10</option>
+              <option value="11">Grade 11</option>
+              <option value="12">Grade 12</option>
+              <option value="all">All Grades</option>
+            </select>
+          </div>
+          
+          <div>
+            <label class="block text-sm font-medium text-gray-700">File Upload</label>
+            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md hover:border-gray-400">
+              <div class="space-y-1 text-center">
+                <i class="fas fa-cloud-upload-alt text-gray-400 text-3xl"></i>
+                <div class="flex text-sm text-gray-600">
+                  <label class="relative cursor-pointer bg-white rounded-md font-medium text-primary hover:text-blue-800 focus-within:outline-none">
+                    <span>Upload file</span>
+                    <input type="file" class="sr-only">
+                  </label>
+                  <p class="pl-1">or drag and drop</p>
+                </div>
+                <p class="text-xs text-gray-500">PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX up to 50MB</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="space-y-2">
+            <label class="flex items-center">
+              <input type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary">
+              <span class="ml-2 text-sm text-gray-700">Share with other teachers</span>
+            </label>
+            <label class="flex items-center">
+              <input type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary">
+              <span class="ml-2 text-sm text-gray-700">Make available to students</span>
+            </label>
+          </div>
+          
+          <div class="flex justify-end space-x-4 pt-4">
+            <button type="button" onclick="closeUploadModal()" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition">Cancel</button>
+            <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Upload Resource</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Modal functions
+    function openUploadModal() {
+      document.getElementById('uploadModal').classList.remove('hidden');
+    }
+
+    function closeUploadModal() {
+      document.getElementById('uploadModal').classList.add('hidden');
+    }
+
+    function filterByCategory(category) {
+      alert('Filtering by category: ' + category);
+      // In a real application, this would filter the resources
+    }
+
+    function downloadResource(resourceId) {
+      alert('Downloading resource: ' + resourceId);
+      // In a real application, this would download the file
+    }
+
+    function shareResource(resourceId) {
+      alert('Sharing resource: ' + resourceId);
+      // In a real application, this would open sharing options
+    }
+
+    // Search functionality
+    document.getElementById('resourceSearch').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      // In a real application, this would filter the resources
+      console.log('Searching for:', searchTerm);
+    });
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('uploadModal');
+      if (event.target == modal) {
+        closeUploadModal();
+      }
+    }
+  </script>
+</body>
+</html>

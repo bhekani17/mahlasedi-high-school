@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News & Announcements - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="static/css/styles.css" />
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- NAVBAR -->
+  <nav class="navbar bg-primary shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="/" class="flex items-center space-x-2 text-white font-bold text-lg">
+            <img src="static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+            <span>M.H.S</span>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-white hover:text-secondary font-semibold">Home</a>
+          <a href="about.html" class="text-white hover:text-secondary font-semibold">About</a>
+          <!-- School Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              School
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="primary-school.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-child mr-2"></i>Primary School
+              </a>
+              <a href="secondary-school.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-graduation-cap mr-2"></i>Secondary School
+              </a>
+            </div>
+          </div>
+          
+          <!-- Academics Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              Academics
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="academics.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-book mr-2"></i>Academic Programs
+              </a>
+              <a href="staff.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-users mr-2"></i>Staff & Faculty
+              </a>
+              <a href="policies.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-file-alt mr-2"></i>School Policies
+              </a>
+            </div>
+          </div>
+          
+          <!-- Resources Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              Resources
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="gallery.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-images mr-2"></i>Gallery
+              </a>
+              <a href="uniform-store.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-tshirt mr-2"></i>Uniform Store
+              </a>
+              <a href="downloads.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-download mr-2"></i>Downloads
+              </a>
+            </div>
+          </div>
+          
+          <!-- Community Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              Community
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="news.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-newspaper mr-2"></i>News & Updates
+              </a>
+              <a href="events.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-calendar-alt mr-2"></i>Events
+              </a>
+              <a href="contact.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-envelope mr-2"></i>Contact Us
+              </a>
+            </div>
+          </div>
+          <a href="admissions.html" class="bg-secondary text-white px-4 py-2 rounded font-semibold hover:bg-blue-600">Apply Now</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-white hover:text-secondary">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-primary">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="index.html" class="block text-white hover:text-secondary px-3 py-2">Home</a>
+        <a href="about.html" class="block text-white hover:text-secondary px-3 py-2">About</a>
+        
+        <!-- Mobile School Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            School
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="primary-school.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-child mr-2"></i>Primary School
+            </a>
+            <a href="secondary-school.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-graduation-cap mr-2"></i>Secondary School
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Academics Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            Academics
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="academics.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-book mr-2"></i>Academic Programs
+            </a>
+            <a href="staff.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-users mr-2"></i>Staff & Faculty
+            </a>
+            <a href="policies.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-file-alt mr-2"></i>School Policies
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Resources Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            Resources
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="gallery.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-images mr-2"></i>Gallery
+            </a>
+            <a href="uniform-store.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-tshirt mr-2"></i>Uniform Store
+            </a>
+            <a href="downloads.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-download mr-2"></i>Downloads
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Community Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            Community
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="news.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-newspaper mr-2"></i>News & Updates
+            </a>
+            <a href="events.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-calendar-alt mr-2"></i>Events
+            </a>
+            <a href="contact.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-envelope mr-2"></i>Contact Us
+            </a>
+          </div>
+        </div>
+        
+        <a href="admissions.html" class="block bg-secondary text-white px-3 py-2 rounded mt-2">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- PAGE HEADER -->
+    <section class="bg-primary text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 fade-in">News & Announcements</h1>
+        <p class="text-xl opacity-90 fade-in" style="animation-delay: 0.2s">Stay updated with the latest news, events, and announcements from Mahlasedi High School.</p>
+      </div>
+    </section>
+
+    <!-- NEWS GRID -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="news-grid">
+          <!-- News items will be loaded here dynamically -->
+          
+          <!-- Sample News Item 1 -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden hover-lift fade-in">
+            <div class="bg-secondary h-48 flex items-center justify-center">
+              <i class="fas fa-newspaper text-white text-6xl"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <span class="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">Academic</span>
+                <span class="text-gray-500 text-sm ml-auto">April 28, 2026</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Term 2 Parent Meeting</h3>
+              <p class="text-gray-600 mb-4">Parents and guardians are invited to attend the Term 2 progress meeting in the school hall on Friday at 14:30.</p>
+              <a href="#" class="text-primary font-semibold hover:underline">Read More →</a>
+            </div>
+          </div>
+
+          <!-- Sample News Item 2 -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden hover-lift fade-in" style="animation-delay: 0.1s">
+            <div class="bg-secondary h-48 flex items-center justify-center">
+              <i class="fas fa-calendar-alt text-white text-6xl"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <span class="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">Examination</span>
+                <span class="text-gray-500 text-sm ml-auto">April 20, 2026</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Mid-Year Exam Timetable Released</h3>
+              <p class="text-gray-600 mb-4">The mid-year examination timetable for Grades 8 to 12 is now available. Learners should collect printed copies from class teachers.</p>
+              <a href="#" class="text-primary font-semibold hover:underline">Read More →</a>
+            </div>
+          </div>
+
+          <!-- Sample News Item 3 -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden hover-lift fade-in" style="animation-delay: 0.2s">
+            <div class="bg-secondary h-48 flex items-center justify-center">
+              <i class="fas fa-graduation-cap text-white text-6xl"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <span class="bg-primary text-white px-3 py-1 rounded-full text-sm font-semibold">Matric</span>
+                <span class="text-gray-500 text-sm ml-auto">April 12, 2026</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Matric Study Camp Registration</h3>
+              <p class="text-gray-600 mb-4">Grade 12 learners can register for the June study camp by submitting consent forms to the academic office before 20 May.</p>
+              <a href="#" class="text-primary font-semibold hover:underline">Read More →</a>
+            </div>
+          </div>
+
+          <!-- Sample News Item 4 -->
+          <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+            <div class="bg-secondary h-48 flex items-center justify-center">
+              <i class="fas fa-users text-6xl text-white"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <i class="far fa-calendar mr-2"></i>
+                <span>March 30, 2026</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Parent-Teacher Meeting Schedule</h3>
+              <p class="text-gray-600 mb-4">
+                Term 2 parent-teacher meetings will be held in May. Please check your email for your scheduled appointment time.
+              </p>
+              <a href="#" class="text-primary font-semibold hover:text-secondary">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+          </article>
+
+          <!-- Sample News Item 5 -->
+          <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+            <div class="bg-primary h-48 flex items-center justify-center">
+              <i class="fas fa-shield-alt text-6xl text-white"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <i class="far fa-calendar mr-2"></i>
+                <span>March 20, 2026</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Enhanced Safety Measures</h3>
+              <p class="text-gray-600 mb-4">
+                We have implemented additional security measures to ensure the safety and well-being of all our learners and staff.
+              </p>
+              <a href="#" class="text-primary font-semibold hover:text-secondary">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+          </article>
+
+          <!-- Sample News Item 6 -->
+          <article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+            <div class="bg-accent h-48 flex items-center justify-center">
+              <i class="fas fa-laptop text-6xl text-white"></i>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <i class="far fa-calendar mr-2"></i>
+                <span>March 10, 2026</span>
+              </div>
+              <h3 class="text-xl font-bold mb-3">Digital Learning Platform Launch</h3>
+              <p class="text-gray-600 mb-4">
+                Access homework, assignments, and study materials through our new online learning platform. Login details sent via email.
+              </p>
+              <a href="#" class="text-primary font-semibold hover:text-secondary">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPORTANT NOTICES -->
+    <section class="py-16 bg-gray-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-8">Important Notices</h2>
+        <div class="space-y-4">
+          <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+            <div class="flex items-start">
+              <i class="fas fa-exclamation-triangle text-yellow-600 text-xl mr-3 mt-1"></i>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">School Fees Payment Reminder</h3>
+                <p class="text-gray-700 text-sm">Term 2 school fees are due by the end of this month. Please ensure timely payment to avoid any disruptions.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
+            <div class="flex items-start">
+              <i class="fas fa-info-circle text-blue-600 text-xl mr-3 mt-1"></i>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">Uniform Policy Update</h3>
+                <p class="text-gray-700 text-sm">All learners must be in full school uniform daily. Sports uniform is only permitted on designated sports days.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded">
+            <div class="flex items-start">
+              <i class="fas fa-check-circle text-green-600 text-xl mr-3 mt-1"></i>
+              <div>
+                <h3 class="font-bold text-gray-900 mb-1">Extended Library Hours</h3>
+                <p class="text-gray-700 text-sm">The library will now be open until 16:00 on weekdays to provide additional study time for learners.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER SIGNUP -->
+    <section class="py-16 bg-secondary text-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <i class="fas fa-envelope text-5xl mb-6"></i>
+        <h2 class="text-3xl font-bold mb-4">Stay Informed</h2>
+        <p class="text-xl mb-8 opacity-90">Subscribe to our newsletter to receive the latest news and updates directly to your inbox.</p>
+        <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <input type="email" placeholder="Enter your email address" class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary" required>
+          <button type="submit" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <img src="static/images/logo.png" alt="Mahlasedi Logo" class="h-12 w-auto mr-3">
+            <h3 class="font-bold text-lg">Mahlasedi High School</h3>
+          </div>
+          <p class="text-gray-300 text-sm">A private secondary school in Midrand, Gauteng, committed to academic excellence for Grades 8–12.</p>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="text-gray-300 hover:text-white">About Us</a></li>
+            <li><a href="academics.html" class="text-gray-300 hover:text-white">Academics</a></li>
+            <li><a href="admissions.html" class="text-gray-300 hover:text-white">Admissions</a></li>
+            <li><a href="news.html" class="text-gray-300 hover:text-white">News & Announcements</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg mb-4">Contact</h3>
+          <p class="text-gray-300 text-sm mb-2"><i class="fas fa-map-marker-alt mr-2"></i>181 Moritz Ave, Halfway House, Midrand, Gauteng</p>
+          <p class="text-gray-300 text-sm mb-2"><i class="fas fa-phone mr-2"></i><a href="tel:+27114020040" class="text-gray-300 hover:text-white">+27 11 402 0040</a></p>
+          <p class="text-gray-300 text-sm"><i class="fas fa-clock mr-2"></i>Mon – Fri: 07:30 – 14:30</p>
+          <div class="flex space-x-4 mt-4">
+            <a href="https://www.facebook.com/people/Mahlasedi-Primary-High-School/61554575627891/?sk=photos" target="_blank" class="text-gray-300 hover:text-white">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+        <p class="text-gray-400 text-sm">&copy; 2024 Mahlasedi High School. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="static/js/script.js"></script>
+</body>
+</html>

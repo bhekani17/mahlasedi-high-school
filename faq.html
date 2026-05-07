@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="static/css/styles.css" />
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- NAVBAR -->
+  <nav class="navbar bg-primary shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center space-x-2 text-white font-bold text-lg">
+            <img src="static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+            <span>M.H.S</span>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-white hover:text-secondary font-semibold">Home</a>
+          <a href="about.html" class="text-white hover:text-secondary font-semibold">About</a>
+          
+          <!-- School Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              School
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="primary-school.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-child mr-2"></i>Primary School
+              </a>
+              <a href="secondary-school.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-graduation-cap mr-2"></i>Secondary School
+              </a>
+            </div>
+          </div>
+          
+          <!-- Academics Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              Academics
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="academics.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-book mr-2"></i>Academic Programs
+              </a>
+              <a href="staff.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-users mr-2"></i>Staff & Faculty
+              </a>
+              <a href="policies.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-file-alt mr-2"></i>School Policies
+              </a>
+            </div>
+          </div>
+          
+          <!-- Resources Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              Resources
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="gallery.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-images mr-2"></i>Gallery
+              </a>
+              <a href="uniform-store.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-tshirt mr-2"></i>Uniform Store
+              </a>
+              <a href="parent-portal.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-user-circle mr-2"></i>Parent Portal
+              </a>
+            </div>
+          </div>
+          
+          <!-- Community Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              Community
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="news.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-newspaper mr-2"></i>News & Updates
+              </a>
+              <a href="events.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-calendar-alt mr-2"></i>Events
+              </a>
+              <a href="contact.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-envelope mr-2"></i>Contact Us
+              </a>
+            </div>
+          </div>
+          
+          <a href="faq.html" class="text-white hover:text-secondary font-semibold active">FAQ</a>
+          <a href="admissions.html" class="bg-secondary text-white px-4 py-2 rounded font-semibold hover:bg-blue-600">Apply Now</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-white hover:text-secondary">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-primary">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="index.html" class="block text-white hover:text-secondary px-3 py-2">Home</a>
+        <a href="about.html" class="block text-white hover:text-secondary px-3 py-2">About</a>
+        
+        <!-- Mobile School Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            School
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="primary-school.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-child mr-2"></i>Primary School
+            </a>
+            <a href="secondary-school.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-graduation-cap mr-2"></i>Secondary School
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Academics Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            Academics
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="academics.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-book mr-2"></i>Academic Programs
+            </a>
+            <a href="staff.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-users mr-2"></i>Staff & Faculty
+            </a>
+            <a href="policies.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-file-alt mr-2"></i>School Policies
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Resources Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            Resources
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="gallery.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-images mr-2"></i>Gallery
+            </a>
+            <a href="uniform-store.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-tshirt mr-2"></i>Uniform Store
+            </a>
+            <a href="parent-portal.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-user-circle mr-2"></i>Parent Portal
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Community Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            Community
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="news.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-newspaper mr-2"></i>News & Updates
+            </a>
+            <a href="events.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-calendar-alt mr-2"></i>Events
+            </a>
+            <a href="contact.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-envelope mr-2"></i>Contact Us
+            </a>
+          </div>
+        </div>
+        
+        <a href="faq.html" class="block text-white hover:text-secondary px-3 py-2 active">FAQ</a>
+        <a href="admissions.html" class="block bg-secondary text-white px-3 py-2 rounded mt-2">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" class="page-transition">
+    <!-- HERO SECTION -->
+    <section class="bg-gradient-to-br from-primary to-secondary text-white py-12 md:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 fade-in">Frequently Asked Questions</h1>
+        <p class="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 opacity-90 fade-in px-4" style="animation-delay: 0.2s">Find answers to common questions about Mahlasedi High School</p>
+        <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 px-4 fade-in" style="animation-delay: 0.4s">
+          <a href="#admissions" class="btn-hover bg-white text-primary px-6 py-3 md:px-8 rounded-lg font-semibold text-sm md:text-base">Admissions</a>
+          <a href="#academics" class="btn-hover border-2 border-white text-white px-6 py-3 md:px-8 rounded-lg font-semibold hover:bg-white hover:text-primary text-sm md:text-base">Academics</a>
+          <a href="#fees" class="btn-hover border-2 border-white text-white px-6 py-3 md:px-8 rounded-lg font-semibold hover:bg-white hover:text-primary text-sm md:text-base">Fees</a>
+          <a href="#uniform" class="btn-hover border-2 border-white text-white px-6 py-3 md:px-8 rounded-lg font-semibold hover:bg-white hover:text-primary text-sm md:text-base">Uniform</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTIONS -->
+    <section class="py-8 md:py-16">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Admissions FAQ -->
+        <div id="admissions" class="mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold mb-8 text-primary">Admissions</h2>
+          
+          <div class="space-y-4">
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  1
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">How do I apply to Mahlasedi High School?</h3>
+                  <p class="text-gray-600">You can apply online through our website by filling out the application form or visit our admissions office. The application process includes submitting required documents, attending an interview if necessary, and paying the registration fee.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  2
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">What are the admission requirements?</h3>
+                  <p class="text-gray-600">Requirements include: completed application form, birth certificate, previous school reports, parent/guardian ID, proof of residence, and payment of the R1,500 registration fee.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  3
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">When is the application deadline?</h3>
+                  <p class="text-gray-600">Applications for the next academic year close on November 30th. Late applications may be considered based on availability.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  4
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">Is there an entrance exam?</h3>
+                  <p class="text-gray-600">Yes, applicants may be required to take an entrance assessment depending on the grade level and previous academic performance.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academics FAQ -->
+        <div id="academics" class="mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold mb-8 text-primary">Academics</h2>
+          
+          <div class="space-y-4">
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  1
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">What curriculum does the school follow?</h3>
+                  <p class="text-gray-600">We follow the South African National Curriculum Statement (CAPS) for Grades R-12, ensuring alignment with national educational standards.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  2
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">What subjects are offered?</h3>
+                  <p class="text-gray-600">We offer core subjects including Mathematics, English, Science, Social Sciences, and additional subjects like Computer Studies, Business Studies, and Arts.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  3
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">What is the student-to-teacher ratio?</h3>
+                  <p class="text-gray-600">We maintain a student-to-teacher ratio of approximately 35:1, ensuring personalized attention for each learner.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  4
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">Does the school offer extra lessons?</h3>
+                  <p class="text-gray-600">Yes, we offer after-school extra lessons for subjects like Mathematics, Science, and English at no additional cost.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fees FAQ -->
+        <div id="fees" class="mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold mb-8 text-primary">School Fees</h2>
+          
+          <div class="space-y-4">
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  1
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">What are the school fees?</h3>
+                  <p class="text-gray-600">Primary School (Grades 0-7): R700/month. Secondary School (Grades 8-12): R1,100-R1,500/month depending on grade level.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  2
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">Is there a registration fee?</h3>
+                  <p class="text-gray-600">Yes, there is a one-time registration fee of R1,500 for all new students.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  3
+                </div>
+                <div class="flex-1">
+                  <h3 class="text font-semibold mb-2">Are there any hidden costs?</h3>
+                  <p class="text-gray-600">No, our fees are all-inclusive. There are no hidden charges for textbooks or basic stationery.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  4
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">Do you offer payment plans?</h3>
+                  <p class="text-gray-600">Yes, we offer monthly payment plans and can discuss flexible payment options with parents who need assistance.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Uniform FAQ -->
+        <div id="uniform" class="mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold mb-8 text-primary">Uniform</h2>
+          
+          <div class="space-y-4">
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  1
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">Where can I buy school uniforms?</h3>
+                  <p class="text-gray-600">Uniforms can be purchased from our on-campus uniform store during school hours or online through our website.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  2
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">What does the uniform consist of?</h3>
+                  <p class="text-gray-600">The uniform includes school shirts, trousers/skirts, school badge, and appropriate footwear. Specific items vary by season and grade level.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  3
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">Is the uniform mandatory?</h3>
+                  <p class="text-gray-600">Yes, wearing the complete school uniform is mandatory for all students during school hours and school events.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  4
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">How much does the uniform cost?</h3>
+                  <p class="text-gray-600">Complete uniform sets range from R450-R580 depending on grade level and season. Individual items are also available.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- General FAQ -->
+        <div class="mb-12">
+          <h2 class="text-2xl md:text-3xl font-bold mb-8 text-primary">General</h2>
+          
+          <div class="space-y-4">
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  1
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">What are the school hours?</h3>
+                  <p class="text-gray-600">School runs from 07:30 to 14:30, Monday to Friday. After-school programs and extra lessons may extend until 16:00.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  2
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">Does the school have transport?</h3>
+                  <p class="text-gray-600">We don't provide school transport, but we can assist parents in organizing carpool groups in certain areas.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  3
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">What sports and activities are offered?</h3>
+                  <p class="text-gray-600">We offer soccer, netball, athletics, cricket, and various cultural activities. Students participate in inter-school competitions.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  4
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">How can I contact the school?</h3>
+                  <p class="text-gray-600">You can call us at +27 11 402 0040, email info@mahlasedihighschool.co.za, or visit us at 181 Moritz Ave, Halfway House, Midrand.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+              <div class="flex items-start">
+                <div class="flex-shrink-0 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                  5
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-semibold mb-2">Does the school have a parent portal?</h3>
+                  <p class="class="text-gray-600">Yes, our parent portal allows parents to track student progress, view reports, and communicate with teachers.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact for More Questions -->
+        <div class="bg-gray-50 rounded-lg p-8 text-center">
+          <h2 class="text-2xl font-bold mb-4">Still Have Questions?</h2>
+          <p class="text-gray-600 mb-6">If you couldn't find the answer you were looking for, please don't hesitate to contact us.</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="contact.html" class="bg-secondary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
+              <i class="fas fa-phone mr-2"></i>Contact Us
+            </a>
+            <a href="tel:+27114020040" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition">
+              <i class="fas fa-mobile-alt mr-2"></i>Call Now
+            </a>
+            <a href="mailto:info@mahlasedihighschool.co.za" class="border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition">
+              <i class="fas fa-envelope mr-2"></i>Email Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary text-white py-6 md:py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div class="text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start mb-3 md:mb-4">
+            <img src="static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto md:h-12 mr-2 md:mr-3">
+            <h3 class="font-bold text-base md:text-lg">Mahlasedi High School</h3>
+          </div>
+          <p class="text-gray-300 text-xs md:text-sm">A private school in Johannesburg, Gauteng, serving 990 learners from Grade 0 through Grade 12 with 28 dedicated teachers.</p>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="font-bold text-base md:text-lg mb-3 md:mb-4">Quick Links</h3>
+          <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+            <li><a href="about.html" class="text-gray-300 hover:text-white">About Us</a></li>
+            <li><a href="primary-school.html" class="text-gray-300 hover:text-white">Primary School</a></li>
+            <item><a href="secondary-school.html" class="text-gray-300 hover:text-white">Secondary School</a></item>
+            <li><a href="academics.html" class="text-gray-300 hover:text-white">Academics</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="font-bold text-base md:text-lg mb-3 md:mb-4">Contact</h3>
+          <div class="space-y-1 md:space-y-2 text-xs md:text-sm">
+            <p class="text-gray-300"><i class="fas fa-map-marker-alt mr-1 md:mr-2"></i>181 Moritz Ave, Halfway House, Midrand, Gauteng</p>
+            <p class="text-gray-300"><i class="fas fa-phone mr-1 md:mr-2"></i><a href="tel:+27114020040" class="text-gray-300 hover:text-white">+27 11 402 0040</a></p>
+            <p class="text-gray-300"><i class="fas fa-clock mr-1 md:mr-2"></i>Mon – Fri: 07:30 – 14:30</p>
+          </div>
+          <div class="flex justify-center md:justify-start space-x-3 md:space-x-4 mt-3 md:mt-4">
+            <a href="https://www.facebook.com/people/Mahlasedi-Primary-High-School/61554575627891/?sk=photos" target="_blank" class="text-gray-300 hover:text-white">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-600 mt-6 md:mt-8 pt-4 md:pt-8 text-center">
+        <p class="text-gray-400 text-xs md:text-sm">&copy; 2024 Mahlasedi High School. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="static/js/script.js"></script>
+</body>
+</html>

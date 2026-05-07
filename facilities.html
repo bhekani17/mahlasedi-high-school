@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facilities - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="static/css/styles.css" />
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- NAVBAR -->
+  <nav class="navbar bg-primary shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center space-x-2 text-white font-bold text-lg">
+            <img src="static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+            <span>M.H.S</span>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-white hover:text-secondary font-semibold">Home</a>
+          <a href="about.html" class="text-white hover:text-secondary font-semibold">About</a>
+          
+          <!-- School Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              School
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="primary-school.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-child mr-2"></i>Primary School
+              </a>
+              <a href="secondary-school.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-graduation-cap mr-2"></i>Secondary School
+              </a>
+            </div>
+          </div>
+          
+          <!-- Academics Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              Academics
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="academics.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-book mr-2"></i>Academic Programs
+              </a>
+              <a href="staff.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-users mr-2"></i>Staff & Faculty
+              </a>
+              <a href="policies.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-file-alt mr-2"></i>School Policies
+              </a>
+            </div>
+          </div>
+          
+          <!-- Resources Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              Resources
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="gallery.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-images mr-2"></i>Gallery
+              </a>
+              <a href="uniform-store.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-tshirt mr-2"></i>Uniform Store
+              </a>
+              <a href="parent-portal.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-user-circle mr-2"></i>Parent Portal
+              </a>
+            </div>
+          </div>
+          
+          <!-- Community Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              Community
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="news.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-newspaper mr-2"></i>News & Updates
+              </a>
+              <a href="events.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-calendar-alt mr-2"></i>Events
+              </a>
+              <a href="contact.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-envelope mr-2"></i>Contact Us
+              </a>
+            </div>
+          </div>
+          
+          <a href="facilities.html" class="text-white hover:text-secondary font-semibold active">Facilities</a>
+          <a href="admissions.html" class="bg-secondary text-white px-4 py-2 rounded font-semibold hover:bg-blue-600">Apply Now</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-white hover:text-secondary">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-primary">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="index.html" class="block text-white hover:text-secondary px-3 py-2">Home</a>
+        <a href="about.html" class="block text-white hover:text-secondary px-3 py-2">About</a>
+        
+        <!-- Mobile School Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            School
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="primary-school.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-child mr-2"></i>Primary School
+            </a>
+            <a href="secondary-school.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-graduation-cap mr-2"></i>Secondary School
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Academics Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            Academics
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="academics.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-book mr-2"></i>Academic Programs
+            </a>
+            <a href="staff.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-users mr-2"></i>Staff & Faculty
+            </a>
+            <a href="policies.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-file-alt mr-2"></i>School Policies
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Resources Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            Resources
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="gallery.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-images mr-2"></i>Gallery
+            </a>
+            <a href="uniform-store.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-tshirt mr-2"></i>Uniform Store
+            </a>
+            <a href="parent-portal.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-user-circle mr-2"></i>Parent Portal
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Community Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            Community
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="news.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-newspaper mr-2"></i>News & Updates
+            </a>
+            <a href="events.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-calendar-alt mr-2"></i>Events
+            </a>
+            <a href="contact.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-envelope mr-2"></i>Contact Us
+            </a>
+          </div>
+        </div>
+        
+        <a href="facilities.html" class="block text-white hover:text-secondary px-3 py-2 active">Facilities</a>
+        <a href="admissions.html" class="block bg-secondary text-white px-3 py-2 rounded mt-2">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" class="page-transition">
+    <!-- HERO SECTION -->
+    <section class="bg-gradient-to-br from-primary to-secondary text-white py-12 md:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 fade-in">Our Facilities</h1>
+        <p class="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 opacity-90 fade-in px-4" style="animation-delay: 0.2s">Modern infrastructure designed for optimal learning</p>
+        <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 px-4 fade-in" style="animation-delay: 0.4s">
+          <a href="#classrooms" class="btn-hover bg-white text-primary px-6 py-3 md:px-8 rounded-lg font-semibold text-sm md:text-base">Classrooms</a>
+          <a href="#sports" class="btn-hover border-2 border-white text-white px-6 py-3 md:px-8 rounded-lg font-semibold hover:bg-white hover:text-primary text-sm md:text-base">Sports</a>
+          <a href="#technology" class="btn-hover border-2 border-white text-white px-6 py-3 md:px-8 rounded-lg font-semibold hover:bg-white hover:text-primary text-sm md:text-base">Technology</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FACILITIES OVERVIEW -->
+    <section class="py-8 md:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-primary">State-of-the-Art Facilities</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="text-center">
+            <div class="bg-secondary/10 p-6 rounded-lg mb-4">
+              <i class="fas fa-school text-3xl text-secondary mb-4"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Modern Classrooms</h3>
+            <p class="text-gray-600">Spacious, well-lit classrooms with interactive whiteboards</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="bg-accent/10 p-6 rounded-lg mb-4">
+              <i class="fas fa-flask text-3xl text-accent mb-4"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Science Labs</h3>
+            <p class="text-gray-600">Fully equipped laboratories for Physics, Chemistry, and Biology</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="bg-primary/10 p-6 rounded-lg mb-4 text-white">
+              <i class="fas fa-book text-3xl text-white mb-4"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Library</h3>
+            <p class="text-gray-600">Extensive library with digital resources and study areas</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="bg-secondary/10 p-6 rounded-lg mb-4">
+              <i class="fas fa-laptop text-3xl text-secondary mb-4"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Computer Labs</h3>
+            <p class="text-gray-600">Modern computer labs with high-speed internet access</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLASSROOMS -->
+    <section class="py-8 md:py-16 bg-gray-50" id="classrooms">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-primary">Learning Spaces</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-4">
+              <img src="https://picsum.photos/seed/classroom1/400/300" alt="Classroom" class="w-full h-48 object-cover rounded-lg mb-4">
+                <div class="w-full h-48 bg-gray-300 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-chalkboard text-gray-400 text-4xl"></i>
+                </div>
+              </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Primary Classrooms</h3>
+            <p class="text-gray-600 mb-4">Colorful, engaging classrooms designed for young learners with age-appropriate furniture and learning materials.</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Interactive whiteboards</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Reading corners</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Play areas</li>
+            </ul>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-4">
+              <img src="https://picsum.photos/seed/classroom2/400/300" alt="Classroom" class="w-full h-48 object-cover rounded-lg mb-4">
+                <div class="w-full h-48 bg-gray-300 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-chalkboard-teacher text-gray-400 text-4xl"></i>
+                </div>
+              </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Secondary Classrooms</h3>
+            <p class="text-gray-600 mb-4">Subject-specific classrooms equipped with modern teaching aids and technology integration.</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Smart boards</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Subject displays</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Group work areas</li>
+            </ul>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-4">
+              <img src="https://picsum.photos/seed/lecture/400/300" alt="Lecture Hall" class="w-full h-48 object-cover rounded-lg mb-4">
+                <div class="w-full h-48 bg-gray-300 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-chalkboard text-gray-400 text-4xl"></i>
+                </div>
+              </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Lecture Halls</h3>
+            <p class="text-gray-600 mb-4">Large lecture halls for presentations, assemblies, and special events with audio-visual equipment.</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Audio systems</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Video projectors</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Seating for 100+</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCIENCE FACILITIES -->
+    <section class="py-8 md:py-16" id="science">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-primary">Science & Technology</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-4">
+              <img src="https://picsum.photos/seed/physics/400/300" alt="Physics Lab" class="w-full h-48 object-cover rounded-lg mb-4">
+                <div class="w-full h-48 bg-gray-300 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-atom text-gray-400 text-4xl"></i>
+                </div>
+              </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Physics Laboratory</h3>
+            <p class="text-gray-600 mb-4">Well-equipped physics lab with modern apparatus for practical experiments and demonstrations.</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Experiment stations</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Safety equipment</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Digital measuring tools</li>
+            </ul>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-4">
+              <img src="https://picsum.photos/seed/chemistry/400/300" alt="Chemistry Lab" class="w-full h-48 object-cover rounded-lg mb-4">
+                <div class="w-full h-48 bg-gray-300 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-flask text-gray-400 text-4xl"></i>
+                </div>
+              </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Chemistry Laboratory</h3>
+            <p class="text-gray-600 mb-4">Modern chemistry lab with fume hoods, safety equipment, and comprehensive chemical supplies.</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Fume hoods</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Safety showers</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Chemical storage</li>
+            </ul>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-4">
+              <img src="https://picsum.photos/seed/biology/400/300" alt="Biology Lab" class="w-full h-48 object-cover rounded-lg mb-4">
+                <div class="w-full h-48 bg-gray-300 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-microscope text-gray-400 text-4xl"></i>
+                </div>
+              </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Biology Laboratory</h3>
+            <p class="text-gray-600 mb-4">Biology lab with microscopes, specimens, and equipment for biological studies and experiments.</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Microscopes</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Specimen collection</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Dissection equipment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPORTS FACILITIES -->
+    <section class="py-8 md:py-16 bg-gray-50" id="sports">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-primary">Sports & Recreation</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-4">
+              <img src="https://picsum.photos/seed/soccer/400/300" alt="Soccer Field" class="w-full h-48 object-cover rounded-lg mb-4">
+                <div class="w-full h-48 bg-gray-300 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-futbol text-gray-400 text-4xl"></i>
+                </div>
+              </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Soccer Field</h3>
+            <p class="text-gray-600 mb-4">Full-size soccer field with proper turf and goal posts for training and matches.</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Floodlights</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Changing rooms</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Spectator seating</li>
+            </ul>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-4">
+              <img src="https://picsum.photos/seed/netball/400/300" alt="Netball Court" class="w-full h-48 object-cover rounded-lg mb-4">
+                <div class="w-full h-48 bg-gray-300 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-basketball-ball text-gray-400 text-4xl"></i>
+                </div>
+              </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Netball Courts</h3>
+            <p class="text-gray-600 mb-4">Professional netball courts with proper markings and equipment for competitive play.</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Multiple courts</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Scoreboards</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Equipment storage</li>
+            </ul>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-4">
+              <img src="https://picsum.photos/seed/athletics/400/300" alt="Athletics Track" class="w-full h-48 object-cover rounded-lg mb-4">
+                <div class="w-full h-48 bg-gray-300 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-running text-gray-400 text-4xl"></i>
+                </div>
+              </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Athletics Track</h3>
+            <p class="text-gray-600 mb-4">Standard athletics track with field event areas for comprehensive sports training.</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li><i class="fas fa-check text-green-500 mr-2"></i>400m track</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Jumping pits</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Throwing areas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADDITIONAL FACILITIES -->
+    <section class="py-8 md:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-primary">Additional Facilities</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-4">
+              <img src="https://picsum.photos/seed/library/400/300" alt="Library" class="w-full h-48 object-cover rounded-lg mb-4">
+                <div class="w-full h-48 bg-gray-300 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-book-open text-gray-400 text-4xl"></i>
+                </div>
+              </div>
+            <h3 class="text-xl font-bold text-primary mb-2">School Library</h3>
+            <p class="text-gray-600 mb-4">Comprehensive library with thousands of books, digital resources, and quiet study areas.</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Digital catalog</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Study rooms</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Computer access</li>
+            </ul>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-4">
+              <img src="https://picsum.photos/seed/canteen/400/300" alt="Canteen" class="w-full h-48 object-cover rounded-lg mb-4">
+                <div class="w-full h-48 bg-gray-300 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-utensils text-gray-400 text-4xl"></i>
+                </div>
+              </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Canteen & Dining</h3>
+            <p class="text-gray-600 mb-4">Modern canteen serving nutritious meals and snacks in a clean, comfortable environment.</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Daily meals</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Hygienic kitchen</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Seating capacity 200+</li>
+            </ul>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="mb-4">
+              <img src="https://picsum.photos/seed/clinic/400/300" alt="Health Clinic" class="w-full h-48 object-cover rounded-lg mb-4">
+                <div class="w-full h-48 bg-gray-300 rounded-lg flex items-center justify-center">
+                  <i class="fas fa-heartbeat text-gray-400 text-4xl"></i>
+                </div>
+              </div>
+            <h3 class="text-xl font-bold text-primary mb-2">Health Clinic</h3>
+            <p class="text-gray-600 mb-4">On-site health clinic with qualified nursing staff for student health and first aid.</p>
+            <ul class="text-sm text-gray-600 space-y-1">
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Qualified nurse</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>First aid station</li>
+              <li><i class="fas fa-check text-green-500 mr-2"></i>Health records</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAFETY & SECURITY -->
+    <section class="py-8 md:py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-primary">Safety & Security</h2>
+        
+        <div class="bg-white rounded-lg shadow-lg p-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-shield-alt text-green-600 text-2xl"></i>
+              </div>
+              <h3 class="font-bold text-primary mb-2">24/7 Security</h3>
+              <p class="text-gray-600 text-sm">Professional security team and surveillance systems</p>
+            </div>
+            
+            <div class="text-center">
+              <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-video text-blue-600 text-2xl"></i>
+              </div>
+              <h3 class="font-bold text-primary mb-2">CCTV Monitoring</h3>
+              <p class="text-gray-600 text-sm">Comprehensive camera coverage throughout campus</p>
+            </div>
+            
+            <div class="text-center">
+              <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-fire-extinguisher text-red-600 text-2xl"></i>
+              </div>
+              <h3 class="font-bold text-primary mb-2">Fire Safety</h3>
+              <p class="text-gray-600 text-sm">Fire detection systems and emergency response plans</p>
+            </div>
+            
+            <div class="text-center">
+              <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-first-aid text-purple-600 text-2xl"></i>
+              </div>
+              <h3 class="font-bold text-primary mb-2">Emergency Response</h3>
+              <p class="text-gray-600 text-sm">Trained staff and emergency protocols</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIRTUAL TOUR -->
+    <section class="py-8 md:py-16 bg-primary text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Take a Virtual Tour</h2>
+        <p class="text-lg md:text-xl mb-8 opacity-90">Explore our facilities from the comfort of your home</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="gallery.html" class="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition text-lg">
+            <i class="fas fa-images mr-2"></i>View Photo Gallery
+          </a>
+          <a href="contact.html" class="bg-secondary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition text-lg">
+            <i class="fas fa-calendar mr-2"></i>Schedule Campus Visit
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary text-white py-6 md:py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div class="text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start mb-3 md:mb-4">
+            <img src="static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto md:h-12 mr-2 md:mr-3">
+            <h3 class="font-bold text-base md:text-lg">Mahlasedi High School</h3>
+          </div>
+          <p class="text-gray-300 text-xs md:text-sm">A private school in Johannesburg, Gauteng, serving 990 learners from Grade 0 through Grade 12 with 28 dedicated teachers.</p>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="font-bold text-base md:text-lg mb-3 md:mb-4">Quick Links</h3>
+          <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+            <li><a href="about.html" class="text-gray-300 hover:text-white">About Us</a></li>
+            <li><a href="primary-school.html" class="text-gray-300 hover:text-white">Primary School</a></li>
+            <item><a href="secondary-school.html" class="text-gray-300 hover:text-white">Secondary School</a></item>
+            <li><a href="academics.html" class="text-gray-300 hover:text-white">Academics</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="font-bold text-base md:text-lg mb-3 md:mb-4">Contact</h3>
+          <div class="space-y-1 md:space-y-2 text-xs md:text-sm">
+            <p class="text-gray-300"><i class="fas fa-map-marker-alt mr-1 md:mr-2"></i>181 Moritz Ave, Halfway House, Midrand, Gauteng</p>
+            <p class="text-gray-300"><i class="fas fa-phone mr-1 md:mr-2"></i><a href="tel:+27114020040" class="text-gray-300 hover:text-white">+27 11 402 0040</a></p>
+            <p class="text-gray-300"><i class="fas fa-clock mr-1 md:mr-2"></i>Mon – Fri: 07:30 – 14:30</p>
+          </div>
+          <div class="flex justify-center md:justify-start space-x-3 md:space-x-4 mt-3 md:mt-4">
+            <a href="https://www.facebook.com/people/Mahlasedi-Primary-High-School/61554575627891/?sk=photos" target="_blank" class="text-gray-300 hover:text-white">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-600 mt-6 md:mt-8 pt-4 md:pt-8 text-center">
+        <p class="text-gray-400 text-xs md:text-sm">&copy; 2024 Mahlasedi High School. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="static/js/script.js"></script>
+</body>
+</html>

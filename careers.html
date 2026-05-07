@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careers - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="static/css/styles.css" />
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- NAVBAR -->
+  <nav class="navbar bg-primary shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center space-x-2 text-white font-bold text-lg">
+            <img src="static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+            <span>M.H.S</span>
+          </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-white hover:text-secondary font-semibold">Home</a>
+          <a href="about.html" class="text-white hover:text-secondary font-semibold">About</a>
+          
+          <!-- School Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              School
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="primary-school.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-child mr-2"></i>Primary School
+              </a>
+              <a href="secondary-school.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-graduation-cap mr-2"></i>Secondary School
+              </a>
+            </div>
+          </div>
+          
+          <!-- Academics Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              Academics
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="academics.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-book mr-2"></i>Academic Programs
+              </a>
+              <a href="staff.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-users mr-2"></i>Staff & Faculty
+              </a>
+              <a href="policies.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-file-alt mr-2"></i>School Policies
+              </a>
+            </div>
+          </div>
+          
+          <!-- Resources Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              Resources
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="gallery.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-images mr-2"></i>Gallery
+              </a>
+              <a href="uniform-store.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-tshirt mr-2"></i>Uniform Store
+              </a>
+              <a href="parent-portal.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-user-circle mr-2"></i>Parent Portal
+              </a>
+            </div>
+          </div>
+          
+          <!-- Community Dropdown -->
+          <div class="relative group">
+            <button class="text-white hover:text-secondary font-semibold flex items-center">
+              Community
+              <i class="fas fa-chevron-down ml-1 text-xs"></i>
+            </button>
+            <div class="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <a href="news.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-newspaper mr-2"></i>News & Updates
+              </a>
+              <a href="events.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-calendar-alt mr-2"></i>Events
+              </a>
+              <a href="contact.html" class="block px-4 py-3 text-gray-800 hover:bg-secondary hover:text-white transition-colors">
+                <i class="fas fa-envelope mr-2"></i>Contact Us
+              </a>
+            </div>
+          </div>
+          
+          <a href="careers.html" class="text-white hover:text-secondary font-semibold active">Careers</a>
+          <a href="admissions.html" class="bg-secondary text-white px-4 py-2 rounded font-semibold hover:bg-blue-600">Apply Now</a>
+        </div>
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="text-white hover:text-secondary">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-primary">
+      <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="index.html" class="block text-white hover:text-secondary px-3 py-2">Home</a>
+        <a href="about.html" class="block text-white hover:text-secondary px-3 py-2">About</a>
+        
+        <!-- Mobile School Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            School
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="primary-school.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-child mr-2"></i>Primary School
+            </a>
+            <a href="secondary-school.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-graduation-cap mr-2"></i>Secondary School
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Academics Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            Academics
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="academics.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-book mr-2"></i>Academic Programs
+            </a>
+            <a href="staff.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-users mr-2"></i>Staff & Faculty
+            </a>
+            <a href="policies.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-file-alt mr-2"></i>School Policies
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Resources Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            Resources
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="gallery.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-images mr-2"></i>Gallery
+            </a>
+            <a href="uniform-store.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-tshirt mr-2"></i>Uniform Store
+            </a>
+            <a href="parent-portal.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-user-circle mr-2"></i>Parent Portal
+            </a>
+          </div>
+        </div>
+        
+        <!-- Mobile Community Dropdown -->
+        <div class="mobile-dropdown">
+          <button class="mobile-dropdown-toggle w-full text-white hover:text-secondary px-3 py-2 text-left flex items-center justify-between">
+            Community
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+          <div class="mobile-dropdown-content hidden pl-6 space-y-1">
+            <a href="news.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-newspaper mr-2"></i>News & Updates
+            </a>
+            <a href="events.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-calendar-alt mr-2"></i>Events
+            </a>
+            <a href="contact.html" class="block text-white hover:text-secondary px-3 py-2 text-sm">
+              <i class="fas fa-envelope mr-2"></i>Contact Us
+            </a>
+          </div>
+        </div>
+        
+        <a href="careers.html" class="block text-white hover:text-secondary px-3 py-2 active">Careers</a>
+        <a href="admissions.html" class="block bg-secondary text-white px-3 py-2 rounded mt-2">Apply Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" class="page-transition">
+    <!-- HERO SECTION -->
+    <section class="bg-gradient-to-br from-primary to-secondary text-white py-12 md:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 fade-in">Join Our Team</h1>
+        <p class="text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 opacity-90 fade-in px-4" style="animation-delay: 0.2s">Explore career opportunities at Mahlasedi High School</p>
+        <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4 px-4 fade-in" style="animation-delay: 0.4s">
+          <a href="#open-positions" class="btn-hover bg-white text-primary px-6 py-3 md:px-8 rounded-lg font-semibold text-sm md:text-base">Open Positions</a>
+          <a href="#why-work-here" class="btn-hover border-2 border-white text-white px-6 py-3 md:px-8 rounded-lg font-semibold hover:bg-white hover:text-primary text-sm md:text-base">Why Work Here</a>
+          <a href="#application-process" class="btn-hover border-2 border-white text-white px-6 py-3 md:px-8 rounded-lg font-semibold hover:bg-white hover:text-primary text-sm md:text-base">Application Process</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY WORK HERE -->
+    <section class="py-8 md:py-16" id="why-work-here">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-primary">Why Work at Mahlasedi High School?</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div class="text-center">
+            <div class="bg-secondary/10 p-6 rounded-lg mb-4">
+              <i class="fas fa-heart text-3xl text-secondary mb-4"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Make a Difference</h3>
+            <p class="text-gray-600">Shape young minds and contribute to their future success</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="bg-accent/10 p-6 rounded-lg mb-4">
+              <i class="fas fa-users text-3xl text-accent mb-4"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Supportive Environment</h3>
+            <p class="text-gray-600">Work with dedicated professionals in a collaborative atmosphere</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="bg-primary/10 p-6 rounded-lg mb-4 text-white">
+              <i class="fas fa-graduation-cap text-3xl text-white mb-4"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Professional Growth</h3>
+            <p class="text-gray-600">Continuous development opportunities and training programs</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="bg-secondary/10 p-6 rounded-lg mb-4">
+              <i class="fas fa-balance-scale text-3xl text-secondary mb-4"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">Work-Life Balance</h3>
+            <p class="text-gray-600">Enjoy competitive salaries and generous leave benefits</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRENT OPENINGS -->
+    <section class="py-8 md:py-16 bg-gray-50" id="open-positions">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-primary">Current Open Positions</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Teaching Position -->
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="text-lg font-bold text-primary">Mathematics Teacher</h3>
+                <span class="inline-block bg-secondary text-white px-3 py-1 rounded-full text-sm">Full-time</span>
+              </div>
+              <div class="text-right">
+                <span class="text-sm text-gray-500">Posted 2 weeks ago</span>
+              </div>
+            </div>
+            <div class="mb-4">
+              <p class="text-gray-600 mb-2">We are looking for an experienced Mathematics teacher to join our Secondary school team, teaching Grades 8-12.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Grade 8-12</span>
+                <span class="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Full-time</span>
+                <span class="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Immediate Start</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Midrand, Gauteng</span>
+              <a href="mailto:careers@mahlasedihighschool.co.za" class="text-secondary hover:text-blue-600 font-semibold text-sm">Apply Now</a>
+            </div>
+          </div>
+          
+          <!-- Science Position -->
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="text-lg font-bold text-primary">Science Teacher</h3>
+                <span class="inline-block bg-accent text-white px-3 py-1 rounded-full text-sm">Full-time</span>
+              </div>
+              <div class="text-right">
+                <span class="text-sm text-gray-500">Posted 1 week ago</span>
+              </div>
+            </div>
+            <div class="mb-4">
+              <p class="text-gray-600 mb-2">Join our Science department to teach Physical Science and Life Sciences to Grades 8-12.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Grade 8-12</span>
+                <span class="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Full-time</span>
+                <span class="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">August Start</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Midrand, Gauteng</span>
+              <a href="mailto:careers@mahlasedihighschool.co.za" class="text-accent hover:text-blue-600 font-semibold text-sm">Apply Now</a>
+            </div>
+          </div>
+          
+          <!-- English Position -->
+          <div class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="text-lg font-bold text-primary">English Teacher</h3>
+                <span class="inline-block bg-secondary text-white px-3 py-1 rounded-full text-sm">Full-time</span>
+              </div>
+              <div class="text-right">
+                <span class="text-sm text-gray-500">Posted 3 days ago</span>
+              </div>
+            </div>
+            <div class="mb-4">
+              <p class="text-gray-600 mb-2">We need a passionate English teacher to enhance our language program across all grade levels.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">All Grades</span>
+                <span class="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">Full-time</span>
+                <span class="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">September Start</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Midrand, Gauteng</span>
+              <a href="mailto:careers@mahlasedihighschool.co.za" class="text-secondary hover:text-blue-600 font-semibold text-sm">Apply Now</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-8">
+          <a href="#application-process" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition">
+            View All Positions
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPLICATION PROCESS -->
+    <section class="py-8 md:py-16" id="application-process">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-primary">Application Process</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+          <div class="text-center">
+            <div class="bg-white rounded-lg p-6 shadow-md">
+              <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white font-bold text-lg mb-3">1</div>
+              <h3 class="font-bold text-lg mb-2">Submit Application</h3>
+              <p class="text-sm text-gray-600">Complete our online application form with your details and qualifications</p>
+            </div>
+          </div>
+          
+          <div class="text-center">
+            <div class="bg-white rounded-lg p-6 shadow-md">
+              <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold text-lg mb-3">2</div>
+              <h3 <div class="font-bold text-lg mb-2">Initial Screening</h3>
+              <p class="text-sm text-gray-600">HR team reviews your application and qualifications</p>
+            </div>
+          </div>
+          
+          <div class="text-center">
+            <div class="white rounded-lg p-6 shadow-md">
+              <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-lg mb-3">3</div>
+              <h3 class="font-bold text-lg mb-2">Interview</h3>
+              <p class="text-sm text-gray-600">Meet with the principal and department heads</p>
+            </div>
+          </div>
+          
+          <div class="text-center">
+            <div class="bg-white rounded-lg p-6 shadow-md">
+              <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white font-bold text-lg mb-3">4</div>
+              <h3 class="font-bold text-lg mb-2">Offer & Onboarding</h3>
+              <p class="text-sm text-gray-600">Receive offer letter and complete onboarding process</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="py-8 md:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="employee text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-primary">Benefits & Compensation</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-6 text-primary">Compensation Package</h3>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                  <div>
+                    <strong>Competitive Salary</strong>
+                    <p class="text-gray-600">Market-competitive salaries based on experience and qualifications</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                  <div>
+                    <strong>Performance Bonuses</strong>
+                    <p class="text-gray-600">Annual performance-based bonuses</p>
+                  </div>
+                </li>
+                <li>
+                  <li class="flex items-start">
+                    <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                  <div>
+                    <strong>13th Month Bonus</strong>
+                    <p class="text-gray-600">End-of-year bonus</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="employee text-xl font-bold mb-6 text-primary">Employee Benefits</h3>
+            <div class="bg-white rounded-lg shadow-lg p-6">
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                  <div>
+                    <strong>Medical Aid</strong>
+                    <p class="text-gray-600">Comprehensive medical insurance for employee and dependents</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                  <div>
+                    <strong>Retirement Fund</strong>
+                    <strong class="text-gray-600 ml-2">(Company contribution)</strong>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                  <div>
+                    <strong>Professional Development</strong>
+                    <p class="text-gray-600">Regular training and workshops</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                  <div>
+                    <strong>Leave Benefits</strong>
+                    <p class="text-gray-600">21 days annual leave, sick leave, family responsibility leave</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-8 md:py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-primary">What Our Team Says</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="flex items-center mb-4">
+              <img src="https://picsum.photos/seed/teacher1/100/100" alt="Teacher" class="w-16 h-16 rounded-full object-cover mr-4">
+              <div class="w-16 h-16 bg-gray-300 rounded-full flex items-center justify-center">
+                <i class="fas fa-user text-gray-400"></i>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-bold text-primary mb-1">Sarah Johnson</h4>
+              <p class="text-sm text-gray-600 mb-2">Mathematics Teacher</p>
+              <p class="text-sm text-gray-500 italic">"Working here for 5 years"</p>
+              <p class="text-gray-600">"Mahlasedi is more than just a school; it's a community where every teacher is valued and supported."</p>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="flex items-center mb-4">
+              <img src="https://picsum.photos/seed/teacher2/100/100" alt="Teacher" class="w-16 h-16 rounded-full object-cover mr-4">
+                <div class="w-16 h-16 bg-gray-300 rounded-full flex items-center justify-center">
+                  <i class="fas fa-user text-gray-400"></i>
+                </div>
+              </div>
+            <div>
+              <h4 class="font-bold text-primary mb-1">Michael Chen</h4>
+              <p class="text-sm text-gray-600 mb-2">Science Teacher</p>
+              <p class="text-sm text-gray-500 italic">Joined 3 years ago"</p>
+              <p class="text-gray-600">The facilities and resources here are excellent, and the students are eager to learn.</p>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="flex items-center mb-4">
+              <img src="https://picsum.photos/seed/teacher3/100/100" alt="Teacher" class="w-16 h-16 rounded-full object-cover mr-4">
+                <div class="w-16 h-16 bg-gray-300 rounded-full flex items-center justify-center">
+                  <i class="fas fa-user text-gray-400"></i>
+                </div>
+              </div>
+            <div>
+              <h4 class="font-bold text-primary mb-1">Lisa Mbatha</h4>
+              <p class="text-sm text-gray-600 mb-2">English Teacher</p>
+              <p class="text-sm text-gray-500 italic">2 years of experience"</p>
+              <p class="text-gray-600">The collaborative environment here makes teaching a joy every day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="py-8 md:py-16 bg-primary text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Ready to Join Our Team?</h2>
+        <p class="text-lg md:text-xl mb-6 opacity-90">Take the next step in your career journey</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#open-positions" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition text-lg">
+            View Open Positions
+          </a>
+          <a href="mailto:careers@mahlasedihighschool.co.za" class="bg-secondary text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 transition text-lg">
+            Email Careers Team
+          </a>
+          <a href="tel:+27114020040" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition text-lg">
+            Call Us
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-primary text-white py-6 md:py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div class="text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start mb-3 md:mb-4">
+            <img src="static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto md:h-12 mr-2 md:mr-3">
+            <h3 class="font-bold text-base md:text-lg">Mahlasedi High School</h3>
+          </div>
+          <p class="text-gray-300 text-xs md:text-sm">A private school in Johannesburg, Gauteng, serving 990 learners from Grade 0 through Grade 12 with 28 dedicated teachers.</p>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="font-bold text-base md:text-lg mb-3 md:mb-4">Quick Links</h3>
+          <ul class="space-y-1 md:space-y-2 text-xs md:text-sm">
+            <li><a href="about.html" class="text-gray-300 hover:text-white">About Us</a></li>
+            <li><a href="primary-school.html" class="text-gray-300 hover:text-white">Primary School</a></li>
+            <item><a href="secondary-school.html" class="text-gray-300 hover:text-white">Secondary School</a></item>
+            <li><a href="academics.html" class="text-gray-300 hover:text-white">Academics</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-white">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="font-bold text-base md:text-lg mb-3 md:mb-4">Contact</h3>
+          <div class="space-y-1 md:space-y-2 text-xs md:text-sm">
+            <p class="text-gray-300"><i class="fas fa-map-marker-alt mr-1 md:mr-2"></i>181 Moritz Ave, Halfway House, Midrand, Gauteng</p>
+            <p class="text-gray-300"><i class="fas fa-phone mr-1 md:mr-2"></i><a href="tel:+27114020040" class="text-gray-300 hover:text-white">+27 11 402 0040</a></p>
+            <p class="text-gray-300"><i class="fas fa-clock mr-1 md:mr-2"></i>Mon – Fri: 07:30 – 14:30</p>
+          </div>
+          <div class="flex justify-center md:justify-start space-x-3 md:space-x-4 mt-3 md:mt-4">
+            <a href="https://www.facebook.com/people/Mahlasedi-Primary-High-School/61554575627891/?sk=photos" target="_blank" class="text-gray-300 hover:text-white">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-600 mt-6 md:mt-8 pt-4 md:pt-8 text-center">
+        <p class="text-gray-400 text-xs md:text-sm">&copy; 2024 Mahlasedi High School. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="static/js/script.js"></script>
+</body>
+</html>

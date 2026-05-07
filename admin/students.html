@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Students Management - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+            success: '#10B981',
+            warning: '#F59E0B',
+            danger: '#EF4444',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .sidebar-link {
+      transition: all 0.3s ease;
+    }
+    .sidebar-link:hover {
+      background-color: rgba(77, 166, 214, 0.1);
+      border-left: 4px solid #4DA6D6;
+    }
+    .sidebar-link.active {
+      background-color: rgba(77, 166, 214, 0.2);
+      border-left: 4px solid #4DA6D6;
+    }
+    .table-row:hover {
+      background-color: rgba(77, 166, 214, 0.05);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="w-64 bg-primary text-white flex flex-col">
+      <!-- Logo -->
+      <div class="p-4 border-b border-blue-700">
+        <div class="flex items-center space-x-3">
+          <img src="../static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+          <div>
+            <h1 class="font-bold text-lg">M.H.S</h1>
+            <p class="text-xs text-blue-200">Admin Panel</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex-1 p-4">
+        <ul class="space-y-2">
+          <li>
+            <a href="index.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-tachometer-alt w-5 mr-3"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="students.html" class="sidebar-link active flex items-center p-3 rounded-lg">
+              <i class="fas fa-graduation-cap w-5 mr-3"></i>
+              <span>Students</span>
+            </a>
+          </li>
+          <li>
+            <a href="teachers.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-users w-5 mr-3"></i>
+              <span>Teachers</span>
+            </a>
+          </li>
+          <li>
+            <a href="classes.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chalkboard w-5 mr-3"></i>
+              <span>Classes</span>
+            </a>
+          </li>
+          <li>
+            <a href="subjects.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-book w-5 mr-3"></i>
+              <span>Subjects</span>
+            </a>
+          </li>
+          <li>
+            <a href="admissions.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-user-plus w-5 mr-3"></i>
+              <span>Admissions</span>
+            </a>
+          </li>
+          <li>
+            <a href="fees.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-money-bill-wave w-5 mr-3"></i>
+              <span>Fees & Payments</span>
+            </a>
+          </li>
+          <li>
+            <a href="attendance.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-check w-5 mr-3"></i>
+              <span>Attendance</span>
+            </a>
+          </li>
+          <li>
+            <a href="grades.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chart-line w-5 mr-3"></i>
+              <span>Grades</span>
+            </a>
+          </li>
+          <li>
+            <a href="events.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-alt w-5 mr-3"></i>
+              <span>Events</span>
+            </a>
+          </li>
+          <li>
+            <a href="communications.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-envelope w-5 mr-3"></i>
+              <span>Communications</span>
+            </a>
+          </li>
+          <li>
+            <a href="reports.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-file-alt w-5 mr-3"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="settings.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-cog w-5 mr-3"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- User Profile -->
+      <div class="p-4 border-t border-blue-700">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
+            <i class="fas fa-user text-white"></i>
+          </div>
+          <div class="flex-1">
+            <p class="font-semibold text-sm">Admin User</p>
+            <p class="text-xs text-blue-200">Administrator</p>
+          </div>
+          <button class="text-blue-200 hover:text-white">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow-sm border-b">
+        <div class="px-6 py-4 flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-800">Students Management</h2>
+            <p class="text-gray-600">Manage student records and information</p>
+          </div>
+          <div class="flex items-center space-x-4">
+            <!-- Add Student Button -->
+            <button onclick="openAddStudentModal()" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+              <i class="fas fa-plus mr-2"></i>Add Student
+            </button>
+            
+            <!-- Search -->
+            <div class="relative">
+              <input type="text" id="studentSearch" placeholder="Search students..." class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:border-secondary">
+              <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+            
+            <!-- Export -->
+            <button class="bg-success text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+              <i class="fas fa-download mr-2"></i>Export
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Filters -->
+      <div class="bg-white border-b px-6 py-4">
+        <div class="flex flex-wrap gap-4">
+          <select id="gradeFilter" class="px-4 py-2 border rounded-lg focus:outline-none focus:border-secondary">
+            <option value="">All Grades</option>
+            <option value="0">Grade 0</option>
+            <option value="1">Grade 1</option>
+            <option value="2">Grade 2</option>
+            <option value="3">Grade 3</option>
+            <option value="4">Grade 4</option>
+            <option value="5">Grade 5</option>
+            <option value="6">Grade 6</option>
+            <option value="7">Grade 7</option>
+            <option value="8">Grade 8</option>
+            <option value="9">Grade 9</option>
+            <option value="10">Grade 10</option>
+            <option value="11">Grade 11</option>
+            <option value="12">Grade 12</option>
+          </select>
+          
+          <select id="statusFilter" class="px-4 py-2 border rounded-lg focus:outline-none focus:border-secondary">
+            <option value="">All Status</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+            <option value="graduated">Graduated</option>
+            <option value="transferred">Transferred</option>
+          </select>
+          
+          <select id="genderFilter" class="px-4 py-2 border rounded-lg focus:outline-none focus:border-secondary">
+            <option value="">All Genders</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Students Table -->
+      <main class="flex-1 p-6 overflow-y-auto">
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <input type="checkbox" class="rounded">
+                  </th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student ID</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Grade</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Class</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Gender</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Attendance</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <!-- Student 1 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">STU001</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                        <i class="fas fa-user text-gray-500 text-sm"></i>
+                      </div>
+                      <div>
+                        <div class="text-sm font-medium text-gray-900">John Smith</div>
+                        <div class="text-sm text-gray-500">john.smith@email.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 10</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">10A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Male</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">95%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewStudent('STU001')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="editStudent('STU001')">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="deleteStudent('STU001')">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Student 2 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">STU002</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                        <i class="fas fa-user text-gray-500 text-sm"></i>
+                      </div>
+                      <div>
+                        <div class="text-sm font-medium text-gray-900">Jane Doe</div>
+                        <div class="text-sm text-gray-500">jane.doe@email.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 11</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">11B</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Female</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">92%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewStudent('STU002')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="editStudent('STU002')">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="deleteStudent('STU002')">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Student 3 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">STU003</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                        <i class="fas fa-user text-gray-500 text-sm"></i>
+                      </div>
+                      <div>
+                        <div class="text-sm font-medium text-gray-900">Michael Johnson</div>
+                        <div class="text-sm text-gray-500">michael.j@email.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 9</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">9C</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Male</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Inactive</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">78%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewStudent('STU003')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="editStudent('STU003')">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="deleteStudent('STU003')">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Student 4 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">STU004</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                        <i class="fas fa-user text-gray-500 text-sm"></i>
+                      </div>
+                      <div>
+                        <div class="text-sm font-medium text-gray-900">Emily Brown</div>
+                        <div class="text-sm text-gray-500">emily.b@email.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 8</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">8A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Female</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Active</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">88%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewStudent('STU004')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="editStudent('STU004')">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="deleteStudent('STU004')">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Student 5 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">STU005</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="flex items-center">
+                      <div class="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center mr-3">
+                        <i class="fas fa-user text-gray-500 text-sm"></i>
+                      </div>
+                      <div>
+                        <div class="text-sm font-medium text-gray-900">David Wilson</div>
+                        <div class="text-sm text-gray-500">david.w@email.com</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 12</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">12A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Male</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800">Graduated</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">96%</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewStudent('STU005')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="editStudent('STU005')">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="deleteStudent('STU005')">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Pagination -->
+          <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+            <div class="flex-1 flex justify-between sm:hidden">
+              <button class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">Previous</button>
+              <button class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">Next</button>
+            </div>
+            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+              <div>
+                <p class="text-sm text-gray-700">
+                  Showing <span class="font-medium">1</span> to <span class="font-medium">5</span> of <span class="font-medium">990</span> results
+                </p>
+              </div>
+              <div>
+                <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                  <button class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <button class="bg-primary border-primary text-white relative inline-flex items-center px-4 py-2 border text-sm font-medium">1</button>
+                  <button class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">2</button>
+                  <button class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">3</button>
+                  <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">...</span>
+                  <button class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">198</button>
+                  <button class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add/Edit Student Modal -->
+  <div id="studentModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
+    <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
+      <div class="mt-3">
+        <h3 class="text-lg font-bold text-gray-900 mb-4" id="modalTitle">Add New Student</h3>
+        <form class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700">First Name</label>
+              <input type="text" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Last Name</label>
+              <input type="text" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Email</label>
+              <input type="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Phone</label>
+              <input type="tel" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Grade</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="">Select Grade</option>
+                <option value="0">Grade 0</option>
+                <option value="1">Grade 1</option>
+                <option value="2">Grade 2</option>
+                <option value="3">Grade 3</option>
+                <option value="4">Grade 4</option>
+                <option value="5">Grade 5</option>
+                <option value="6">Grade 6</option>
+                <option value="7">Grade 7</option>
+                <option value="8">Grade 8</option>
+                <option value="9">Grade 9</option>
+                <option value="10">Grade 10</option>
+                <option value="11">Grade 11</option>
+                <option value="12">Grade 12</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Class</label>
+              <input type="text" placeholder="e.g., 10A" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Gender</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Date of Birth</label>
+              <input type="date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Parent/Guardian Name</label>
+              <input type="text" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Parent Contact</label>
+              <input type="tel" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Address</label>
+              <textarea rows="3" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"></textarea>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Status</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+                <option value="graduated">Graduated</option>
+                <option value="transferred">Transferred</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="flex justify-end space-x-4 pt-4">
+            <button type="button" onclick="closeStudentModal()" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition">Cancel</button>
+            <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Save Student</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Modal functions
+    function openAddStudentModal() {
+      document.getElementById('modalTitle').textContent = 'Add New Student';
+      document.getElementById('studentModal').classList.remove('hidden');
+    }
+
+    function closeStudentModal() {
+      document.getElementById('studentModal').classList.add('hidden');
+    }
+
+    function editStudent(studentId) {
+      document.getElementById('modalTitle').textContent = 'Edit Student';
+      document.getElementById('studentModal').classList.remove('hidden');
+      // Load student data into form
+    }
+
+    function viewStudent(studentId) {
+      alert('View student details: ' + studentId);
+    }
+
+    function deleteStudent(studentId) {
+      if(confirm('Are you sure you want to delete this student?')) {
+        alert('Student deleted: ' + studentId);
+      }
+    }
+
+    // Search functionality
+    document.getElementById('studentSearch').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const rows = document.querySelectorAll('tbody tr');
+      
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(searchTerm) ? '' : 'none';
+      });
+    });
+
+    // Filter functionality
+    document.getElementById('gradeFilter').addEventListener('change', filterStudents);
+    document.getElementById('statusFilter').addEventListener('change', filterStudents);
+    document.getElementById('genderFilter').addEventListener('change', filterStudents);
+
+    function filterStudents() {
+      const gradeFilter = document.getElementById('gradeFilter').value;
+      const statusFilter = document.getElementById('statusFilter').value;
+      const genderFilter = document.getElementById('genderFilter').value;
+      const rows = document.querySelectorAll('tbody tr');
+      
+      rows.forEach(row => {
+        const grade = row.cells[3].textContent;
+        const status = row.cells[6].textContent.trim();
+        const gender = row.cells[5].textContent;
+        
+        const showRow = (!gradeFilter || grade.includes(gradeFilter)) &&
+                       (!statusFilter || status.toLowerCase().includes(statusFilter.toLowerCase())) &&
+                       (!genderFilter || gender.toLowerCase().includes(genderFilter.toLowerCase()));
+        
+        row.style.display = showRow ? '' : 'none';
+      });
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('studentModal');
+      if (event.target == modal) {
+        closeStudentModal();
+      }
+    }
+  </script>
+</body>
+</html>

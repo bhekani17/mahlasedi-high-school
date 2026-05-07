@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grades - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+            success: '#10B981',
+            warning: '#F59E0B',
+            danger: '#EF4444',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .sidebar-link {
+      transition: all 0.3s ease;
+    }
+    .sidebar-link:hover {
+      background-color: rgba(77, 166, 214, 0.1);
+      border-left: 4px solid #4DA6D6;
+    }
+    .sidebar-link.active {
+      background-color: rgba(77, 166, 214, 0.2);
+      border-left: 4px solid #4DA6D6;
+    }
+    .table-row:hover {
+      background-color: rgba(77, 166, 214, 0.05);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="w-64 bg-primary text-white flex flex-col">
+      <!-- Logo -->
+      <div class="p-4 border-b border-blue-700">
+        <div class="flex items-center space-x-3">
+          <img src="../static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+          <div>
+            <h1 class="font-bold text-lg">M.H.S</h1>
+            <p class="text-xs text-blue-200">Teacher Portal</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex-1 p-4">
+        <ul class="space-y-2">
+          <li>
+            <a href="index.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-tachometer-alt w-5 mr-3"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="classes.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chalkboard w-5 mr-3"></i>
+              <span>My Classes</span>
+            </a>
+          </li>
+          <li>
+            <a href="students.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-graduation-cap w-5 mr-3"></i>
+              <span>Students</span>
+            </a>
+          </li>
+          <li>
+            <a href="grades.html" class="sidebar-link active flex items-center p-3 rounded-lg">
+              <i class="fas fa-chart-line w-5 mr-3"></i>
+              <span>Grades</span>
+            </a>
+          </li>
+          <li>
+            <a href="attendance.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-check w-5 mr-3"></i>
+              <span>Attendance</span>
+            </a>
+          </li>
+          <li>
+            <a href="assignments.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-tasks w-5 mr-3"></i>
+              <span>Assignments</span>
+            </a>
+          </li>
+          <li>
+            <a href="schedule.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-alt w-5 mr-3"></i>
+              <span>Schedule</span>
+            </a>
+          </li>
+          <li>
+            <a href="communications.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-envelope w-5 mr-3"></i>
+              <span>Communications</span>
+            </a>
+          </li>
+          <li>
+            <a href="resources.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-book-open w-5 mr-3"></i>
+              <span>Resources</span>
+            </a>
+          </li>
+          <li>
+            <a href="reports.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-file-alt w-5 mr-3"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="profile.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-user w-5 mr-3"></i>
+              <span>My Profile</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- User Profile -->
+      <div class="p-4 border-t border-blue-700">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
+            <i class="fas fa-user-tie text-white"></i>
+          </div>
+          <div class="flex-1">
+            <p class="font-semibold text-sm">Dr. Sarah Johnson</p>
+            <p class="text-xs text-blue-200">Mathematics Teacher</p>
+          </div>
+          <button class="text-blue-200 hover:text-white">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow-sm border-b">
+        <div class="px-6 py-4 flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-800">Grades Management</h2>
+            <p class="text-gray-600">Manage student grades and assessments</p>
+          </div>
+          <div class="flex items-center space-x-4">
+            <!-- Batch Marking Button -->
+            <button onclick="openBatchMarkingModal()" class="bg-success text-white px-4 py-2 rounded-lg hover:bg-green-700 transition mr-3">
+              <i class="fas fa-table mr-2"></i>Batch Marking
+            </button>
+            
+            <!-- Add Grade Button -->
+            <button onclick="openGradeModal()" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+              <i class="fas fa-plus mr-2"></i>Add Grade
+            </button>
+            
+            <!-- Subject Filter -->
+            <select class="px-4 py-2 border rounded-lg focus:outline-none focus:border-secondary mr-3">
+              <option value="all">All Subjects</option>
+              <option value="mathematics">Mathematics</option>
+              <option value="advanced_math">Advanced Mathematics</option>
+              <option value="algebra">Algebra</option>
+              <option value="geometry">Geometry</option>
+              <option value="trigonometry">Trigonometry</option>
+              <option value="calculus">Calculus</option>
+            </select>
+            
+            <!-- Class Filter -->
+            <select class="px-4 py-2 border rounded-lg focus:outline-none focus:border-secondary mr-3">
+              <option value="all">All Classes</option>
+              <option value="10A">Grade 10A</option>
+              <option value="11A">Grade 11A</option>
+              <option value="12A">Grade 12A</option>
+            </select>
+            
+            <!-- Term Filter -->
+            <select class="px-4 py-2 border rounded-lg focus:outline-none focus:border-secondary">
+              <option value="all">All Terms</option>
+              <option value="1">Term 1</option>
+              <option value="2">Term 2</option>
+              <option value="3">Term 3</option>
+              <option value="4">Term 4</option>
+            </select>
+            
+            <!-- Search -->
+            <div class="relative">
+              <input type="text" id="gradeSearch" placeholder="Search by student name or ID..." class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:border-secondary">
+              <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+            
+            <!-- Export -->
+            <button class="bg-success text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+              <i class="fas fa-download mr-2"></i>Export
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Grades Table -->
+      <main class="flex-1 p-6 overflow-y-auto">
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <input type="checkbox" class="rounded">
+                  </th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Class</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Assessment</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Score</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Grade</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <!-- Grade 1 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">John Smith</div>
+                    <div class="text-sm text-gray-500">STU001</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 10A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Mid-term Exam</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Exam</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">85%</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">B+</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-06-15</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewGrade('GRD001')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="editGrade('GRD001')">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800" onclick="commentGrade('GRD001')">
+                      <i class="fas fa-comment"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Grade 2 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Jane Doe</div>
+                    <div class="text-sm text-gray-500">STU002</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 10A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Mid-term Exam</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Exam</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">92%</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">A</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-06-15</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewGrade('GRD002')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="editGrade('GRD002')">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800" onclick="commentGrade('GRD002')">
+                      <i class="fas fa-comment"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Grade 3 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Michael Johnson</div>
+                    <div class="text-sm text-gray-500">STU003</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 11A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Quiz #3</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Quiz</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">78%</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">C+</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-06-14</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewGrade('GRD003')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="editGrade('GRD003')">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800" onclick="commentGrade('GRD003')">
+                      <i class="fas fa-comment"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Grade 4 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Emily Brown</div>
+                    <div class="text-sm text-gray-500">STU004</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 11A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Assignment #2</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Assignment</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">88%</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">B+</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-06-13</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewGrade('GRD004')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="editGrade('GRD004')">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800" onclick="commentGrade('GRD004')">
+                      <i class="fas fa-comment"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Grade 5 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">David Wilson</div>
+                    <div class="text-sm text-gray-500">STU005</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 12A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Practice Test</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Test</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">95%</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">A+</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-06-12</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewGrade('GRD005')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="editGrade('GRD005')">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800" onclick="commentGrade('GRD005')">
+                      <i class="fas fa-comment"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Grade 6 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Sarah Martinez</div>
+                    <div class="text-sm text-gray-500">STU006</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 12A</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Project Work</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Project</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">91%</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">A-</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-06-11</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewGrade('GRD006')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="editGrade('GRD006')">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800" onclick="commentGrade('GRD006')">
+                      <i class="fas fa-comment"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Pagination -->
+          <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+            <div class="flex-1 flex justify-between sm:hidden">
+              <button class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">Previous</button>
+              <button class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">Next</button>
+            </div>
+            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+              <div>
+                <p class="text-sm text-gray-700">
+                  Showing <span class="font-medium">1</span> to <span class="font-medium">6</span> of <span class="font-medium">125</span> results
+                </p>
+              </div>
+              <div>
+                <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                  <button class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <button class="bg-primary border-primary text-white relative inline-flex items-center px-4 py-2 border text-sm font-medium">1</button>
+                  <button class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">2</button>
+                  <button class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">3</button>
+                  <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">...</span>
+                  <button class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">21</button>
+                  <button class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Batch Marking Modal -->
+  <div id="batchMarkingModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
+    <div class="relative top-10 mx-auto p-5 border w-11/12 md:w-5/6 lg:w-4/5 shadow-lg rounded-md bg-white">
+      <div class="mt-3">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">Batch Marking - Enter Grades for Class</h3>
+        <form class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Select Class</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="">Select Class</option>
+                <option value="10A">Grade 10A - Mathematics</option>
+                <option value="11A">Grade 11A - Mathematics</option>
+                <option value="12A">Grade 12A - Advanced Math</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Subject</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="">Select Subject</option>
+                <option value="mathematics">Mathematics</option>
+                <option value="algebra">Algebra</option>
+                <option value="geometry">Geometry</option>
+                <option value="trigonometry">Trigonometry</option>
+                <option value="calculus">Calculus</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Assessment Type</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="">Select Type</option>
+                <option value="exam">Exam</option>
+                <option value="test">Test</option>
+                <option value="quiz">Quiz</option>
+                <option value="assignment">Assignment</option>
+                <option value="project">Project</option>
+                <option value="participation">Participation</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Total Marks</label>
+              <input type="number" value="100" min="1" max="1000" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+          </div>
+          
+          <div class="border-t border-gray-200 pt-4">
+            <h4 class="text-md font-semibold text-gray-800 mb-3">Student Grades</h4>
+            <div class="max-h-96 overflow-y-auto">
+              <table class="w-full">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Student</th>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">ID</th>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Marks Obtained</th>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Grade</th>
+                    <th class="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase">Comments</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <!-- Student 1 -->
+                  <tr>
+                    <td class="px-4 py-2 text-sm font-medium text-gray-900">John Smith</td>
+                    <td class="px-4 py-2 text-sm text-gray-500">STU001</td>
+                    <td class="px-4 py-2">
+                      <input type="number" min="0" max="100" placeholder="0-100" class="w-20 px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-primary focus:border-primary" onchange="calculateGrade(this)">
+                    </td>
+                    <td class="px-4 py-2">
+                      <span class="grade-display px-2 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">-</span>
+                    </td>
+                    <td class="px-4 py-2">
+                      <input type="text" placeholder="Optional comments" class="w-32 px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-primary focus:border-primary">
+                    </td>
+                  </tr>
+                  <!-- Student 2 -->
+                  <tr>
+                    <td class="px-4 py-2 text-sm font-medium text-gray-900">Jane Doe</td>
+                    <td class="px-4 py-2 text-sm text-gray-500">STU002</td>
+                    <td class="px-4 py-2">
+                      <input type="number" min="0" max="100" placeholder="0-100" class="w-20 px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-primary focus:border-primary" onchange="calculateGrade(this)">
+                    </td>
+                    <td class="px-4 py-2">
+                      <span class="grade-display px-2 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">-</span>
+                    </td>
+                    <td class="px-4 py-2">
+                      <input type="text" placeholder="Optional comments" class="w-32 px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-primary focus:border-primary">
+                    </td>
+                  </tr>
+                  <!-- Student 3 -->
+                  <tr>
+                    <td class="px-4 py-2 text-sm font-medium text-gray-900">Michael Johnson</td>
+                    <td class="px-4 py-2 text-sm text-gray-500">STU003</td>
+                    <td class="px-4 py-2">
+                      <input type="number" min="0" max="100" placeholder="0-100" class="w-20 px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-primary focus:border-primary" onchange="calculateGrade(this)">
+                    </td>
+                    <td class="px-4 py-2">
+                      <span class="grade-display px-2 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">-</span>
+                    </td>
+                    <td class="px-4 py-2">
+                      <input type="text" placeholder="Optional comments" class="w-32 px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-primary focus:border-primary">
+                    </td>
+                  </tr>
+                  <!-- Student 4 -->
+                  <tr>
+                    <td class="px-4 py-2 text-sm font-medium text-gray-900">Emily Brown</td>
+                    <td class="px-4 py-2 text-sm text-gray-500">STU004</td>
+                    <td class="px-4 py-2">
+                      <input type="number" min="0" max="100" placeholder="0-100" class="w-20 px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-primary focus:border-primary" onchange="calculateGrade(this)">
+                    </td>
+                    <td class="px-4 py-2">
+                      <span class="grade-display px-2 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">-</span>
+                    </td>
+                    <td class="px-4 py-2">
+                      <input type="text" placeholder="Optional comments" class="w-32 px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-primary focus:border-primary">
+                    </td>
+                  </tr>
+                  <!-- Student 5 -->
+                  <tr>
+                    <td class="px-4 py-2 text-sm font-medium text-gray-900">David Wilson</td>
+                    <td class="px-4 py-2 text-sm text-gray-500">STU005</td>
+                    <td class="px-4 py-2">
+                      <input type="number" min="0" max="100" placeholder="0-100" class="w-20 px-2 py-1 border border-gray-300 rounded focus:outline-none focus:ring-primary focus:border-primary" onchange="calculateGrade(this)">
+                    </td>
+                    <td class="px-4 py-2">
+                      <span class="grade-display px-2 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">-</span>
+                    </td>
+                    <td class="px-4 py-2">
+                      <input type="text" placeholder="Optional comments" class="w-32 px-2 py-1 border border-gray-300 rounded text-xs focus:outline-none focus:ring-primary focus:border-primary">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="flex justify-between items-center pt-4 border-t border-gray-200">
+            <div class="flex items-center space-x-4">
+              <label class="flex items-center">
+                <input type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary">
+                <span class="ml-2 text-sm text-gray-700">Notify parents of grades</span>
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary">
+                <span class="ml-2 text-sm text-gray-700">Publish immediately</span>
+              </label>
+            </div>
+            <div class="flex space-x-4">
+              <button type="button" onclick="closeBatchMarkingModal()" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition">Cancel</button>
+              <button type="button" onclick="saveBatchGrades()" class="px-4 py-2 bg-success text-white rounded-lg hover:bg-green-700 transition">Save All Grades</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Grade Modal -->
+  <div id="gradeModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
+    <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
+      <div class="mt-3">
+        <h3 class="text-lg font-bold text-gray-900 mb-4">Add Grade</h3>
+        <form class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Student</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="">Select Student</option>
+                <option value="STU001">John Smith - Grade 10A</option>
+                <option value="STU002">Jane Doe - Grade 10A</option>
+                <option value="STU003">Michael Johnson - Grade 11A</option>
+                <option value="STU004">Emily Brown - Grade 11A</option>
+                <option value="STU005">David Wilson - Grade 12A</option>
+                <option value="STU006">Sarah Martinez - Grade 12A</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Assessment Type</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="">Select Type</option>
+                <option value="exam">Exam</option>
+                <option value="test">Test</option>
+                <option value="quiz">Quiz</option>
+                <option value="assignment">Assignment</option>
+                <option value="project">Project</option>
+                <option value="participation">Participation</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Assessment Name</label>
+              <input type="text" placeholder="e.g., Mid-term Exam" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Score (%)</label>
+              <input type="number" min="0" max="100" placeholder="0-100" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Assessment Date</label>
+              <input type="date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Term</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="">Select Term</option>
+                <option value="1">Term 1</option>
+                <option value="2">Term 2</option>
+                <option value="3">Term 3</option>
+                <option value="4">Term 4</option>
+              </select>
+            </div>
+            <div class="md:col-span-2">
+              <label class="block text-sm font-medium text-gray-700">Teacher Comments</label>
+              <textarea rows="3" placeholder="Add comments about student performance..." class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"></textarea>
+            </div>
+            <div class="md:col-span-2">
+              <label class="flex items-center">
+                <input type="checkbox" class="rounded border-gray-300 text-primary focus:ring-primary">
+                <span class="ml-2 text-sm text-gray-700">Notify parent of this grade</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="flex justify-end space-x-4 pt-4">
+            <button type="button" onclick="closeGradeModal()" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition">Cancel</button>
+            <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Save Grade</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Modal functions
+    function openGradeModal() {
+      document.getElementById('gradeModal').classList.remove('hidden');
+    }
+
+    function closeGradeModal() {
+      document.getElementById('gradeModal').classList.add('hidden');
+    }
+
+    function openBatchMarkingModal() {
+      document.getElementById('batchMarkingModal').classList.remove('hidden');
+    }
+
+    function closeBatchMarkingModal() {
+      document.getElementById('batchMarkingModal').classList.add('hidden');
+    }
+
+    // Grade calculation function
+    function calculateGrade(input) {
+      const marks = parseFloat(input.value);
+      const gradeDisplay = input.parentElement.nextElementSibling.querySelector('.grade-display');
+      
+      if (isNaN(marks) || marks < 0 || marks > 100) {
+        gradeDisplay.textContent = '-';
+        gradeDisplay.className = 'grade-display px-2 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800';
+        return;
+      }
+      
+      let grade = '';
+      let gradeClass = '';
+      
+      if (marks >= 90) {
+        grade = 'A+';
+        gradeClass = 'bg-green-100 text-green-800';
+      } else if (marks >= 85) {
+        grade = 'A';
+        gradeClass = 'bg-green-100 text-green-800';
+      } else if (marks >= 80) {
+        grade = 'A-';
+        gradeClass = 'bg-green-100 text-green-800';
+      } else if (marks >= 75) {
+        grade = 'B+';
+        gradeClass = 'bg-blue-100 text-blue-800';
+      } else if (marks >= 70) {
+        grade = 'B';
+        gradeClass = 'bg-blue-100 text-blue-800';
+      } else if (marks >= 65) {
+        grade = 'B-';
+        gradeClass = 'bg-blue-100 text-blue-800';
+      } else if (marks >= 60) {
+        grade = 'C+';
+        gradeClass = 'bg-yellow-100 text-yellow-800';
+      } else if (marks >= 55) {
+        grade = 'C';
+        gradeClass = 'bg-yellow-100 text-yellow-800';
+      } else if (marks >= 50) {
+        grade = 'C-';
+        gradeClass = 'bg-yellow-100 text-yellow-800';
+      } else if (marks >= 45) {
+        grade = 'D';
+        gradeClass = 'bg-orange-100 text-orange-800';
+      } else {
+        grade = 'F';
+        gradeClass = 'bg-red-100 text-red-800';
+      }
+      
+      gradeDisplay.textContent = grade;
+      gradeDisplay.className = `grade-display px-2 py-1 text-xs font-semibold rounded-full ${gradeClass}`;
+    }
+
+    // Save batch grades function
+    function saveBatchGrades() {
+      const gradeInputs = document.querySelectorAll('#batchMarkingModal input[type="number"]');
+      const grades = [];
+      
+      gradeInputs.forEach((input, index) => {
+        const marks = input.value;
+        if (marks) {
+          const row = input.closest('tr');
+          const studentName = row.cells[0].textContent;
+          const studentId = row.cells[1].textContent;
+          const comments = row.cells[4].querySelector('input').value;
+          
+          grades.push({
+            studentId,
+            studentName,
+            marks: parseFloat(marks),
+            comments
+          });
+        }
+      });
+      
+      if (grades.length === 0) {
+        alert('Please enter at least one grade.');
+        return;
+      }
+      
+      console.log('Saving grades:', grades);
+      alert(`Successfully saved ${grades.length} grades!`);
+      closeBatchMarkingModal();
+    }
+
+    function viewGrade(gradeId) {
+      alert('Viewing grade details: ' + gradeId);
+    }
+
+    function editGrade(gradeId) {
+      alert('Editing grade: ' + gradeId);
+      document.getElementById('gradeModal').classList.remove('hidden');
+    }
+
+    function commentGrade(gradeId) {
+      alert('Adding comment to grade: ' + gradeId);
+    }
+
+    // Enhanced Search functionality
+    document.getElementById('gradeSearch').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase().trim();
+      const rows = document.querySelectorAll('tbody tr');
+      
+      rows.forEach(row => {
+        const studentName = row.cells[0] ? row.cells[0].textContent.toLowerCase() : '';
+        const studentId = row.cells[1] ? row.cells[1].textContent.toLowerCase() : '';
+        const subject = row.cells[2] ? row.cells[2].textContent.toLowerCase() : '';
+        const assessmentType = row.cells[3] ? row.cells[3].textContent.toLowerCase() : '';
+        
+        // Search by student name, ID, subject, or assessment type
+        const matchesSearch = searchTerm === '' || 
+          studentName.includes(searchTerm) || 
+          studentId.includes(searchTerm) ||
+          subject.includes(searchTerm) ||
+          assessmentType.includes(searchTerm);
+        
+        row.style.display = matchesSearch ? '' : 'none';
+      });
+      
+      // Show search results count
+      updateSearchResultsCount(rows.length, Array.from(rows).filter(row => row.style.display !== 'none').length, searchTerm);
+    });
+
+    // Function to update search results count
+    function updateSearchResultsCount(total, visible, searchTerm) {
+      const existingCount = document.getElementById('searchResultsCount');
+      if (existingCount) {
+        existingCount.remove();
+      }
+      
+      if (searchTerm !== '') {
+        const countDiv = document.createElement('div');
+        countDiv.id = 'searchResultsCount';
+        countDiv.className = 'text-sm text-gray-600 mt-2';
+        countDiv.innerHTML = `Found <span class="font-semibold">${visible}</span> of <span class="font-semibold">${total}</span> results for "<span class="font-semibold">${searchTerm}</span>"`;
+        
+        const tableContainer = document.querySelector('.bg-white.rounded-lg.shadow.overflow-hidden');
+        if (tableContainer) {
+          tableContainer.insertBefore(countDiv, tableContainer.querySelector('.overflow-x-auto'));
+        }
+      }
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const gradeModal = document.getElementById('gradeModal');
+      const batchModal = document.getElementById('batchMarkingModal');
+      
+      if (event.target == gradeModal) {
+        closeGradeModal();
+      }
+      if (event.target == batchModal) {
+        closeBatchMarkingModal();
+      }
+    }
+  </script>
+</body>
+</html>

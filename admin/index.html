@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+            success: '#10B981',
+            warning: '#F59E0B',
+            danger: '#EF4444',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .sidebar-link {
+      transition: all 0.3s ease;
+    }
+    .sidebar-link:hover {
+      background-color: rgba(77, 166, 214, 0.1);
+      border-left: 4px solid #4DA6D6;
+    }
+    .sidebar-link.active {
+      background-color: rgba(77, 166, 214, 0.2);
+      border-left: 4px solid #4DA6D6;
+    }
+    .stat-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .table-row:hover {
+      background-color: rgba(77, 166, 214, 0.05);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="w-64 bg-primary text-white flex flex-col">
+      <!-- Logo -->
+      <div class="p-4 border-b border-blue-700">
+        <div class="flex items-center space-x-3">
+          <img src="../static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+          <div>
+            <h1 class="font-bold text-lg">M.H.S</h1>
+            <p class="text-xs text-blue-200">Admin Panel</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex-1 p-4">
+        <ul class="space-y-2">
+          <li>
+            <a href="index.html" class="sidebar-link active flex items-center p-3 rounded-lg">
+              <i class="fas fa-tachometer-alt w-5 mr-3"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="students.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-graduation-cap w-5 mr-3"></i>
+              <span>Students</span>
+            </a>
+          </li>
+          <li>
+            <a href="teachers.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-users w-5 mr-3"></i>
+              <span>Teachers</span>
+            </a>
+          </li>
+          <li>
+            <a href="classes.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chalkboard w-5 mr-3"></i>
+              <span>Classes</span>
+            </a>
+          </li>
+          <li>
+            <a href="subjects.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-book w-5 mr-3"></i>
+              <span>Subjects</span>
+            </a>
+          </li>
+          <li>
+            <a href="admissions.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-user-plus w-5 mr-3"></i>
+              <span>Admissions</span>
+            </a>
+          </li>
+          <li>
+            <a href="fees.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-money-bill-wave w-5 mr-3"></i>
+              <span>Fees & Payments</span>
+            </a>
+          </li>
+          <li>
+            <a href="attendance.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-check w-5 mr-3"></i>
+              <span>Attendance</span>
+            </a>
+          </li>
+          <li>
+            <a href="grades.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chart-line w-5 mr-3"></i>
+              <span>Grades</span>
+            </a>
+          </li>
+          <li>
+            <a href="events.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-alt w-5 mr-3"></i>
+              <span>Events</span>
+            </a>
+          </li>
+          <li>
+            <a href="communications.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-envelope w-5 mr-3"></i>
+              <span>Communications</span>
+            </a>
+          </li>
+          <li>
+            <a href="reports.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-file-alt w-5 mr-3"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="settings.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-cog w-5 mr-3"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- User Profile -->
+      <div class="p-4 border-t border-blue-700">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
+            <i class="fas fa-user text-white"></i>
+          </div>
+          <div class="flex-1">
+            <p class="font-semibold text-sm">Admin User</p>
+            <p class="text-xs text-blue-200">Administrator</p>
+          </div>
+          <button class="text-blue-200 hover:text-white">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow-sm border-b">
+        <div class="px-6 py-4 flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-800">Dashboard</h2>
+            <p class="text-gray-600">Welcome back, Admin</p>
+          </div>
+          <div class="flex items-center space-x-4">
+            <!-- Search -->
+            <div class="relative">
+              <input type="text" placeholder="Search..." class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:border-secondary">
+              <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+            
+            <!-- Notifications -->
+            <button class="relative p-2 text-gray-600 hover:text-primary">
+              <i class="fas fa-bell text-xl"></i>
+              <span class="absolute top-0 right-0 w-2 h-2 bg-danger rounded-full"></span>
+            </button>
+            
+            <!-- Messages -->
+            <button class="relative p-2 text-gray-600 hover:text-primary">
+              <i class="fas fa-envelope text-xl"></i>
+              <span class="absolute top-0 right-0 w-2 h-2 bg-warning rounded-full"></span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <main class="flex-1 p-6 overflow-y-auto">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <!-- Total Students -->
+          <div class="stat-card bg-white rounded-lg shadow p-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-600 text-sm">Total Students</p>
+                <p class="text-2xl font-bold text-gray-800">990</p>
+                <p class="text-xs text-success mt-1">
+                  <i class="fas fa-arrow-up mr-1"></i>+5% from last year
+                </p>
+              </div>
+              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-graduation-cap text-blue-600 text-xl"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Total Teachers -->
+          <div class="stat-card bg-white rounded-lg shadow p-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-600 text-sm">Total Teachers</p>
+                <p class="text-2xl font-bold text-gray-800">28</p>
+                <p class="text-xs text-success mt-1">
+                  <i class="fas fa-arrow-up mr-1"></i>+2 new hires
+                </p>
+              </div>
+              <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-users text-green-600 text-xl"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Classes -->
+          <div class="stat-card bg-white rounded-lg shadow p-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-600 text-sm">Total Classes</p>
+                <p class="text-2xl font-bold text-gray-800">45</p>
+                <p class="text-xs text-gray-500 mt-1">
+                  <i class="fas fa-minus mr-1"></i>No change
+                </p>
+              </div>
+              <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-chalkboard text-purple-600 text-xl"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Revenue -->
+          <div class="stat-card bg-white rounded-lg shadow p-6">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-gray-600 text-sm">Monthly Revenue</p>
+                <p class="text-2xl font-bold text-gray-800">R2.4M</p>
+                <p class="text-xs text-success mt-1">
+                  <i class="fas fa-arrow-up mr-1"></i>+12% growth
+                </p>
+              </div>
+              <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-money-bill-wave text-yellow-600 text-xl"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts and Recent Activity -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+          <!-- Attendance Chart -->
+          <div class="lg:col-span-2 bg-white rounded-lg shadow p-6">
+            <h3 class="text-lg font-bold text-gray-800 mb-4">Attendance Overview</h3>
+            <div class="h-64 flex items-center justify-center bg-gray-50 rounded">
+              <div class="text-center">
+                <i class="fas fa-chart-bar text-4xl text-gray-400 mb-2"></i>
+                <p class="text-gray-500">Attendance Chart</p>
+                <p class="text-sm text-gray-400">Daily attendance statistics</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="bg-white rounded-lg shadow p-6">
+            <h3 class="text-lg font-bold text-gray-800 mb-4">Quick Actions</h3>
+            <div class="space-y-3">
+              <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                <i class="fas fa-user-plus text-primary mr-3"></i>
+                <span class="text-gray-700">Add New Student</span>
+              </button>
+              <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                <i class="fas fa-calendar-plus text-success mr-3"></i>
+                <span class="text-gray-700">Schedule Event</span>
+              </button>
+              <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                <i class="fas fa-file-invoice text-warning mr-3"></i>
+                <span class="text-gray-700">Generate Report</span>
+              </button>
+              <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition">
+                <i class="fas fa-bullhorn text-danger mr-3"></i>
+                <span class="text-gray-700">Send Announcement</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity and Upcoming Events -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- Recent Activity -->
+          <div class="bg-white rounded-lg shadow p-6">
+            <h3 class="text-lg font-bold text-gray-800 mb-4">Recent Activity</h3>
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-user-plus text-blue-600 text-sm"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm text-gray-800">New student registration</p>
+                  <p class="text-xs text-gray-500">John Doe - Grade 10 • 2 hours ago</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-money-bill text-green-600 text-sm"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm text-gray-800">Fee payment received</p>
+                  <p class="text-xs text-gray-500">Jane Smith - Grade 8 • 3 hours ago</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-exclamation-triangle text-yellow-600 text-sm"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm text-gray-800">Low attendance alert</p>
+                  <p class="text-xs text-gray-500">Grade 11B • 5 hours ago</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-graduation-cap text-purple-600 text-sm"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm text-gray-800">New teacher onboarded</p>
+                  <p class="text-xs text-gray-500">Ms. Johnson - Mathematics • 1 day ago</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Upcoming Events -->
+          <div class="bg-white rounded-lg shadow p-6">
+            <h3 class="text-lg font-bold text-gray-800 mb-4">Upcoming Events</h3>
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-calendar text-red-600 text-sm"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm text-gray-800">Parent-Teacher Meeting</p>
+                  <p class="text-xs text-gray-500">Tomorrow at 14:00</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-running text-blue-600 text-sm"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm text-gray-800">Sports Day</p>
+                  <p class="text-xs text-gray-500">July 21, 2024</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-clipboard-check text-green-600 text-sm"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm text-gray-800">Mid-term Exams</p>
+                  <p class="text-xs text-gray-500">August 15-19, 2024</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-3">
+                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-music text-purple-600 text-sm"></i>
+                </div>
+                <div class="flex-1">
+                  <p class="text-sm text-gray-800">School Concert</p>
+                  <p class="text-xs text-gray-500">September 14, 2024</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Basic dashboard functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Sidebar navigation
+      const sidebarLinks = document.querySelectorAll('.sidebar-link');
+      sidebarLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          sidebarLinks.forEach(l => l.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+
+      // Logout functionality
+      const logoutBtn = document.querySelector('.fa-sign-out-alt').parentElement;
+      logoutBtn.addEventListener('click', function() {
+        if(confirm('Are you sure you want to logout?')) {
+          window.location.href = '../index.html';
+        }
+      });
+
+      // Notification badge animation
+      setInterval(() => {
+        const notificationBadge = document.querySelector('.fa-bell').parentElement.querySelector('.bg-danger');
+        if(notificationBadge) {
+          notificationBadge.classList.toggle('animate-pulse');
+        }
+      }, 3000);
+    });
+  </script>
+</body>
+</html>

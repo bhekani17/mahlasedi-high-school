@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fees & Payments - Mahlasedi High School</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#001F3F',
+            secondary: '#4DA6D6',
+            accent: '#87CEEB',
+            success: '#10B981',
+            warning: '#F59E0B',
+            danger: '#EF4444',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .sidebar-link {
+      transition: all 0.3s ease;
+    }
+    .sidebar-link:hover {
+      background-color: rgba(77, 166, 214, 0.1);
+      border-left: 4px solid #4DA6D6;
+    }
+    .sidebar-link.active {
+      background-color: rgba(77, 166, 214, 0.2);
+      border-left: 4px solid #4DA6D6;
+    }
+    .table-row:hover {
+      background-color: rgba(77, 166, 214, 0.05);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <div class="w-64 bg-primary text-white flex flex-col">
+      <!-- Logo -->
+      <div class="p-4 border-b border-blue-700">
+        <div class="flex items-center space-x-3">
+          <img src="../static/images/logo.png" alt="Mahlasedi Logo" class="h-10 w-auto">
+          <div>
+            <h1 class="font-bold text-lg">M.H.S</h1>
+            <p class="text-xs text-blue-200">Admin Panel</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex-1 p-4">
+        <ul class="space-y-2">
+          <li>
+            <a href="index.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-tachometer-alt w-5 mr-3"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="students.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-graduation-cap w-5 mr-3"></i>
+              <span>Students</span>
+            </a>
+          </li>
+          <li>
+            <a href="teachers.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-users w-5 mr-3"></i>
+              <span>Teachers</span>
+            </a>
+          </li>
+          <li>
+            <a href="classes.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chalkboard w-5 mr-3"></i>
+              <span>Classes</span>
+            </a>
+          </li>
+          <li>
+            <a href="subjects.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-book w-5 mr-3"></i>
+              <span>Subjects</span>
+            </a>
+          </li>
+          <li>
+            <a href="admissions.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-user-plus w-5 mr-3"></i>
+              <span>Admissions</span>
+            </a>
+          </li>
+          <li>
+            <a href="fees.html" class="sidebar-link active flex items-center p-3 rounded-lg">
+              <i class="fas fa-money-bill-wave w-5 mr-3"></i>
+              <span>Fees & Payments</span>
+            </a>
+          </li>
+          <li>
+            <a href="attendance.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-check w-5 mr-3"></i>
+              <span>Attendance</span>
+            </a>
+          </li>
+          <li>
+            <a href="grades.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-chart-line w-5 mr-3"></i>
+              <span>Grades</span>
+            </a>
+          </li>
+          <li>
+            <a href="events.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-calendar-alt w-5 mr-3"></i>
+              <span>Events</span>
+            </a>
+          </li>
+          <li>
+            <a href="communications.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-envelope w-5 mr-3"></i>
+              <span>Communications</span>
+            </a>
+          </li>
+          <li>
+            <a href="reports.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-file-alt w-5 mr-3"></i>
+              <span>Reports</span>
+            </a>
+          </li>
+          <li>
+            <a href="settings.html" class="sidebar-link flex items-center p-3 rounded-lg">
+              <i class="fas fa-cog w-5 mr-3"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- User Profile -->
+      <div class="p-4 border-t border-blue-700">
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
+            <i class="fas fa-user text-white"></i>
+          </div>
+          <div class="flex-1">
+            <p class="font-semibold text-sm">Admin User</p>
+            <p class="text-xs text-blue-200">Administrator</p>
+          </div>
+          <button class="text-blue-200 hover:text-white">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <!-- Header -->
+      <header class="bg-white shadow-sm border-b">
+        <div class="px-6 py-4 flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-bold text-gray-800">Fees & Payments</h2>
+            <p class="text-gray-600">Manage school fees and payment records</p>
+          </div>
+          <div class="flex items-center space-x-4">
+            <!-- Record Payment Button -->
+            <button onclick="openPaymentModal()" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition">
+              <i class="fas fa-plus mr-2"></i>Record Payment
+            </button>
+            
+            <!-- Search -->
+            <div class="relative">
+              <input type="text" id="paymentSearch" placeholder="Search payments..." class="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:border-secondary">
+              <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+            
+            <!-- Export -->
+            <button class="bg-success text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+              <i class="fas fa-download mr-2"></i>Export
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Stats Cards -->
+      <div class="p-6 grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm">Total Revenue</p>
+              <p class="text-2xl font-bold text-gray-800">R2.4M</p>
+              <p class="text-xs text-success mt-1">
+                <i class="fas fa-arrow-up mr-1"></i>+12% this month
+              </p>
+            </div>
+            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-money-bill-wave text-green-600 text-xl"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm">Outstanding</p>
+              <p class="text-2xl font-bold text-gray-800">R450K</p>
+              <p class="text-xs text-warning mt-1">
+                <i class="fas fa-exclamation-triangle mr-1"></i>18% overdue
+              </p>
+            </div>
+            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-clock text-yellow-600 text-xl"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm">Paid This Month</p>
+              <p class="text-2xl font-bold text-gray-800">R180K</p>
+              <p class="text-xs text-success mt-1">
+                <i class="fas fa-check mr-1"></i>On track
+              </p>
+            </div>
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-chart-line text-blue-600 text-xl"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-gray-600 text-sm">Payment Rate</p>
+              <p class="text-2xl font-bold text-gray-800">82%</p>
+              <p class="text-xs text-success mt-1">
+                <i class="fas fa-arrow-up mr-1"></i>+5% improvement
+              </p>
+            </div>
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+              <i class="fas fa-percentage text-purple-600 text-xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payments Table -->
+      <main class="flex-1 px-6 pb-6 overflow-y-auto">
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <input type="checkbox" class="rounded">
+                  </th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Payment ID</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Student Name</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Grade</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Due Date</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <!-- Payment 1 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">PAY001</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">John Smith</div>
+                    <div class="text-sm text-gray-500">STU001</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 10</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">R12,500</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Term Fees</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-07-31</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Paid</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewPayment('PAY001')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="editPayment('PAY001')">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800" onclick="receiptPayment('PAY001')">
+                      <i class="fas fa-receipt"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Payment 2 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">PAY002</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Jane Doe</div>
+                    <div class="text-sm text-gray-500">STU002</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 11</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">R13,200</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Term Fees</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-07-31</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewPayment('PAY002')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="processPayment('PAY002')">
+                      <i class="fas fa-credit-card"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800" onclick="remindPayment('PAY002')">
+                      <i class="fas fa-bell"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Payment 3 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">PAY003</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Michael Johnson</div>
+                    <div class="text-sm text-gray-500">STU003</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 9</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">R11,800</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Term Fees</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-06-30</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Overdue</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewPayment('PAY003')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="processPayment('PAY003')">
+                      <i class="fas fa-credit-card"></i>
+                    </button>
+                    <button class="text-danger hover:text-red-800" onclick="escalatePayment('PAY003')">
+                      <i class="fas fa-exclamation-triangle"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Payment 4 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">PAY004</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">Emily Brown</div>
+                    <div class="text-sm text-gray-500">STU004</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 8</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">R2,500</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Uniform</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-07-15</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Paid</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewPayment('PAY004')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800 mr-3" onclick="editPayment('PAY004')">
+                      <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800" onclick="receiptPayment('PAY004')">
+                      <i class="fas fa-receipt"></i>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Payment 5 -->
+                <tr class="table-row">
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <input type="checkbox" class="rounded">
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">PAY005</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-gray-900">David Wilson</div>
+                    <div class="text-sm text-gray-500">STU005</div>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Grade 12</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">R1,200</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Exam Fees</td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2024-08-15</td>
+                  <td class="px-6 py-4 whitespace-nowrap">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">Pending</span>
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button class="text-primary hover:text-blue-800 mr-3" onclick="viewPayment('PAY005')">
+                      <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="text-success hover:text-green-800 mr-3" onclick="processPayment('PAY005')">
+                      <i class="fas fa-credit-card"></i>
+                    </button>
+                    <button class="text-warning hover:text-yellow-800" onclick="remindPayment('PAY005')">
+                      <i class="fas fa-bell"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <!-- Pagination -->
+          <div class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6">
+            <div class="flex-1 flex justify-between sm:hidden">
+              <button class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">Previous</button>
+              <button class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">Next</button>
+            </div>
+            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+              <div>
+                <p class="text-sm text-gray-700">
+                  Showing <span class="font-medium">1</span> to <span class="font-medium">5</span> of <span class="font-medium">245</span> results
+                </p>
+              </div>
+              <div>
+                <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                  <button class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <button class="bg-primary border-primary text-white relative inline-flex items-center px-4 py-2 border text-sm font-medium">1</button>
+                  <button class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">2</button>
+                  <button class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">3</button>
+                  <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">...</span>
+                  <button class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">49</button>
+                  <button class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Record Payment Modal -->
+  <div id="paymentModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
+    <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
+      <div class="mt-3">
+        <h3 class="text-lg font-bold text-gray-900 mb-4" id="modalTitle">Record Payment</h3>
+        <form class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Student</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="">Select Student</option>
+                <option value="STU001">John Smith - Grade 10</option>
+                <option value="STU002">Jane Doe - Grade 11</option>
+                <option value="STU003">Michael Johnson - Grade 9</option>
+                <option value="STU004">Emily Brown - Grade 8</option>
+                <option value="STU005">David Wilson - Grade 12</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Payment Type</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="">Select Type</option>
+                <option value="term-fees">Term Fees</option>
+                <option value="registration">Registration</option>
+                <option value="uniform">Uniform</option>
+                <option value="books">Books</option>
+                <option value="exam-fees">Exam Fees</option>
+                <option value="extramural">Extramural Activities</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Amount (R)</label>
+              <input type="number" min="0" step="0.01" placeholder="0.00" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Payment Method</label>
+              <select class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+                <option value="">Select Method</option>
+                <option value="cash">Cash</option>
+                <option value="eft">EFT</option>
+                <option value="credit-card">Credit Card</option>
+                <option value="debit-card">Debit Card</option>
+                <option value="bank-deposit">Bank Deposit</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Payment Date</label>
+              <input type="date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Reference Number</label>
+              <input type="text" placeholder="Optional" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary">
+            </div>
+            <div class="md:col-span-2">
+              <label class="block text-sm font-medium text-gray-700">Notes</label>
+              <textarea rows="3" placeholder="Additional notes about this payment..." class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"></textarea>
+            </div>
+          </div>
+          
+          <div class="flex justify-end space-x-4 pt-4">
+            <button type="button" onclick="closePaymentModal()" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition">Cancel</button>
+            <button type="submit" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-800 transition">Record Payment</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Modal functions
+    function openPaymentModal() {
+      document.getElementById('modalTitle').textContent = 'Record Payment';
+      document.getElementById('paymentModal').classList.remove('hidden');
+    }
+
+    function closePaymentModal() {
+      document.getElementById('paymentModal').classList.add('hidden');
+    }
+
+    function viewPayment(paymentId) {
+      alert('View payment details: ' + paymentId);
+    }
+
+    function editPayment(paymentId) {
+      alert('Edit payment: ' + paymentId);
+    }
+
+    function processPayment(paymentId) {
+      if(confirm('Process payment for ' + paymentId + '?')) {
+        alert('Payment processed: ' + paymentId);
+      }
+    }
+
+    function receiptPayment(paymentId) {
+      alert('Generate receipt for: ' + paymentId);
+    }
+
+    function remindPayment(paymentId) {
+      if(confirm('Send payment reminder for ' + paymentId + '?')) {
+        alert('Reminder sent: ' + paymentId);
+      }
+    }
+
+    function escalatePayment(paymentId) {
+      if(confirm('Escalate overdue payment ' + paymentId + '?')) {
+        alert('Payment escalated: ' + paymentId);
+      }
+    }
+
+    // Search functionality
+    document.getElementById('paymentSearch').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const rows = document.querySelectorAll('tbody tr');
+      
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(searchTerm) ? '' : 'none';
+      });
+    });
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('paymentModal');
+      if (event.target == modal) {
+        closePaymentModal();
+      }
+    }
+  </script>
+</body>
+</html>
